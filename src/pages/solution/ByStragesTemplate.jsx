@@ -1,0 +1,217 @@
+import { motion } from "framer-motion";
+import mycrowLogo from "../../assets/mycrow_logo_text.png";
+import bgImage from "../../assets/background.jpg";
+import ContactForm from "../../components/contactForm/ContactForm";
+
+/* ================= ANIMATION VARIANTS ================= */
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+/* ================= COMPONENT ================= */
+
+export default function ByStagesTemplate({ data }) {
+  if (!data) {
+    return (
+      <div className="flex items-center justify-center min-h-screen text-xl font-semibold">
+        Stages not found
+      </div>
+    );
+  }
+
+  const { hero, reasons, benefits } = data;
+
+  return (
+    <motion.main
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+      style={{ backgroundImage: `url(${bgImage})` }}
+      className="min-h-screen bg-center bg-no-repeat bg-cover pt-28"
+    >
+      {/* ================= HERO ================= */}
+      <section className="grid items-center px-6 mx-auto mb-32 gap-14 max-w-7xl md:grid-cols-2">
+        {/* TEXT */}
+        <motion.div variants={fadeUp}>
+          <div className="flex items-center gap-5 mb-4">
+            <img src={mycrowLogo} alt="MyCrow" className="h-8 mb-6" />
+
+          <span className="inline-block px-4 py-4 text-sm font-medium text-purple-700 bg-purple-100 rounded-full ">
+            {hero.badge}
+          </span>
+          </div>
+          
+
+          <h1 className="mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-4xl">
+            {hero.title}
+          </h1>
+
+          <p className="mb-8 text-lg text-gray-700">{hero.description}</p>
+
+          {hero.primaryButton && (
+            <motion.a
+              href={hero.primaryButton.link}
+              whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.96 }}
+              className="inline-flex items-center py-3 text-white transition bg-purple-600 rounded-full shadow px-7 hover:bg-purple-700"
+            >
+              {hero.primaryButton.label}
+            </motion.a>
+          )}
+        </motion.div>
+
+        {/* IMAGE */}
+        {hero.heroImage && (
+          <motion.img
+            src={hero.heroImage}
+            alt={hero.title}
+            className="w-full max-w-lg mx-auto"
+            variants={fadeUp}
+            transition={{ delay: 0.2 }}
+          />
+        )}
+      </section>
+
+      {/* ================= REASONS + BENEFITS CONTAINER ================= */}
+      {(reasons?.items?.length > 0 || benefits) && (
+        <section className="relative px-6 pb-40">
+          <div className="mx-auto max-w-7xl">
+            {/* GLASS CONTAINER */}
+            <div
+              className="
+          relative
+          bg-white/60
+          backdrop-blur-2xl
+          rounded-[40px]
+          shadow-[0_40px_120px_rgba(0,0,0,0.18)]
+          border border-white/40
+          px-6 sm:px-10 md:px-16
+          py-24
+        "
+            >
+              {/* ================= REASONS ================= */}
+              {reasons?.items?.length > 0 && (
+                <div className="mb-40">
+                  <motion.h2
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="mb-16 text-2xl font-semibold text-center text-purple-700"
+                  >
+                    {reasons.title}
+                  </motion.h2>
+
+                  <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid gap-8 md:grid-cols-4"
+                  >
+                    {reasons.items.map((item, i) => (
+                      <motion.div
+                        key={i}
+                        variants={fadeUp}
+                        whileHover={{ y: -8 }}
+                        className="p-8 text-center transition shadow-lg rounded-3xl hover:shadow-2xl"
+                      >
+                        <img
+                          src={item.icon}
+                          className="mx-auto mb-6 h-14"
+                          alt={item.title}
+                        />
+                        <h3 className="mb-3 font-semibold">{item.title}</h3>
+                        <p className="text-sm leading-relaxed text-gray-600">
+                          {item.description}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </div>
+              )}
+
+              {/* ================= BENEFITS ================= */}
+              {benefits && (
+                <div className="max-w-5xl mx-auto">
+                  <motion.h2
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="mb-4 text-2xl font-semibold text-center"
+                  >
+                    {benefits.title}
+                  </motion.h2>
+
+                  <motion.p
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="max-w-3xl mx-auto mb-24 text-center text-gray-700"
+                  >
+                    {benefits.description}
+                  </motion.p>
+
+                  {benefits.items.length === 0 ? (
+                    <p className="text-center text-gray-400">
+                      Benefits content coming soon.
+                    </p>
+                  ) : (
+                    <div className="space-y-24">
+                      {benefits.items.map((item, i) => (
+                        <motion.div
+                          key={i}
+                          variants={fadeUp}
+                          initial="hidden"
+                          whileInView="visible"
+                          viewport={{ once: true }}
+                          className="grid items-center gap-16 md:grid-cols-2"
+                        >
+                          {/* IMAGE */}
+                          <div className={i % 2 !== 0 ? "md:order-2" : ""}>
+                            <img
+                              src={item.image}
+                              alt={item.title}
+                              className=""
+                            />
+                          </div>
+
+                          {/* TEXT */}
+                          <div>
+                            <h3 className="mb-4 text-xl font-semibold">
+                              {item.title}
+                            </h3>
+                            <p className="leading-relaxed text-gray-700">
+                              {item.description}
+                            </p>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+              {/* ================= CONTACT FORM ================= */}
+              <ContactForm />
+            </div>
+          </div>
+        </section>
+      )}
+    </motion.main>
+  );
+}

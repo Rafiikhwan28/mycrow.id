@@ -1,0 +1,69 @@
+//app
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+
+// pages
+import Home from "./pages/home/Home";
+import ByStagesPage from "./pages/solution/ByStragesPage";
+import ByIndustryPage from "./pages/solution/ByIndustryPage";
+import ErpPage from "./pages/product/ERP/ErpPage.jsx";
+import ServicePage from "./pages/service/ServicePage";
+import CompanyPage from "./pages/company/CompanyPage";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import ContactForm from "./components/contactForm/ContactForm.jsx";
+import OdooAppPage from "./pages/product/OdooApp/OdooAppPage.jsx";
+
+// components
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+
+
+/* ================= ROUTE WRAPPER ================= */
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <>
+      <ScrollToTop />
+
+      <AnimatePresence mode="wait">
+        <main className="min-h-screen pt-16">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            {/* solution */}
+            <Route path="/solutions/stages/:slug" element={<ByStagesPage />} />
+            <Route path="/solutions/industry/:slug" element={<ByIndustryPage />} />
+            {/* product service company */}
+            <Route path="/products/erp/:slug" element={<ErpPage />} />
+            <Route path="/products/odooApp/:slug" element={<OdooAppPage />} />
+            <Route path="/services/:slug" element={<ServicePage />} />
+            <Route path="/company/:slug" element={<CompanyPage />} />
+            <Route path="/Contact" element={<ContactForm />} />
+            {/* 404 */}
+            <Route
+              path="*"
+              element={
+                <div className="flex items-center justify-center h-[60vh] text-xl font-semibold">
+                  Page Not Found
+                </div>
+              }
+            />
+          </Routes>
+        </main>
+      </AnimatePresence>
+    </>
+  );
+}
+
+/* ================= APP ================= */
+function App() {
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <AnimatedRoutes />
+      <Footer />
+    </BrowserRouter>
+  );
+}
+
+export default App;
