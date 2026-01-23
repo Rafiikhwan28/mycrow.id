@@ -1,8 +1,21 @@
+// src/pages/company/CompanyPage.jsx
+
 import { useParams } from "react-router-dom";
-import { companyData } from "../../data/companyData";
-import CompanyTemplate from "./CompanyTamplate";
+import companyData from "../../data/Company/companyData.js";
+import CompanyTemplate from "./CompanyTamplate.jsx";
 
 export default function CompanyPage() {
   const { slug } = useParams();
-  return <CompanyTemplate data={companyData[slug]} />;
+
+  const data = companyData.company?.[slug];
+
+  if (!data) {
+    return (
+      <div className="flex items-center justify-center min-h-screen text-xl font-semibold">
+        Company page not found
+      </div>
+    );
+  }
+
+  return <CompanyTemplate data={data} />;
 }

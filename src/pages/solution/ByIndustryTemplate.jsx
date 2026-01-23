@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import backgroundImage from "../../assets/background.jpg";
+import mycrowLogo from "../../assets/mycrow_logo_text.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -24,19 +25,20 @@ export default function ByIndustryTemplate({ data }) {
       <section className="px-6 mx-auto mb-32 max-w-7xl">
         <div className="grid items-center gap-16 md:grid-cols-2">
           <motion.div variants={fadeUp} initial="hidden" animate="visible">
-            {hero?.badge && (
-              <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-purple-700 bg-purple-100 rounded-full">
-                {hero.badge}
-              </span>
-            )}
+            <div className="flex">
+              <img src={mycrowLogo} alt="MyCrow" className="h-8 mb-6" />
+              {hero?.badge && (
+                <span className="inline-block justify-center px-5 py-1 mb-4 text-2xl font-medium text-purple-700 rounded-full">
+                  |  {hero.badge}
+                </span>
+              )}
+            </div>
 
             <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl text-slate-900">
               {hero?.title}
             </h1>
 
-            <p className="mb-8 text-lg text-slate-600">
-              {hero?.description}
-            </p>
+            <p className="mb-8 text-lg text-slate-600">{hero?.description}</p>
 
             {hero?.primaryButton && (
               <a
@@ -64,15 +66,17 @@ export default function ByIndustryTemplate({ data }) {
       {/* ===================================================== */}
       {/* ========== CONTENT CONTAINER (VIDEO+REASONS+BENEFITS) */}
       {/* ===================================================== */}
-      <section className="mx-auto max-w-7xl">
-        <div className="relative
-          bg-white/60
+      <section className="px-5 mx-auto max-w-7xl">
+        <div
+          className="relative
+          bg-white
           backdrop-blur-2xl
           rounded-[40px]
           shadow-[0_40px_120px_rgba(0,0,0,0.18)]
           border border-white/40
           px-6 sm:px-10 md:px-16
-          py-24">
+          py-24"
+        >
           {/* ================= VIDEO ================= */}
           {video && (
             <div className="max-w-5xl px-6 mx-auto mb-32">
@@ -101,7 +105,7 @@ export default function ByIndustryTemplate({ data }) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="mb-16 text-2xl font-bold text-center text-slate-900"
+                className="mb-16 text-2xl font-bold text-center text-purple-700"
               >
                 {reasons.title}
               </motion.h2>
@@ -124,9 +128,7 @@ export default function ByIndustryTemplate({ data }) {
                     <h3 className="mb-2 font-semibold text-slate-900">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-slate-600">
-                      {item.description}
-                    </p>
+                    <p className="text-sm text-slate-600">{item.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -137,12 +139,10 @@ export default function ByIndustryTemplate({ data }) {
           {benefits && (
             <div className="max-w-5xl px-3 mx-auto">
               <div className="max-w-3xl mx-auto mb-20 text-center">
-                <h2 className="mb-4 text-3xl font-bold text-slate-900">
+                <h2 className="mb-4 text-3xl font-bold text-purple-700">
                   {benefits.title}
                 </h2>
-                <p className="text-slate-600">
-                  {benefits.description}
-                </p>
+                <p className="text-slate-600">{benefits.description}</p>
               </div>
 
               <div className="space-y-32">
@@ -155,11 +155,15 @@ export default function ByIndustryTemplate({ data }) {
                     viewport={{ once: true }}
                     className="grid items-center gap-16 md:grid-cols-2"
                   >
-                    <div className={index % 2 !== 0 ? "md:order-2" : ""}>
+                    <div
+                      className={`flex items-center justify-center ${
+                        index % 2 !== 0 ? "md:order-2" : ""
+                      }`}
+                    >
                       <img
                         src={item.image}
                         alt={item.title}
-                        className=" rounded-2xl"
+                        className="object-contain w-full h-80"
                       />
                     </div>
 
@@ -176,7 +180,6 @@ export default function ByIndustryTemplate({ data }) {
               </div>
             </div>
           )}
-
         </div>
       </section>
     </main>

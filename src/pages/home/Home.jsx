@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import mycrowLogo from "../../assets/mycrow_logo_text.png";
 import handLeft from "../../assets/hand-gesture-pointing-invisible-screen.png";
 import handRight from "../../assets/Hand_cyborg.png";
@@ -23,10 +23,39 @@ import iuconImage8 from "../../assets/icons/startup_4159353.png";
 
 //odooApps
 
+
+
 export default function Home() {
   /* ================= STATE ================= */
   const [activeTab, setActiveTab] = useState("All");
   const [servicePage, setServicePage] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+const slideVariants = {
+  enter: (direction) => ({
+    x: direction > 0 ? 200 : -200,
+    opacity: 0,
+    scale: 0.95,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+  exit: (direction) => ({
+    x: direction > 0 ? -200 : 200,
+    opacity: 0,
+    scale: 0.95,
+    transition: {
+      duration: 0.4,
+      ease: "easeIn",
+    },
+  }),
+};
 
   /* ================= DATA ================= */
   const services = [
@@ -53,10 +82,25 @@ export default function Home() {
     { id: 3, title: "Accounting", category: "Finance", image: iuconImage3 },
     { id: 4, title: "Invoicing", category: "Finance", image: iuconImage4 },
     { id: 5, title: "Inventory", category: "Inventory", image: iuconImage5 },
-    { id: 6, title: "Manufacturing", category: "Manufacturing", image: iuconImage6 },
+    {
+      id: 6,
+      title: "Manufacturing",
+      category: "Manufacturing",
+      image: iuconImage6,
+    },
     { id: 7, title: "MRP", category: "Manufacturing", image: iuconImage7 },
-    { id: 8, title: "Employees", category: "Human Resources", image: iuconImage8 },
-    { id: 9, title: "Recruitment", category: "Human Resources", image: iuconImage1 },
+    {
+      id: 8,
+      title: "Employees",
+      category: "Human Resources",
+      image: iuconImage8,
+    },
+    {
+      id: 9,
+      title: "Recruitment",
+      category: "Human Resources",
+      image: iuconImage1,
+    },
     { id: 10, title: "Website", category: "Website", image: iuconImage3 },
     { id: 11, title: "eCommerce", category: "Website", image: iuconImage4 },
     { id: 12, title: "CRM", category: "Sales", image: iuconImage1 },
@@ -64,10 +108,25 @@ export default function Home() {
     { id: 14, title: "Accounting", category: "Finance", image: iuconImage3 },
     { id: 15, title: "Invoicing", category: "Finance", image: iuconImage4 },
     { id: 16, title: "Inventory", category: "Inventory", image: iuconImage5 },
-    { id: 17, title: "Manufacturing", category: "Manufacturing", image: iuconImage6 },
+    {
+      id: 17,
+      title: "Manufacturing",
+      category: "Manufacturing",
+      image: iuconImage6,
+    },
     { id: 18, title: "MRP", category: "Manufacturing", image: iuconImage7 },
-    { id: 19, title: "Employees", category: "Human Resources", image: iuconImage8 },
-    { id: 20, title: "Recruitment", category: "Human Resources", image: iuconImage1 },
+    {
+      id: 19,
+      title: "Employees",
+      category: "Human Resources",
+      image: iuconImage8,
+    },
+    {
+      id: 20,
+      title: "Recruitment",
+      category: "Human Resources",
+      image: iuconImage1,
+    },
     { id: 21, title: "Website", category: "Website", image: iuconImage3 },
     { id: 22, title: "eCommerce", category: "Website", image: iuconImage4 },
   ];
@@ -141,9 +200,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-2xl font-bold sm:text-3xl md:text-4xl"
+              className="text-2xl font-bold sm:text-4xl md:text-4xl"
             >
-              Make your digital transformation succeed!
+              Make Your Digital Transformation Succeed!
               <br />
               <span className="font-semibold text-gray-700">
                 One solution covers all needs
@@ -155,7 +214,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="px-7 my-10 py-2.5  mt-7 text-sm text-white bg-purple-600 rounded-full shadow hover:bg-purple-700 transition"
+              className="px-7 my-20 py-2.5  mt-7 text-sm text-white bg-purple-600 rounded-full shadow hover:bg-purple-700 transition"
             >
               Meet Our Expert
             </motion.button>
@@ -187,7 +246,7 @@ export default function Home() {
           <div
             className="
         relative
-        bg-white/60
+        bg-white
         backdrop-blur-2xl
         rounded-[40px]
         shadow-[0_40px_120px_rgba(0,0,0,0.15)]
@@ -198,60 +257,74 @@ export default function Home() {
           >
             {/* ================= SERVICES ================= */}
             <div className="mb-32">
-              <h2 className="mb-16 text-sm font-medium font-bold text-center text-purple-700 sm:text-3xl">
+              <h2 className="mb-5 text-sm font-medium text-center text-purple-700 sm:text-3xl">
                 Discover our product and service that you need
               </h2>
 
-              <div className="relative">
+              <div className="relative max-w-6xl mx-auto">
                 {/* ARROWS */}
                 <button
-                  onClick={() => setServicePage((p) => (p > 0 ? p - 1 : p))}
+                  onClick={() => {
+                    setDirection(-1);
+                    setServicePage((p) => (p > 0 ? p - 1 : p));
+                  }}
                   disabled={servicePage === 0}
-                  className="absolute left-0 z-10 items-center justify-center hidden w-12 h-12 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-xl md:flex top-1/2"
+                  className="absolute left-0 z-10 items-center justify-center hidden w-12 h-12 text-white -translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl md:flex top-1/2 disabled:opacity-40"
                 >
                   ‹
                 </button>
 
                 <button
-                  onClick={() =>
-                    setServicePage((p) => (p < totalPages - 1 ? p + 1 : p))
-                  }
+                  onClick={() => {
+                    setDirection(1);
+                    setServicePage((p) => (p < totalPages - 1 ? p + 1 : p));
+                  }}
                   disabled={servicePage === totalPages - 1}
-                  className="absolute right-0 z-10 items-center justify-center hidden w-12 h-12 translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-xl md:flex top-1/2"
+                  className="absolute right-0 z-10 items-center justify-center hidden w-12 h-12 text-white translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl md:flex top-1/2 disabled:opacity-40"
                 >
                   ›
                 </button>
 
-                <div className="grid justify-center gap-6 px-20 md:grid-cols-3">
-                  {visibleServices.map((service) => (
-                    <div
-                      key={service.id}
-                      className="
-                      relative
-                      h-[400px]
-                      w-[300px]
-                  overflow-hidden
-                  bg-white
-                  rounded-[28px]
-                  shadow-[0_25px_50px_rgba(0,0,0,0.15)]
-                  transition
-                  hover:-translate-y-2
-                  hover:shadow-[0_40px_80px_rgba(0,0,0,0.2)]
-                "
+                <div className="overflow-hidden">
+                  <AnimatePresence mode="wait" custom={direction}>
+                    <motion.div
+                      key={servicePage}
+                      custom={direction}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      className="grid justify-center gap-6 px-20 py-20 md:grid-cols-3"
                     >
-                      <div className="py-5 text-xs font-semibold text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
-                        {service.title}
-                      </div>
+                      {visibleServices.map((service) => (
+                        <div
+                          key={service.id}
+                          className="
+            relative
+            h-[400px]
+            w-[300px]
+            overflow-hidden
+            bg-white/70
+            rounded-[28px]
+            transition
+            hover:-translate-y-2
+          "
+                        >
+                          <div className="py-5 text-lg font-semibold text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
+                            {service.title}
+                          </div>
 
-                      <div className="flex items-end justify-center h-[150px] h-[300px] bg-gradient-to-b from-purple-50 to-white">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="h-[260px] object-contain"
-                        />
-                      </div>
-                    </div>
-                  ))}
+                          <div className="relative flex items-center justify-center h-[352px] bg-gradient-to-b from-purple-50 to-white">
+                            <img
+                              src={service.image}
+                              alt={service.title}
+                              className="object-contain max-w-full max-h-full transition hover:scale-105"
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
 
                 <div className="flex justify-center gap-2 mt-10">
@@ -273,7 +346,7 @@ export default function Home() {
                 All digital transformation initiative in one solutions
               </h2>
 
-              <div className="p-10 bg-white/70 rounded-[32px] shadow-inner">
+              <div className="p-10 bg-white/70 rounded-[32px] shadow-xl">
                 {/* TABS */}
                 <div className="flex flex-wrap justify-center gap-4 mb-12 text-xs sm:text-sm">
                   {odooTabs.map((tab) => (

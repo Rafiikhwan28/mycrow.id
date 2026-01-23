@@ -1,4 +1,4 @@
-import image1 from "../../assets/Home-service-image/161940.png";
+import image1 from "../../assets/Graphics/ERP.png";
 
 //grapics
 import graphic1 from "../../assets/Graphics/operations.png";

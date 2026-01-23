@@ -59,8 +59,8 @@ export default function Navbar() {
 
       {/* ================= NAVBAR ================= */}
       <nav
-        className={`bg-white/80 backdrop-blur-md transition-all duration-300 ${
-          isScrolled ? "py-2 shadow-lg" : "py-4"
+        className={` backdrop-blur-3xl transition-all duration-300 ${
+          isScrolled ? "py-2 shadow-lg" : "py-5"
         }`}
       >
         <div className="flex items-center px-6 mx-auto max-w-7xl">
@@ -69,7 +69,7 @@ export default function Navbar() {
             <img
               src={logo}
               alt="MyCrow"
-              className={`transition-all ${isScrolled ? "h-10" : "h-12"}`}
+              className={`transition-all ${isScrolled ? "h-11" : "h-14"}`}
             />
           </Link>
 
@@ -84,7 +84,7 @@ export default function Navbar() {
                   }}
                   onMouseLeave={() => setOpenMenu(null)}
                 >
-                  <button className="flex items-center gap-1.5 text-black text-start hover:text-purple-600">
+                  <button className="flex items-center gap-1.5 hover:text-purple-600">
                     {menu.label}
                     <ChevronDown
                       size={14}
@@ -135,29 +135,17 @@ export default function Navbar() {
                             <Link
                               key={item.slug}
                               to={buildLink(menu, section, item)}
-                              className="
-                                        relative
-                                        h-[96px]
-                                        rounded-2xl
-                                        bg-white
-                                        transition
-                                        hover:bg-purple-50
-                                        group
-                                      ">
-                              {/* ICON */}
+                              className="relative h-[96px] rounded-2xl bg-white hover:bg-purple-50 transition group"
+                            >
                               <div className="absolute flex items-center justify-center w-12 h-12 text-purple-600 -translate-y-1/2 bg-purple-100 top-1/2 left-4 rounded-2xl">
                                 {Icon && <Icon size={20} />}
                               </div>
 
-                              {/* TEXT */}
                               <div className="absolute -translate-y-1/2 top-1/2 left-20 right-4">
-                                <p className="font-semibold leading-tight text-gray-800 group-hover:text-purple-600 line-clamp-1">
+                                <p className="font-semibold text-gray-800 group-hover:text-purple-600 line-clamp-1">
                                   {item.title}
                                 </p>
-
-                                <p
-                                  className="mt-0.5 text-xs text-gray-500 leading-snug line-clamp-2"
-                                >
+                                <p className="mt-0.5 text-xs text-gray-500 line-clamp-2">
                                   {item.explore}
                                 </p>
                               </div>
@@ -177,17 +165,17 @@ export default function Navbar() {
             <Menu size={30} />
           </button>
 
-          {/* ================= DESKTOP CTA ================= */}
+          {/* DESKTOP CTA */}
           <div className="items-center justify-end flex-1 hidden gap-4 md:flex">
             <button
               onClick={() => setLang(lang === "EN" ? "ID" : "EN")}
-              className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-purple-600"
+              className="flex items-center gap-1 text-sm text-gray-600 hover:text-purple-600"
             >
               {lang}
               <ChevronDown size={14} />
             </button>
 
-            <button className="px-5 py-2 text-sm font-medium text-white bg-purple-600 rounded-full">
+            <button className="px-5 py-3 my-2 text-sm text-white bg-purple-600 rounded-xl">
               {translations[lang].contact}
             </button>
           </div>
@@ -207,6 +195,7 @@ export default function Navbar() {
         transform transition-transform duration-300
         ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
       >
+        {/* HEADER */}
         <div className="flex items-center justify-between px-6 py-5 border-b">
           <img src={logo} alt="logo" className="h-9" />
           <button onClick={() => setMobileOpen(false)}>
@@ -214,8 +203,72 @@ export default function Navbar() {
           </button>
         </div>
 
+        {/* MENU */}
+        <div className="p-6 space-y-4 overflow-y-auto">
+          {Object.values(navbarData).map((menu, index) => (
+            <div key={menu.label} className="border rounded-xl">
+              <button
+                onClick={() =>
+                  setMobileActiveMenu(
+                    mobileActiveMenu === index ? null : index
+                  )
+                }
+                className="flex items-center justify-between w-full px-4 py-4 font-semibold"
+              >
+                {menu.label}
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform ${
+                    mobileActiveMenu === index ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {mobileActiveMenu === index && (
+                <div className="px-4 pb-4 space-y-5">
+                  {menu.sections.map((section, sIndex) => (
+                    <div key={sIndex}>
+                      <p className="mb-2 text-xs font-semibold text-gray-400 uppercase">
+                        {section.title}
+                      </p>
+
+                      <div className="space-y-2">
+                        {section.items.map((item) => {
+                          const Icon = item.icon;
+                          return (
+                            <Link
+                              key={item.slug}
+                              to={buildLink(menu, section, item)}
+                              onClick={() => setMobileOpen(false)}
+                              className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50"
+                            >
+                              <div className="flex items-center justify-center w-10 h-10 text-purple-600 bg-purple-100 rounded-xl">
+                                {Icon && <Icon size={18} />}
+                              </div>
+
+                              <div>
+                                <p className="text-sm font-semibold">
+                                  {item.title}
+                                </p>
+                                <p className="text-xs text-gray-500 line-clamp-1">
+                                  {item.explore}
+                                </p>
+                              </div>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
         <div className="p-6 border-t">
-          <button className="w-full py-4 text-lg font-semibold text-white bg-purple-600 rounded-full">
+          <button className="w-full py-4 text-lg text-white bg-purple-600 rounded-full">
             {translations[lang].contact}
           </button>
         </div>

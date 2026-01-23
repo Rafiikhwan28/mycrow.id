@@ -46,11 +46,14 @@ export default function ErpTemplate({ data }) {
       <section className="grid items-center px-6 mx-auto mb-32 gap-14 max-w-7xl md:grid-cols-2">
         {/* TEXT */}
         <motion.div variants={fadeUp}>
-          <img src={mycrowLogo} alt="MyCrow" className="h-8 mb-6" />
-
-          <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-purple-700 bg-purple-100 rounded-full">
-            {hero.badge}
-          </span>
+          <div className="flex">
+            <img src={mycrowLogo} alt="MyCrow" className="h-8 mb-6" />
+            {hero?.badge && (
+              <span className="inline-block justify-center px-5 py-1 mb-4 text-2xl font-medium text-purple-700 rounded-full">
+                | {hero.badge}
+              </span>
+            )}
+          </div>
 
           <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">
             {hero.title}
@@ -84,20 +87,20 @@ export default function ErpTemplate({ data }) {
 
       {/* ================= REASONS + BENEFITS CONTAINER ================= */}
       {(reasons?.items?.length > 0 || benefits) && (
-        <section className="relative px-6 pb-40">
-          <div className="mx-auto max-w-7xl">
+        <section className="relative py-32">
+          <div className="px-5 mx-auto max-w-7xl">
             {/* GLASS CONTAINER */}
             <div
               className="
-          relative
-          bg-white/60
-          backdrop-blur-2xl
-          rounded-[40px]
-          shadow-[0_40px_120px_rgba(0,0,0,0.18)]
-          border border-white/40
-          px-6 sm:px-10 md:px-16
-          py-24
-        "
+                relative
+                bg-white/60
+                backdrop-blur-2xl
+                rounded-[40px]
+                shadow-[0_40px_120px_rgba(0,0,0,0.18)]
+                border border-white/40
+                px-6 sm:px-10 md:px-16
+                py-24
+              "
             >
               {/* ================= REASONS ================= */}
               {reasons?.items?.length > 0 && (
@@ -149,7 +152,7 @@ export default function ErpTemplate({ data }) {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="mb-4 text-2xl font-semibold text-center"
+                    className="mb-4 text-2xl font-semibold text-center text-purple-700"
                   >
                     {benefits.title}
                   </motion.h2>
@@ -180,20 +183,24 @@ export default function ErpTemplate({ data }) {
                           className="grid items-center gap-16 md:grid-cols-2"
                         >
                           {/* IMAGE */}
-                          <div className={i % 2 !== 0 ? "md:order-2" : ""}>
+                          <div
+                            className={`flex items-center justify-center ${
+                              i % 2 !== 0 ? "md:order-2" : ""
+                            }`}
+                          >
                             <img
                               src={item.image}
                               alt={item.title}
-                              className=""
+                              className="object-contain w-full h-80"
                             />
                           </div>
 
                           {/* TEXT */}
                           <div>
-                            <h3 className="mb-4 text-xl font-semibold">
+                            <h3 className="mb-4 text-2xl font-semibold">
                               {item.title}
                             </h3>
-                            <p className="leading-relaxed text-gray-700">
+                            <p className="text-xl leading-relaxed text-gray-700 ">
                               {item.description}
                             </p>
                           </div>
