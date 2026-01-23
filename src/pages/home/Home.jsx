@@ -23,39 +23,37 @@ import iuconImage8 from "../../assets/icons/startup_4159353.png";
 
 //odooApps
 
-
-
 export default function Home() {
   /* ================= STATE ================= */
   const [activeTab, setActiveTab] = useState("All");
   const [servicePage, setServicePage] = useState(0);
   const [direction, setDirection] = useState(0);
 
-const slideVariants = {
-  enter: (direction) => ({
-    x: direction > 0 ? 200 : -200,
-    opacity: 0,
-    scale: 0.95,
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 200 : -200,
+      opacity: 0,
+      scale: 0.95,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
     },
-  },
-  exit: (direction) => ({
-    x: direction > 0 ? -200 : 200,
-    opacity: 0,
-    scale: 0.95,
-    transition: {
-      duration: 0.4,
-      ease: "easeIn",
-    },
-  }),
-};
+    exit: (direction) => ({
+      x: direction > 0 ? -200 : 200,
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        duration: 0.4,
+        ease: "easeIn",
+      },
+    }),
+  };
 
   /* ================= DATA ================= */
   const services = [

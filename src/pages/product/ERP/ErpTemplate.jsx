@@ -49,7 +49,7 @@ export default function ErpTemplate({ data }) {
           <div className="flex">
             <img src={mycrowLogo} alt="MyCrow" className="h-8 mb-6" />
             {hero?.badge && (
-              <span className="inline-block justify-center px-5 py-1 mb-4 text-2xl font-medium text-purple-700 rounded-full">
+              <span className="justify-center inline-block px-5 py-1 mb-4 text-2xl font-medium text-purple-700 rounded-full">
                 | {hero.badge}
               </span>
             )}

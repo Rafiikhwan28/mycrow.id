@@ -59,7 +59,7 @@ export default function Navbar() {
 
       {/* ================= NAVBAR ================= */}
       <nav
-        className={` backdrop-blur-3xl transition-all duration-300 ${
+        className={` backdrop-blur-3xl transition-all duration-500 ${
           isScrolled ? "py-2 shadow-lg" : "py-5"
         }`}
       >
@@ -191,9 +191,12 @@ export default function Navbar() {
 
       {/* ================= MOBILE SIDEBAR ================= */}
       <aside
-        className={`fixed top-0 right-0 z-50 h-full w-full bg-white
-        transform transition-transform duration-300
-        ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 z-50
+  h-full w-full
+  bg-white
+  overflow-y-auto overscroll-contain
+  transform transition-transform duration-500
+  ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         {/* HEADER */}
         <div className="flex items-center justify-between px-6 py-5 border-b">
@@ -206,12 +209,10 @@ export default function Navbar() {
         {/* MENU */}
         <div className="p-6 space-y-4 overflow-y-auto">
           {Object.values(navbarData).map((menu, index) => (
-            <div key={menu.label} className="border rounded-xl">
+            <div key={menu.label} className=" rounded-xl">
               <button
                 onClick={() =>
-                  setMobileActiveMenu(
-                    mobileActiveMenu === index ? null : index
-                  )
+                  setMobileActiveMenu(mobileActiveMenu === index ? null : index)
                 }
                 className="flex items-center justify-between w-full px-4 py-4 font-semibold"
               >
