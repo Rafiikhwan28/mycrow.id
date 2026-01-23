@@ -1,4 +1,4 @@
-import ERP from "../../assets/Graphics/erp.png";
+import ERP from "../../assets/Graphics/ERP.png";
 import ERP2 from "../../assets/Home-service-image/89826.png";
 
 //icon
