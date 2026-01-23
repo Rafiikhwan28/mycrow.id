@@ -4,8 +4,8 @@ import { AnimatePresence } from "framer-motion";
 
 // pages
 import Home from "./pages/home/Home";
-import ByStagesPage from "./pages/solution/ByStragesPage";
-import ByIndustryPage from "./pages/solution/ByIndustryPage";
+import ByStagesPage from "./pages/solution/ByStragesPage.jsx";
+import ByIndustryPage from "./pages/solution/ByIndustryPage.jsx";
 import ErpPage from "./pages/product/ERP/ErpPage.jsx";
 import CompanyPage from "./pages/company/CompanyPage";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
