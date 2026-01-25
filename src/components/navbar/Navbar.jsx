@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "../../assets/mycrow_logo.png";
@@ -27,8 +28,11 @@ const translations = {
 };
 
 export default function Navbar() {
+  // MENU
   const [openMenu, setOpenMenu] = useState(null);
   const [activeSection, setActiveSection] = useState(0);
+
+  // UI STATE
   const [isScrolled, setIsScrolled] = useState(false);
 
   // LANGUAGE
@@ -40,15 +44,40 @@ export default function Navbar() {
 
   /* ================= SCROLL EFFECT ================= */
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 90);
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 90);
+    };
+
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   /* ================= LOCK BODY SCROLL ================= */
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "auto";
-  }, [mobileOpen]);
+  if (mobileOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+}, [mobileOpen]);
+
+
+  const location = useLocation();
+  const prevPath = useRef(location.pathname);
+
+  useEffect(() => {
+    if (prevPath.current !== location.pathname) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      setMobileOpen(false);
+      setMobileActiveMenu(null);
+
+      prevPath.current = location.pathname;
+    }
+  }, [location.pathname]);
 
   return (
     <header className="fixed top-0 z-50 w-full">

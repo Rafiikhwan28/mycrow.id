@@ -26,8 +26,6 @@ function AnimatedRoutes() {
 
   return (
     <>
-      <ScrollToTop />
-
       <AnimatePresence mode="wait">
         <main className="min-h-screen pt-16">
           <Routes location={location} key={location.pathname}>

@@ -332,7 +332,7 @@ export default function Home() {
                         x: `-${mobileIndex * mobileCardWidth}%`,
                       }}
                       transition={{ duration: 0.45, ease: "easeInOut" }}
-                      className="flex gap-8"
+                      className="flex gap-14"
                     >
                       {services.map((service) => (
                         <div
