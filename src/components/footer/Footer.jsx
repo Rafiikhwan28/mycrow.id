@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
-import { Instagram, Facebook, Youtube } from "lucide-react";
+import youtube from "../../assets/icons/youtube.png";
+import instagram from "../../assets/icons/instagram.png";
+import facebook from "../../assets/icons/facebook.png";
 
 export default function Footer() {
+  const socials = [
+    { id: 1, src: youtube, alt: "YouTube" },
+    { id: 2, src: instagram, alt: "Instagram" },
+    { id: 3, src: facebook, alt: "Facebook" },
+  ];
   const fadeUp = {
     hidden: { opacity: 0, y: 24 },
     visible: {
@@ -83,12 +90,8 @@ export default function Footer() {
     >
       <div className="px-6 py-20 mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-7">
-
           {/* COMPANY INFO */}
-          <motion.div
-            variants={fadeUp}
-            className="space-y-4 lg:col-span-2"
-          >
+          <motion.div variants={fadeUp} className="space-y-4 lg:col-span-2">
             <h2 className="text-2xl font-bold">mycrow</h2>
 
             <p className="text-xs font-semibold tracking-wide opacity-90">
@@ -106,14 +109,18 @@ export default function Footer() {
               <p>info@mycrow.id</p>
             </div>
 
-            <div className="flex gap-3 pt-4">
-              {[Instagram, Facebook, Youtube].map((Icon, i) => (
+            <div className="flex pt-4 ">
+              {socials.map((item) => (
                 <motion.div
-                  key={i}
+                  key={item.id}
                   whileHover={{ y: -4 }}
-                  className="p-2 text-purple-700 transition bg-white rounded-full cursor-pointer hover:bg-purple-100"
+                  className="w-16 h-16 p-2 transition rounded-full shadow-sm cursor-pointer"
                 >
-                  <Icon size={18} />
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-[28px] h-[28px] object-contain"
+                  />
                 </motion.div>
               ))}
             </div>

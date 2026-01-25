@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import backgroundImage from "../../../assets/background.jpg";
 import mycrowLogo from "../../../assets/mycrow_logo_text.png";
+import ContactForm from "../../../components/contactForm/ContactForm";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -22,56 +23,58 @@ export default function OdooAppTemplate({ data }) {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       {/* ================= HERO ================= */}
-      <section className="px-6 mx-auto mb-32 max-w-7xl">
-        <div className="grid items-center gap-16 md:grid-cols-2">
-          <motion.div variants={fadeUp} initial="hidden" animate="visible">
-            <div className="flex">
-              <img src={mycrowLogo} alt="MyCrow" className="h-8 mb-6" />
-              {hero?.badge && (
-                <span className="inline-block justify-center px-5 py-1 mb-4 text-2xl font-medium text-purple-700 rounded-full">
-                  | {hero.badge}
-                </span>
-              )}
-            </div>
+      <section className="grid items-center px-6 mx-auto gap-14 max-w-7xl md:grid-cols-[1.2fr_0.8fr]">
+        {/* TEXT */}
+        <motion.div variants={fadeUp}>
+          <div className="flex items-center gap-4">
+            <img src={mycrowLogo} alt="MyCrow" className="h-8" />
 
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl text-slate-900">
-              {hero?.title}
-            </h1>
-
-            <p className="mb-8 text-lg text-slate-600">{hero?.description}</p>
-
-            {hero?.primaryButton && (
-              <a
-                href={hero.primaryButton.link}
-                className="inline-flex items-center px-6 py-3 font-semibold text-white transition bg-purple-600 rounded-lg hover:bg-purple-700"
-              >
-                {hero.primaryButton.label}
-              </a>
+            {hero?.badge && (
+              <span className="flex items-center px-6 py-2 mb-4 text-xl font-medium leading-none text-purple-700 rounded-full">
+                | {hero.badge}
+              </span>
             )}
-          </motion.div>
+          </div>
 
-          {hero?.heroImage && (
-            <motion.img
-              src={hero.heroImage}
-              alt={hero.title}
-              className="w-full max-w-lg mx-auto"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-            />
+          <h1 className="mt-10 mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-4xl">
+            {hero.title}
+          </h1>
+
+          <p className="mb-8 text-lg text-gray-700">{hero.description}</p>
+
+          {hero.primaryButton && (
+            <motion.a
+              href={hero.primaryButton.link}
+              whileHover={{ y: -4 }}
+              whileTap={{ scale: 0.96 }}
+              className="inline-flex items-center py-3 text-white transition bg-purple-600 rounded-full shadow px-7 hover:bg-purple-700"
+            >
+              {hero.primaryButton.label}
+            </motion.a>
           )}
-        </div>
+        </motion.div>
+
+        {/* IMAGE */}
+        {hero.heroImage && (
+          <motion.img
+            src={hero.heroImage}
+            alt={hero.title}
+            className="w-full max-w-md h-[500px] mx-auto object-contain"
+            variants={fadeUp}
+            transition={{ delay: 0.2 }}
+          />
+        )}
       </section>
 
       {/* ===================================================== */}
       {/* ========== CONTENT CONTAINER (VIDEO+REASONS+BENEFITS) */}
       {/* ===================================================== */}
-      <section className="px-5 mx-auto max-w-7xl">
+      <section className="px-5 pt-32 mx-auto max-w-7xl">
         <div
           className="relative
-          bg-white/60
+          bg-white
           backdrop-blur-2xl
-          rounded-[40px]
+          rounded-tl-[40px] rounded-tr-[40px] rounded-bl-none
           shadow-[0_40px_120px_rgba(0,0,0,0.18)]
           border border-white/40
           px-6 sm:px-10 md:px-16
@@ -137,7 +140,7 @@ export default function OdooAppTemplate({ data }) {
 
           {/* ================= BENEFITS ================= */}
           {benefits && (
-            <div className="max-w-5xl px-3 mx-auto">
+            <div className="max-w-5xl px-3 mx-auto mb-10">
               <div className="max-w-3xl mx-auto mb-20 text-center">
                 <h2 className="mb-4 text-3xl font-bold text-slate-900">
                   {benefits.title}
@@ -176,6 +179,7 @@ export default function OdooAppTemplate({ data }) {
               </div>
             </div>
           )}
+          <ContactForm/>
         </div>
       </section>
     </main>

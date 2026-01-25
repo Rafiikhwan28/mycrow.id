@@ -53,7 +53,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 z-50 w-full">
       {/* ================= TOP BAR ================= */}
-      <div className="py-3 text-xs text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
+      <div className="py-3 text-sm text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
         {translations[lang].topBar}
       </div>
 

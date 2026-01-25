@@ -43,19 +43,20 @@ export default function ErpTemplate({ data }) {
       className="min-h-screen bg-center bg-no-repeat bg-cover pt-28"
     >
       {/* ================= HERO ================= */}
-      <section className="grid items-center px-6 mx-auto mb-32 gap-14 max-w-7xl md:grid-cols-2">
+      <section className="grid items-center  px-6 mx-auto gap-14 max-w-7xl md:grid-cols-[1.2fr_0.8fr]">
         {/* TEXT */}
         <motion.div variants={fadeUp}>
-          <div className="flex">
-            <img src={mycrowLogo} alt="MyCrow" className="h-8 mb-6" />
+          <div className="flex items-center gap-4">
+            <img src={mycrowLogo} alt="MyCrow" className="h-8" />
+
             {hero?.badge && (
-              <span className="justify-center inline-block px-5 py-1 mb-4 text-2xl font-medium text-purple-700 rounded-full">
+              <span className="flex items-center px-6 py-2 mb-4 text-xl font-medium leading-none text-purple-700 rounded-full">
                 | {hero.badge}
               </span>
             )}
           </div>
 
-          <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">
+          <h1 className="mt-10 mb-6 text-6xl font-bold leading-tight text-gray-900 md:text-4xl">
             {hero.title}
           </h1>
 
@@ -78,7 +79,7 @@ export default function ErpTemplate({ data }) {
           <motion.img
             src={hero.heroImage}
             alt={hero.title}
-            className="w-full max-w-lg mx-auto"
+            className="w-full max-w-md h-[500px] mx-auto object-contain"
             variants={fadeUp}
             transition={{ delay: 0.2 }}
           />
@@ -87,15 +88,15 @@ export default function ErpTemplate({ data }) {
 
       {/* ================= REASONS + BENEFITS CONTAINER ================= */}
       {(reasons?.items?.length > 0 || benefits) && (
-        <section className="relative py-32">
+        <section className="relative pt-32">
           <div className="px-5 mx-auto max-w-7xl">
             {/* GLASS CONTAINER */}
             <div
               className="
                 relative
-                bg-white/60
+                bg-white
                 backdrop-blur-2xl
-                rounded-[40px]
+                rounded-tl-[40px] rounded-tr-[40px] rounded-bl-none
                 shadow-[0_40px_120px_rgba(0,0,0,0.18)]
                 border border-white/40
                 px-6 sm:px-10 md:px-16
@@ -162,7 +163,7 @@ export default function ErpTemplate({ data }) {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="max-w-3xl mx-auto mb-24 text-center text-gray-700"
+                    className="max-w-3xl mx-auto mb-24 text-lg text-center text-gray-700"
                   >
                     {benefits.description}
                   </motion.p>
@@ -200,7 +201,7 @@ export default function ErpTemplate({ data }) {
                             <h3 className="mb-4 text-2xl font-semibold">
                               {item.title}
                             </h3>
-                            <p className="text-xl leading-relaxed text-gray-700 ">
+                            <p className="text-lg leading-relaxed text-gray-700 ">
                               {item.description}
                             </p>
                           </div>

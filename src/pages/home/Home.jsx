@@ -12,14 +12,14 @@ import Image2 from "../../assets/Home-service-image/55365.png";
 import Image3 from "../../assets/Home-service-image/161940.png";
 
 //icon
-import iuconImage1 from "../../assets/icons/social-media.gif";
-import iuconImage2 from "../../assets/icons/seo.gif";
-import iuconImage3 from "../../assets/icons/search-engine.gif";
+import iuconImage1 from "../../assets/icons/seo.gif";
+import iuconImage2 from "../../assets/icons/search-engine.gif";
+import iuconImage3 from "../../assets/icons/social-media.gif";
 import iuconImage4 from "../../assets/icons/reputation.gif";
-import iuconImage5 from "../../assets/icons/news.gif";
+import iuconImage5 from "../../assets/icons/annual-reports.gif";
 import iuconImage6 from "../../assets/icons/logo-design.gif";
-import iuconImage7 from "../../assets/icons/annual-reports.gif";
-import iuconImage8 from "../../assets/icons/startup_4159353.png";
+import iuconImage7 from "../../assets/icons/news.gif";
+import iuconImage8 from "../../assets/icons/video.gif";
 
 //odooApps
 
@@ -167,7 +167,7 @@ export default function Home() {
             initial={{ opacity: 0, x: -120, rotate: 45 }}
             animate={{ opacity: 1, x: 0, rotate: 45 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            className=" absolute -top-1 -left-44 bottom-0 hidden md:block w-[900px] translate-y-20"
+            className=" absolute -left-44 -bottom-0 hidden md:block w-[900px] translate-y-20"
             alt="hand-left"
           />
 
@@ -177,7 +177,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 120 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-            className="absolute -bottom-24 right-0 hidden md:block w-[850px] translate-y-20 "
+            className="absolute -bottom-32 right-0 hidden md:block w-[850px] translate-y-20 "
             alt="hand-right"
           />
 
@@ -208,14 +208,17 @@ export default function Home() {
             </motion.h1>
 
             {/* BUTTON */}
-            <motion.button
+            <motion.a
+              href="https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20konsultasi"
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="px-7 my-20 py-2.5  mt-7 text-sm text-white bg-purple-600 rounded-full shadow hover:bg-purple-700 transition"
+              className="inline-flex px-7 my-20 py-2.5 mt-14 text-sm text-white bg-purple-600 rounded-full shadow hover:bg-purple-700 transition"
             >
               Meet Our Expert
-            </motion.button>
+            </motion.a>
 
             {/* ODOO LOGO */}
             <motion.div
@@ -238,7 +241,7 @@ export default function Home() {
       </section>
 
       {/* ================= CONTENT GLASS CONTAINER ================= */}
-      <section className="relative py-32">
+      <section className="relative pt-10">
         <div className="px-5 mx-auto max-w-7xl">
           {/* GLASS CONTAINER */}
           <div
@@ -246,16 +249,16 @@ export default function Home() {
         relative
         bg-white
         backdrop-blur-2xl
-        rounded-[40px]
-        shadow-[0_40px_120px_rgba(0,0,0,0.15)]
+        rounded-tl-[40px] rounded-tr-[40px] rounded-bl-none
+        shadow-[40px_0_80px_rgba(0,0,0,0.15)]
         border border-white/40
         px-6 sm:px-10 md:px-16
         py-20
       "
           >
             {/* ================= SERVICES ================= */}
-            <div className="mb-32">
-              <h2 className="mb-5 text-sm font-medium text-center text-purple-700 sm:text-3xl">
+            <div className="mb-16">
+              <h2 className="mb-3 text-sm font-normal text-center text-purple-700 sm:text-3xl">
                 Discover our product and service that you need
               </h2>
 
@@ -298,21 +301,23 @@ export default function Home() {
                         <div
                           key={service.id}
                           className="
-            relative
-            h-[400px]
-            w-[300px]
-            overflow-hidden
-            bg-white/70
-            rounded-[28px]
-            transition
-            hover:-translate-y-2
-          "
+    relative
+    h-[400px]
+    w-[300px]
+    overflow-hidden
+    bg-white/70
+    rounded-[28px]
+    border-2 border-purple-200
+    transition
+    hover:-translate-y-2
+    hover:shadow-lg
+  "
                         >
                           <div className="py-5 text-lg font-semibold text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
                             {service.title}
                           </div>
 
-                          <div className="relative flex items-center justify-center h-[352px] bg-gradient-to-b from-purple-50 to-white">
+                          <div className="relative flex items-center justify-center h-[352px] border border-blue-200 bg-gradient-to-b to-white">
                             <img
                               src={service.image}
                               alt={service.title}
@@ -339,23 +344,43 @@ export default function Home() {
             </div>
 
             {/* ================= ODOO ================= */}
-            <div className="mb-32">
-              <h2 className="mb-16 text-sm font-medium font-bold text-center text-purple-700 sm:text-3xl">
+            <div className="mb-16">
+              <h2 className="mb-6 text-base font-bold text-center text-purple-700 sm:mb-8 sm:text-3xl">
                 All digital transformation initiative in one solutions
               </h2>
 
-              <div className="p-10 bg-white/70 rounded-[32px] shadow-xl">
+              <div
+                className="
+                      relative
+                      p-6 pt-14
+                      mx-4
+                      backdrop-blur-sm
+                      rounded-[24px]
+                      shadow-2xl
+
+                      sm:p-12 sm:pt-5 sm:mx-16 sm:rounded-[32px]
+    "
+              >
+                {/* Logo Odoo */}
+                <img
+                  src={odooLogo}
+                  alt="Odoo Learning Partner"
+                  className="absolute object-contain h-5 top-4 right-4 sm:top-10 sm:right-4 sm:h-7 sm:mr-16 sm:mt-3"
+                />
+
                 {/* TABS */}
-                <div className="flex flex-wrap justify-center gap-4 mb-12 text-xs sm:text-sm">
+                <div className="flex flex-wrap justify-center gap-2 mt-8 mb-8 text-sm sm:gap-2 sm:px-10 sm:mt-20 sm:mb-12 sm:text-lg">
                   {odooTabs.map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`px-5 py-1.5 rounded-full transition ${
-                        activeTab === tab
-                          ? "bg-purple-600 text-white shadow-lg"
-                          : "text-gray-500 hover:text-purple-600 hover:bg-purple-50"
-                      }`}
+                      className={`py-1.5 rounded-full transition text-sm
+            sm:px-5 sm:text-base
+            ${
+              activeTab === tab
+                ? "bg-purple-600 text-white shadow-lg"
+                : "text-gray-500 hover:text-purple-600 hover:bg-purple-50"
+            }`}
                     >
                       {tab}
                     </button>
@@ -363,16 +388,16 @@ export default function Home() {
                 </div>
 
                 {/* CONTENT */}
-                <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-8">
+                <div className="grid grid-cols-2 gap-4 px-2 py-4 sm:grid-cols-4 sm:gap-6 sm:px-3 sm:py-5 md:grid-cols-4 lg:grid-cols-8">
                   {filteredApps.map((app) => (
                     <div
                       key={app.id}
-                      className="flex flex-col items-center justify-center gap-2 transition bg-white shadow h-28 rounded-2xl hover:-translate-y-1 hover:shadow-lg"
+                      className="flex flex-col items-center justify-center h-16 transition bg-white shadow rounded-xl hover:-translate-y-1 hover:shadow-lg sm:h-20 sm:rounded-2xl"
                     >
                       <img
                         src={app.image}
                         alt=""
-                        className="object-contain w-12 h-12 "
+                        className="object-contain w-10 h-10 sm:w-14 sm:h-14"
                       />
                     </div>
                   ))}
@@ -380,7 +405,7 @@ export default function Home() {
 
                 {/* EMPTY STATE */}
                 {filteredApps.length === 0 && (
-                  <p className="mt-10 text-sm text-center text-gray-400">
+                  <p className="mt-8 text-xs text-center text-gray-400 sm:text-sm sm:mt-10">
                     No application found
                   </p>
                 )}
@@ -388,31 +413,41 @@ export default function Home() {
             </div>
 
             {/* ================= MARKETING ================= */}
-            <div className="py-24">
-              <h2 className="mb-16 text-sm font-medium font-bold text-center text-purple-700 sm:text-3xl">
+            <div className="py-16 sm:py-24">
+              <h2 className="mb-10 text-base font-bold text-center text-purple-700 sm:mb-14 sm:text-3xl">
                 Marketing strategy and Design Service Solutions
               </h2>
 
-              <div className="grid max-w-6xl mx-auto gap-x-12 gap-y-20 sm:grid-cols-2 md:grid-cols-4">
+              <div className="grid max-w-6xl grid-cols-2 px-6 mx-auto mt-16 gap-x-6 gap-y-14 sm:px-10 sm:grid-cols-2 md:grid-cols-4 md:gap-x-12 md:gap-y-20 md:mt-24">
                 {marketingServices.map((item) => (
                   <div
                     key={item.id}
                     className="
-          relative flex flex-col items-center justify-center
-          h-[150px] px-6 text-center
+          relative
+          flex flex-col items-center justify-center
+          h-[130px] px-4
+          text-center
           bg-white border border-purple-300
           rounded-2xl
+          transition
+          hover:-translate-y-1 hover:shadow-lg
+
+          md:h-[150px] md:px-6
         "
                   >
                     {/* ICON FLOATING */}
-                    <div className="absolute flex items-center justify-center w-20 h-20 bg-white border rounded-full -top-10">
-                      <div className="flex items-center justify-center w-12 h-12 bg-purple-50 rounded-xl">
-                        <img src={item.image} alt={item.title} className="" />
+                    <div className="absolute flex items-center justify-center w-20 h-20 bg-white rounded-full -top-8 md:-top-10 md:w-20 md:h-20">
+                      <div className="flex items-center justify-center w-20 h-20 rounded-xl">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="object-contain w-20 h-20"
+                        />
                       </div>
                     </div>
 
                     {/* TEXT */}
-                    <p className="text-sm font-medium leading-relaxed text-purple-700">
+                    <p className="mt-6 text-sm font-medium leading-snug text-purple-700 md:mt-8 md:text-xl">
                       {item.title}
                     </p>
                   </div>
