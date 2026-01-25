@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import mycrowLogo from "../../assets/mycrow_logo_text.png";
 import handLeft from "../../assets/hand-gesture-pointing-invisible-screen.png";
@@ -28,32 +28,44 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("All");
   const [servicePage, setServicePage] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
 
   const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 200 : -200,
-      opacity: 0,
-      scale: 0.95,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
+  enter: (direction) => ({
+    x: direction > 0 ? 120 : -120,
+    opacity: 0,
+    scale: 0.92,
+    filter: "blur(6px)",
+  }),
+
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    filter: "blur(0px)",
+    transition: {
+      x: { type: "spring", stiffness: 260, damping: 28 },
+      scale: { type: "spring", stiffness: 220, damping: 25 },
+      opacity: { duration: 0.3 },
+      filter: { duration: 0.25 },
     },
-    exit: (direction) => ({
-      x: direction > 0 ? -200 : 200,
-      opacity: 0,
-      scale: 0.95,
-      transition: {
-        duration: 0.4,
-        ease: "easeIn",
-      },
-    }),
-  };
+  },
+
+  exit: (direction) => ({
+    x: direction > 0 ? -120 : 120,
+    opacity: 0,
+    scale: 0.92,
+    filter: "blur(6px)",
+    transition: {
+      x: { type: "spring", stiffness: 260, damping: 28 },
+      scale: { duration: 0.2 },
+      opacity: { duration: 0.2 },
+      filter: { duration: 0.2 },
+    },
+  }),
+};
+
 
   /* ================= DATA ================= */
   const services = [
@@ -141,12 +153,44 @@ export default function Home() {
   ];
 
   /* ================= DERIVED ================= */
-  const ITEMS_PER_PAGE = 3;
-  const totalPages = Math.ceil(services.length / ITEMS_PER_PAGE);
+  const ITEMS_PER_PAGE_DESKTOP = 3;
+  const totalPages = Math.ceil(services.length / ITEMS_PER_PAGE_DESKTOP);
+
   const visibleServices = services.slice(
-    servicePage * ITEMS_PER_PAGE,
-    servicePage * ITEMS_PER_PAGE + ITEMS_PER_PAGE,
+    servicePage * ITEMS_PER_PAGE_DESKTOP,
+    servicePage * ITEMS_PER_PAGE_DESKTOP + ITEMS_PER_PAGE_DESKTOP,
   );
+
+  const MOBILE_VISIBLE = 3; // 3 card kelihatan
+  const mobileCardWidth = 100 / MOBILE_VISIBLE; // %
+  const maxMobileIndex = services.length - MOBILE_VISIBLE;
+
+  const nextMobile = () => {
+    setMobileIndex((i) => Math.min(i + 1, maxMobileIndex));
+  };
+
+  const prevMobile = () => {
+    setMobileIndex((i) => Math.max(i - 1, 0));
+  };
+
+  const getItemsPerPage = () => {
+    if (typeof window === "undefined") return 3;
+    if (window.innerWidth >= 1024) return 3; // desktop
+    if (window.innerWidth >= 640) return 2; // tablet
+    return 1; // mobile
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(getItemsPerPage());
+      setServicePage(0); // reset biar tidak out of range
+    };
+
+    handleResize(); // ⬅️ PENTING: init saat pertama render
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const filteredApps = useMemo(() => {
     if (activeTab === "All") return odooApps;
@@ -258,35 +302,100 @@ export default function Home() {
           >
             {/* ================= SERVICES ================= */}
             <div className="mb-16">
-              <h2 className="mb-3 text-sm font-normal text-center text-purple-700 sm:text-3xl">
+              <h2 className="mb-6 text-base font-bold text-center text-purple-700 sm:text-3xl">
                 Discover our product and service that you need
               </h2>
 
               <div className="relative max-w-6xl mx-auto">
-                {/* ARROWS */}
-                <button
-                  onClick={() => {
-                    setDirection(-1);
-                    setServicePage((p) => (p > 0 ? p - 1 : p));
-                  }}
-                  disabled={servicePage === 0}
-                  className="absolute left-0 z-10 items-center justify-center hidden w-12 h-12 text-white -translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl md:flex top-1/2 disabled:opacity-40"
-                >
-                  ‹
-                </button>
+                {/* ================= MOBILE SLIDER ================= */}
+                <div className="relative md:hidden">
+                  {/* LEFT */}
+                  <button
+                    onClick={prevMobile}
+                    className="absolute z-10 w-8 h-8 text-white -translate-y-1/2 bg-purple-500 rounded-full shadow -left-2 top-1/2"
+                  >
+                    ‹
+                  </button>
 
-                <button
-                  onClick={() => {
-                    setDirection(1);
-                    setServicePage((p) => (p < totalPages - 1 ? p + 1 : p));
-                  }}
-                  disabled={servicePage === totalPages - 1}
-                  className="absolute right-0 z-10 items-center justify-center hidden w-12 h-12 text-white translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl md:flex top-1/2 disabled:opacity-40"
-                >
-                  ›
-                </button>
+                  {/* RIGHT */}
+                  <button
+                    onClick={nextMobile}
+                    className="absolute z-10 w-8 h-8 text-white -translate-y-1/2 bg-purple-500 rounded-full shadow -right-2 top-1/2"
+                  >
+                    ›
+                  </button>
 
-                <div className="overflow-hidden">
+                  {/* VIEWPORT */}
+                  <div className="overflow-hidden ">
+                    <motion.div
+                      animate={{
+                        x: `-${mobileIndex * mobileCardWidth}%`,
+                      }}
+                      transition={{ duration: 0.45, ease: "easeInOut" }}
+                      className="flex gap-8"
+                    >
+                      {services.map((service) => (
+                        <div
+                          key={service.id}
+                          style={{ width: `${mobileCardWidth}%` }}
+                          className="px-2 shrink-0"
+                        >
+                          <div
+                            className="
+    flex flex-col
+    h-[260px]
+    w-[130px]
+    bg-white
+    border border-purple-200
+    rounded-3xl
+    overflow-hidden
+    shadow-sm
+  "
+                          >
+                            {/* HEADER */}
+                            <div className="px-2 py-2 text-[11px] font-semibold text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
+                              {service.title}
+                            </div>
+
+                            {/* IMAGE */}
+                            <div className="flex items-center justify-center flex-1 p-3">
+                              <img
+                                src={service.image}
+                                alt={service.title}
+                                className="object-contain w-full h-full"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </motion.div>
+                  </div>
+                </div>
+
+                {/* ================= DESKTOP (TETAP, TIDAK DIUBAH) ================= */}
+                <div className="hidden md:block">
+                  <button
+                    onClick={() => {
+                      setDirection(-1);
+                      setServicePage((p) => (p > 0 ? p - 1 : p));
+                    }}
+                    disabled={servicePage === 0}
+                    className="absolute left-0 z-10 items-center justify-center hidden w-12 h-12 text-white -translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl md:flex top-1/2 disabled:opacity-40"
+                  >
+                    ‹
+                  </button>
+
+                  <button
+                    onClick={() => {
+                      setDirection(1);
+                      setServicePage((p) => (p < totalPages - 1 ? p + 1 : p));
+                    }}
+                    disabled={servicePage === totalPages - 1}
+                    className="absolute right-0 z-10 items-center justify-center hidden w-12 h-12 text-white translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl md:flex top-1/2 disabled:opacity-40"
+                  >
+                    ›
+                  </button>
+
                   <AnimatePresence mode="wait" custom={direction}>
                     <motion.div
                       key={servicePage}
@@ -300,28 +409,17 @@ export default function Home() {
                       {visibleServices.map((service) => (
                         <div
                           key={service.id}
-                          className="
-    relative
-    h-[400px]
-    w-[300px]
-    overflow-hidden
-    bg-white/70
-    rounded-[28px]
-    border-2 border-purple-200
-    transition
-    hover:-translate-y-2
-    hover:shadow-lg
-  "
+                          className="h-[400px] w-[300px] bg-white rounded-[28px] border-2 border-purple-200 overflow-hidden"
                         >
                           <div className="py-5 text-lg font-semibold text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
                             {service.title}
                           </div>
 
-                          <div className="relative flex items-center justify-center h-[352px] border border-blue-200 bg-gradient-to-b to-white">
+                          <div className="flex items-center justify-center h-[352px]">
                             <img
                               src={service.image}
                               alt={service.title}
-                              className="object-contain max-w-full max-h-full transition hover:scale-105"
+                              className="object-contain w-full h-full"
                             />
                           </div>
                         </div>
@@ -330,7 +428,8 @@ export default function Home() {
                   </AnimatePresence>
                 </div>
 
-                <div className="flex justify-center gap-2 mt-10">
+                {/* ================= PAGINATION ================= */}
+                <div className="flex justify-center gap-2 mt-8">
                   {Array.from({ length: totalPages }).map((_, i) => (
                     <span
                       key={i}
@@ -369,18 +468,33 @@ export default function Home() {
                 />
 
                 {/* TABS */}
-                <div className="flex flex-wrap justify-center gap-2 mt-8 mb-8 text-sm sm:gap-2 sm:px-10 sm:mt-20 sm:mb-12 sm:text-lg">
+                <div
+                  className="
+  flex flex-wrap justify-center
+  gap-1.5 sm:gap-2
+  mt-6 sm:mt-20
+  mb-6 sm:mb-12
+  px-2 sm:px-10
+  text-[11px] sm:text-lg
+"
+                >
                   {odooTabs.map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`py-1.5 rounded-full transition text-sm
-            sm:px-5 sm:text-base
-            ${
-              activeTab === tab
-                ? "bg-purple-600 text-white shadow-lg"
-                : "text-gray-500 hover:text-purple-600 hover:bg-purple-50"
-            }`}
+                      className={`
+        px-3 py-1.5
+        sm:px-5 sm:py-2
+        rounded-full
+        whitespace-nowrap
+        transition-all duration-200
+        text-[11px] sm:text-base
+        ${
+          activeTab === tab
+            ? "bg-purple-600 text-white shadow-lg"
+            : "text-gray-500 hover:text-purple-600 hover:bg-purple-50"
+        }
+      `}
                     >
                       {tab}
                     </button>
@@ -388,7 +502,7 @@ export default function Home() {
                 </div>
 
                 {/* CONTENT */}
-                <div className="grid grid-cols-2 gap-4 px-2 py-4 sm:grid-cols-4 sm:gap-6 sm:px-3 sm:py-5 md:grid-cols-4 lg:grid-cols-8">
+                <div className="grid grid-cols-4 gap-4 px-2 py-4 sm:grid-cols-4 sm:gap-4 sm:px-1 sm:py-5 md:grid-cols-4 lg:grid-cols-8 ">
                   {filteredApps.map((app) => (
                     <div
                       key={app.id}
