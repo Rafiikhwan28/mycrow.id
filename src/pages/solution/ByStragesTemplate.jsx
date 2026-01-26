@@ -14,21 +14,12 @@ const fadeUp = {
   },
 };
 
-const slideFromLeft = {
-  hidden: { opacity: 0, x: -80 },
+const fadeUpSoft = {
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, ease: "easeOut" },
-  },
-};
-
-const slideFromRight = {
-  hidden: { opacity: 0, x: 80 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, ease: "easeOut" },
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 };
 
@@ -58,30 +49,30 @@ export default function ByStagesTemplate({ data }) {
       animate="visible"
       variants={staggerContainer}
       style={{ backgroundImage: `url(${bgImage})` }}
-      className="min-h-screen pt-24 bg-center bg-no-repeat bg-cover md:pt-28"
+      className="min-h-screen pt-24 overflow-x-hidden bg-center bg-no-repeat bg-cover md:pt-28"
     >
       {/* ================= HERO ================= */}
-      <section className="grid items-center px-6 mx-auto gap-14 max-w-7xl md:grid-cols-[1.2fr_0.8fr]">
+      <section className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] items-center gap-14 px-6 mx-auto max-w-7xl">
         {/* TEXT */}
         <motion.div
-          variants={slideFromLeft}
+          variants={fadeUp}
           className="text-center md:text-left"
         >
-          <div className="flex items-center justify-center gap-3 md:justify-start md:gap-4">
+          <div className="flex items-center justify-center gap-3 md:justify-start">
             <img src={mycrowLogo} alt="MyCrow" className="h-7 md:h-8" />
 
             {hero?.badge && (
-              <span className="flex items-center px-4 py-1.5 md:px-6 md:py-2 text-sm md:text-xl font-medium leading-none text-purple-700 rounded-full">
+              <span className="px-4 py-1.5 text-sm md:text-base font-medium text-purple-700 rounded-full">
                 | {hero.badge}
               </span>
             )}
           </div>
 
-          <h1 className="mt-8 mb-6 text-4xl font-bold leading-tight text-gray-900 md:mt-10 md:text-6xl">
+          <h1 className="mt-8 mb-6 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-6xl">
             {hero.title}
           </h1>
 
-          <p className="mb-8 text-base text-gray-700 md:text-lg">
+          <p className="max-w-xl mx-auto mb-8 text-base text-gray-700 md:text-lg md:mx-0">
             {hero.description}
           </p>
 
@@ -90,7 +81,7 @@ export default function ByStagesTemplate({ data }) {
               href={hero.primaryButton.link}
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.96 }}
-              className="inline-flex items-center px-6 py-2.5 md:px-7 md:py-3 text-sm md:text-base text-white transition bg-purple-600 rounded-full shadow hover:bg-purple-700"
+              className="inline-flex items-center px-6 py-2.5 md:px-7 md:py-3 text-sm md:text-base text-white bg-purple-600 rounded-full shadow hover:bg-purple-700 transition"
             >
               {hero.primaryButton.label}
             </motion.a>
@@ -99,12 +90,16 @@ export default function ByStagesTemplate({ data }) {
 
         {/* IMAGE */}
         {hero.heroImage && (
-          <motion.img
-            src={hero.heroImage}
-            alt={hero.title}
-            variants={slideFromRight}
-            className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto md:h-[500px] mx-auto object-contain"
-          />
+          <motion.div
+            variants={fadeUp}
+            className="flex justify-center"
+          >
+            <img
+              src={hero.heroImage}
+              alt={hero.title}
+              className="w-full max-w-[260px] sm:max-w-sm md:max-w-md object-contain"
+            />
+          </motion.div>
         )}
       </section>
 
@@ -117,41 +112,37 @@ export default function ByStagesTemplate({ data }) {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="relative bg-white backdrop-blur-2xl rounded-tl-[40px] rounded-tr-[40px] rounded-bl-none shadow-[0_40px_120px_rgba(0,0,0,0.18)] border border-white/40 px-6 sm:px-10 md:px-16 py-20 md:py-24"
+              className="relative bg-white rounded-tl-[40px] rounded-tr-[40px] shadow-[0_40px_120px_rgba(0,0,0,0.18)] border border-white/40 px-6 sm:px-10 md:px-16 py-20 md:py-24"
             >
               {/* ================= REASONS ================= */}
               {reasons?.items?.length > 0 && (
-                <div className="mb-32 md:mb-40">
+                <div className="mb-28 md:mb-36">
                   <motion.h2
                     variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="text-2xl font-semibold text-center text-purple-700 mb-14 md:mb-16"
+                    className="text-2xl font-semibold text-center text-purple-700 mb-14"
                   >
                     {reasons.title}
                   </motion.h2>
 
                   <motion.div
                     variants={staggerContainer}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
                     className="grid gap-8 sm:grid-cols-2 md:grid-cols-4"
                   >
                     {reasons.items.map((item, i) => (
                       <motion.div
                         key={i}
-                        variants={i % 2 === 0 ? slideFromLeft : slideFromRight}
-                        whileHover={{ y: -8 }}
+                        variants={fadeUpSoft}
+                        whileHover={{ y: -6 }}
                         className="p-8 text-center transition shadow-lg rounded-3xl hover:shadow-2xl"
                       >
                         <img
                           src={item.icon}
-                          className="mx-auto mb-6 h-14"
                           alt={item.title}
+                          className="mx-auto mb-6 h-14"
                         />
-                        <h3 className="mb-3 font-semibold">{item.title}</h3>
+                        <h3 className="mb-3 font-semibold">
+                          {item.title}
+                        </h3>
                         <p className="text-sm leading-relaxed text-gray-600">
                           {item.description}
                         </p>
@@ -166,9 +157,6 @@ export default function ByStagesTemplate({ data }) {
                 <div className="max-w-5xl mx-auto">
                   <motion.h2
                     variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
                     className="mb-4 text-2xl font-semibold text-center text-purple-700"
                   >
                     {benefits.title}
@@ -176,33 +164,27 @@ export default function ByStagesTemplate({ data }) {
 
                   <motion.p
                     variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="max-w-3xl mx-auto mb-20 text-base text-center text-gray-700 md:mb-24 md:text-lg"
+                    className="max-w-3xl mx-auto mb-20 text-base text-center text-gray-700 md:text-lg"
                   >
                     {benefits.description}
                   </motion.p>
 
-                  <div className="space-y-20 md:space-y-24">
+                  <div className="space-y-20">
                     {benefits.items.map((item, i) => (
                       <motion.div
                         key={i}
-                        variants={i % 2 === 0 ? slideFromLeft : slideFromRight}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="grid items-center gap-14 md:gap-16 md:grid-cols-2"
+                        variants={fadeUp}
+                        className="grid items-center gap-12 md:grid-cols-2"
                       >
                         <div
-                          className={`flex items-center justify-center ${
+                          className={`flex justify-center ${
                             i % 2 !== 0 ? "md:order-2" : ""
                           }`}
                         >
                           <img
                             src={item.image}
                             alt={item.title}
-                            className="object-contain w-full max-w-md h-72 md:h-80"
+                            className="object-contain w-full h-auto max-w-md"
                           />
                         </div>
 
@@ -221,7 +203,9 @@ export default function ByStagesTemplate({ data }) {
               )}
 
               {/* ================= CONTACT FORM ================= */}
-              <ContactForm />
+              <div className="mt-32">
+                <ContactForm />
+              </div>
             </motion.div>
           </div>
         </section>

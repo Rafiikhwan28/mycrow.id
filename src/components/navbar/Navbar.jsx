@@ -210,16 +210,20 @@ export default function Navbar() {
         overflow-y-auto overscroll-contain transform transition-transform duration-500
         ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
       >
+        {/*Top bar */}
+        <div className="py-3 text-sm text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
+        {translations[lang].topBar}
+        </div>
         {/* HEADER */}
-        <div className="flex items-center justify-between px-6 py-5 border-b">
-          <img src={logo} alt="logo" className="h-9" />
+        <div className="flex items-center justify-between px-6 py-5">
+          <img src={logo} alt="logo" className="h-16" />
           <button onClick={() => setMobileOpen(false)}>
             <X size={30} />
           </button>
         </div>
 
         {/* MENU */}
-        <div className="p-6 space-y-4 overflow-y-auto">
+        <div className="p-2 space-y-4 overflow-y-auto">
           {Object.values(navbarData).map((menu, index) => (
             <div key={menu.label} className="rounded-xl">
               <button
@@ -282,9 +286,9 @@ export default function Navbar() {
         </div>
 
         {/* ================= CTA (UPDATED MOBILE SIZE) ================= */}
-        <div className="p-6 border-t">
+        <div className="p-6">
           <button
-            className="w-full py-3 text-base text-white transition bg-purple-600 rounded-full  sm:py-4 sm:text-lg"
+            className="w-full py-3 text-base text-white transition bg-purple-600 rounded-full sm:py-4 sm:text-lg"
           >
             {translations[lang].contact}
           </button>
