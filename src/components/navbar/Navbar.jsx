@@ -15,12 +15,13 @@ const buildLink = (menu, section, item) => {
 /* ================= TRANSLATION ================= */
 const translations = {
   EN: {
-    topBar: "Make it success your digital transformation!",
+    topBar:
+      "Your Trusted Partner for Secure and Scalable Digital Transformation",
     explore: "Explore solutions",
     contact: "Contact Us",
   },
   ID: {
-    topBar: "Sukseskan transformasi digital Anda!",
+    topBar: "",
     explore: "Jelajahi solusi",
     contact: "Hubungi Kami",
   },
@@ -69,7 +70,9 @@ export default function Navbar() {
     <header className="fixed top-0 z-50 w-full">
       {/* ================= TOP BAR ================= */}
       <div className="py-3 text-sm text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
-        {translations[lang].topBar}
+        <p>
+          Your Trusted Partner for Secure and Scalable Digital Transformation
+        </p>
       </div>
 
       {/* ================= NAVBAR ================= */}
@@ -190,8 +193,15 @@ export default function Navbar() {
               <ChevronDown size={14} />
             </button>
 
-            <button className="px-5 py-3 my-2 text-sm text-white bg-purple-600 rounded-xl">
-              {translations[lang].contact}
+            <button>
+              <a
+                href="https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20konsultasi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-3 my-2 text-sm text-white transition bg-purple-600 rounded-full hover:bg-purple-700"
+              >
+                Contact Us
+              </a>
             </button>
           </div>
         </div>
@@ -212,7 +222,7 @@ export default function Navbar() {
       >
         {/*Top bar */}
         <div className="py-3 text-sm text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
-        {translations[lang].topBar}
+          {translations[lang].topBar}
         </div>
         {/* HEADER */}
         <div className="flex items-center justify-between px-6 py-5">
@@ -228,9 +238,7 @@ export default function Navbar() {
             <div key={menu.label} className="rounded-xl">
               <button
                 onClick={() =>
-                  setMobileActiveMenu(
-                    mobileActiveMenu === index ? null : index
-                  )
+                  setMobileActiveMenu(mobileActiveMenu === index ? null : index)
                 }
                 className="flex items-center justify-between w-full px-4 py-4 font-semibold"
               >
@@ -287,9 +295,7 @@ export default function Navbar() {
 
         {/* ================= CTA (UPDATED MOBILE SIZE) ================= */}
         <div className="p-6">
-          <button
-            className="w-full py-3 text-base text-white transition bg-purple-600 rounded-full sm:py-4 sm:text-lg"
-          >
+          <button className="w-full py-3 text-base text-white transition bg-purple-600 rounded-full sm:py-4 sm:text-lg">
             {translations[lang].contact}
           </button>
         </div>

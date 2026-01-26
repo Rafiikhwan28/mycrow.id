@@ -49,6 +49,12 @@ const odooAppData = {
             description:
               "Adopt Indonesian payroll and HR compliance via localized modules.",
           },
+          {
+            icon: "https://img.icons8.com/color/96/settings.png",
+            title: "Localization options",
+            description:
+              "Adopt Indonesian payroll and HR compliance via localized modules.",
+          },
         ],
       },
 

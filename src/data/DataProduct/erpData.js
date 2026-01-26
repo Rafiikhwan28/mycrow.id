@@ -1,5 +1,5 @@
-import ERP from "../../assets/Graphics/ERP.png";
-import ERP2 from "../../assets/Home-service-image/89826.png";
+import baner1 from "../../assets/01. Landing Page/banner-03.png";
+import baner2 from "../../assets/01. Landing Page/banner-04.png";
 
 //icon
 import icon1 from "../../assets/icons/achievement_9746277.png";
@@ -27,7 +27,7 @@ export const erpData = {
           link: "/contact",
         },
         heroImage:
-          ERP,
+          baner1,
       },
 
       reasons: {
@@ -113,7 +113,7 @@ export const erpData = {
           link: "/contact",
         },
         heroImage:
-          ERP2,
+          baner2,
       },
 
       reasons: {

@@ -93,7 +93,7 @@ export default function OdooAppTemplate({ data }) {
                 {reasons.title}
               </motion.h2>
 
-              <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+              <div className="flex grid justify-center gap-12 px-6 mx-auto max-w-7xl md:grid-cols-2 lg:grid-cols-3">
                 {reasons.items?.map((item, index) => (
                   <motion.div
                     key={index}
@@ -101,7 +101,7 @@ export default function OdooAppTemplate({ data }) {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
-                    className="text-center"
+                    className="text-center "
                   >
                     <img
                       src={item.icon}

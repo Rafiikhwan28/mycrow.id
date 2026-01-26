@@ -5,11 +5,14 @@ import handLeft from "../../assets/hand-gesture-pointing-invisible-screen.png";
 import handRight from "../../assets/Hand_cyborg.png";
 import bgImage from "../../assets/background.jpg";
 import odooLogo from "../../assets/mycrow_logo_text.png";
+import LearningPatner from "../../assets/odoo_learning_partner_rgb.png";
+import { odooApps, odooTabs } from "../../data/LandingPage/odooApps";
 
 // Images
-import Image1 from "../../assets/Home-service-image/89826.png";
-import Image2 from "../../assets/Home-service-image/55365.png";
-import Image3 from "../../assets/Home-service-image/161940.png";
+import Image1 from "../../assets/01. Landing Page/banner-01.png";
+import Image2 from "../../assets/01. Landing Page/banner-02.png";
+import Image3 from "../../assets/01. Landing Page/banner-03.png";
+import Image4 from "../../assets/01. Landing Page/banner-04.png";
 
 //icon
 import iuconImage1 from "../../assets/icons/seo.gif";
@@ -30,6 +33,7 @@ export default function Home() {
   const [direction, setDirection] = useState(0);
   const [mobileIndex, setMobileIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [activeTitle, setActiveTitle] = useState(0);
 
   const slideVariants = {
     enter: (direction) => ({
@@ -65,79 +69,30 @@ export default function Home() {
       },
     }),
   };
+  const morphVariants = {
+    enter: {
+      opacity: 0,
+      filter: "blur(0px)",
+      scale: 0.96,
+    },
+    center: {
+      opacity: 1,
+      filter: "blur(0px)",
+      scale: 1,
+    },
+    exit: {
+      opacity: 0,
+      filter: "blur(02px)",
+      scale: 1.04,
+    },
+  };
 
   /* ================= DATA ================= */
   const services = [
     { id: 1, title: "ERP and MRP Solution", image: Image1 },
     { id: 2, title: "Build your app", image: Image2 },
     { id: 3, title: "Design Solutions", image: Image3 },
-    { id: 4, title: "Cloud Integration", image: Image1 },
-    { id: 5, title: "Digital Consulting", image: Image2 },
-  ];
-
-  const odooTabs = [
-    "All",
-    "Sales",
-    "Finance",
-    "Inventory",
-    "Manufacturing",
-    "Human Resources",
-    "Website",
-  ];
-
-  const odooApps = [
-    { id: 1, title: "CRM", category: "Sales", image: iuconImage1 },
-    { id: 2, title: "Sales", category: "Sales", image: iuconImage2 },
-    { id: 3, title: "Accounting", category: "Finance", image: iuconImage3 },
-    { id: 4, title: "Invoicing", category: "Finance", image: iuconImage4 },
-    { id: 5, title: "Inventory", category: "Inventory", image: iuconImage5 },
-    {
-      id: 6,
-      title: "Manufacturing",
-      category: "Manufacturing",
-      image: iuconImage6,
-    },
-    { id: 7, title: "MRP", category: "Manufacturing", image: iuconImage7 },
-    {
-      id: 8,
-      title: "Employees",
-      category: "Human Resources",
-      image: iuconImage8,
-    },
-    {
-      id: 9,
-      title: "Recruitment",
-      category: "Human Resources",
-      image: iuconImage1,
-    },
-    { id: 10, title: "Website", category: "Website", image: iuconImage3 },
-    { id: 11, title: "eCommerce", category: "Website", image: iuconImage4 },
-    { id: 12, title: "CRM", category: "Sales", image: iuconImage1 },
-    { id: 13, title: "Sales", category: "Sales", image: iuconImage2 },
-    { id: 14, title: "Accounting", category: "Finance", image: iuconImage3 },
-    { id: 15, title: "Invoicing", category: "Finance", image: iuconImage4 },
-    { id: 16, title: "Inventory", category: "Inventory", image: iuconImage5 },
-    {
-      id: 17,
-      title: "Manufacturing",
-      category: "Manufacturing",
-      image: iuconImage6,
-    },
-    { id: 18, title: "MRP", category: "Manufacturing", image: iuconImage7 },
-    {
-      id: 19,
-      title: "Employees",
-      category: "Human Resources",
-      image: iuconImage8,
-    },
-    {
-      id: 20,
-      title: "Recruitment",
-      category: "Human Resources",
-      image: iuconImage1,
-    },
-    { id: 21, title: "Website", category: "Website", image: iuconImage3 },
-    { id: 22, title: "eCommerce", category: "Website", image: iuconImage4 },
+    { id: 4, title: "Cloud Integration", image: Image4 },
   ];
 
   const marketingServices = [
@@ -179,6 +134,20 @@ export default function Home() {
     return 1; // mobile
   };
 
+  const heroTitles = [
+    "Empower Your Business with Fully Integrated Digital Solutions",
+    "Simplify Operations. Accelerate Growth. All in One Platform",
+    "Transform the Way You Work with Smart, Connected Systems",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTitle((prev) => (prev + 1) % heroTitles.length);
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   useEffect(() => {
     const handleResize = () => {
       setItemsPerPage(getItemsPerPage());
@@ -191,10 +160,10 @@ export default function Home() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const filteredApps = useMemo(() => {
-    if (activeTab === "All") return odooApps;
-    return odooApps.filter((app) => app.category === activeTab);
-  }, [activeTab, odooApps]);
+  const filteredApps =
+    activeTab === "All"
+      ? odooApps
+      : odooApps.filter((item) => item.category === activeTab);
 
   return (
     <main
@@ -241,7 +210,7 @@ export default function Home() {
           />
 
           {/* CONTENT */}
-          <div className="relative z-10 max-w-4xl px-5 mx-auto text-center pt-28 sm:pt-32">
+          <div className="relative z-10 max-w-4xl px-5 mx-auto text-center pt-18 sm:pt-24">
             {/* MYCROW LOGO */}
             <motion.img
               src={mycrowLogo}
@@ -252,16 +221,34 @@ export default function Home() {
               alt="mycrow"
             />
 
-            {/* TITLE */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-2xl font-bold sm:text-4xl md:text-4xl"
+              transition={{ duration: 0.8 }}
+              className="text-2xl font-bold leading-tight sm:text-3xl md:text-3xl"
             >
-              Make Your Digital Transformation Succeed!
-              <br />
-              <span className="font-semibold text-gray-700">
+              {/* MORPHING TITLE */}
+              <span className="relative block overflow-hidden min-h-[72px]">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={activeTitle}
+                    variants={morphVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{
+                      duration: 1.5,
+                      ease: [0.4, 0, 0.2, 1], // premium easing
+                    }}
+                    className="absolute left-0 right-0 text-3xl"
+                  >
+                    {heroTitles[activeTitle]}
+                  </motion.span>
+                </AnimatePresence>
+              </span>
+
+              {/* STATIC SUBTITLE */}
+              <span className="block mt-2 font-semibold text-gray-700">
                 One solution covers all needs
               </span>
             </motion.h1>
@@ -294,16 +281,13 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col items-center mt-6"
+              className="flex flex-col items-center mt-14"
             >
               <img
-                src={odooLogo}
+                src={LearningPatner}
                 alt="Odoo Learning Partner"
-                className="object-contain h-6 sm:h-7"
+                className="object-contain h-28 sm:h-28"
               />
-              <span className="mt-1 text-xs text-gray-500 sm:text-sm">
-                Learning Partner
-              </span>
             </motion.div>
           </div>
         </div>
@@ -535,7 +519,7 @@ export default function Home() {
                     >
                       <img
                         src={app.image}
-                        alt=""
+                        alt={app.title}
                         className="object-contain w-10 h-10 sm:w-14 sm:h-14"
                       />
                     </div>
