@@ -32,40 +32,39 @@ export default function Home() {
   const [itemsPerPage, setItemsPerPage] = useState(3);
 
   const slideVariants = {
-  enter: (direction) => ({
-    x: direction > 0 ? 120 : -120,
-    opacity: 0,
-    scale: 0.92,
-    filter: "blur(6px)",
-  }),
+    enter: (direction) => ({
+      x: direction > 0 ? 120 : -120,
+      opacity: 0,
+      scale: 0.92,
+      filter: "blur(6px)",
+    }),
 
-  center: {
-    x: 0,
-    opacity: 1,
-    scale: 1,
-    filter: "blur(0px)",
-    transition: {
-      x: { type: "spring", stiffness: 260, damping: 28 },
-      scale: { type: "spring", stiffness: 220, damping: 25 },
-      opacity: { duration: 0.3 },
-      filter: { duration: 0.25 },
+    center: {
+      x: 0,
+      opacity: 1,
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        x: { type: "spring", stiffness: 260, damping: 28 },
+        scale: { type: "spring", stiffness: 220, damping: 25 },
+        opacity: { duration: 0.3 },
+        filter: { duration: 0.25 },
+      },
     },
-  },
 
-  exit: (direction) => ({
-    x: direction > 0 ? -120 : 120,
-    opacity: 0,
-    scale: 0.92,
-    filter: "blur(6px)",
-    transition: {
-      x: { type: "spring", stiffness: 260, damping: 28 },
-      scale: { duration: 0.2 },
-      opacity: { duration: 0.2 },
-      filter: { duration: 0.2 },
-    },
-  }),
-};
-
+    exit: (direction) => ({
+      x: direction > 0 ? -120 : 120,
+      opacity: 0,
+      scale: 0.92,
+      filter: "blur(6px)",
+      transition: {
+        x: { type: "spring", stiffness: 260, damping: 28 },
+        scale: { duration: 0.2 },
+        opacity: { duration: 0.2 },
+        filter: { duration: 0.2 },
+      },
+    }),
+  };
 
   /* ================= DATA ================= */
   const services = [
@@ -211,7 +210,15 @@ export default function Home() {
             initial={{ opacity: 0, x: -120, rotate: 45 }}
             animate={{ opacity: 1, x: 0, rotate: 45 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            className=" absolute -left-44 -bottom-0 hidden md:block w-[900px] translate-y-20"
+            className="
+                    absolute
+              -left-52 sm:-left-40 md:-left-44
+              bottom-3 sm:bottom-0
+              w-[360px] sm:w-[520px] md:w-[900px]
+              translate-y-6 sm:translate-y-20 
+              block
+              pointer-events-none
+            "
             alt="hand-left"
           />
 
@@ -221,7 +228,15 @@ export default function Home() {
             initial={{ opacity: 0, x: 120 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-            className="absolute -bottom-32 right-0 hidden md:block w-[850px] translate-y-20 "
+            className="
+                absolute
+          right-[-145px] sm:right-[-120px] md:right-0
+          bottom-[-40px] sm:bottom-[-120px] md:-bottom-32
+          w-[340px] sm:w-[500px] md:w-[850px]
+          translate-y-6 sm:translate-y-20
+          block
+          pointer-events-none
+              "
             alt="hand-right"
           />
 
@@ -259,7 +274,17 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="inline-flex px-7 my-20 py-2.5 mt-14 text-sm text-white bg-purple-600 rounded-full shadow hover:bg-purple-700 transition"
+              className="inline-flex
+  px-5 sm:px-7
+  py-2 sm:py-2.5
+  mt-10 sm:mt-14
+  text-xs sm:text-sm
+  text-white
+  bg-purple-600
+  rounded-full
+  shadow
+  hover:bg-purple-700
+  transition"
             >
               Meet Our Expert
             </motion.a>

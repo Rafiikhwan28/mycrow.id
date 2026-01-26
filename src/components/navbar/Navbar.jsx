@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "../../assets/mycrow_logo.png";
 import { navbarData } from "../../data/navbar";
@@ -44,37 +43,24 @@ export default function Navbar() {
 
   /* ================= SCROLL EFFECT ================= */
   useEffect(() => {
-    const onScroll = () => {
-      setIsScrolled(window.scrollY > 90);
-    };
-
+    const onScroll = () => setIsScrolled(window.scrollY > 90);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   /* ================= LOCK BODY SCROLL ================= */
   useEffect(() => {
-  if (mobileOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
-}, [mobileOpen]);
-
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+  }, [mobileOpen]);
 
   const location = useLocation();
   const prevPath = useRef(location.pathname);
 
   useEffect(() => {
     if (prevPath.current !== location.pathname) {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-
+      window.scrollTo({ top: 0, behavior: "smooth" });
       setMobileOpen(false);
       setMobileActiveMenu(null);
-
       prevPath.current = location.pathname;
     }
   }, [location.pathname]);
@@ -88,7 +74,7 @@ export default function Navbar() {
 
       {/* ================= NAVBAR ================= */}
       <nav
-        className={` backdrop-blur-3xl transition-all duration-500 ${
+        className={`backdrop-blur-3xl transition-all duration-500 ${
           isScrolled ? "py-2 shadow-lg" : "py-5"
         }`}
       >
@@ -220,12 +206,9 @@ export default function Navbar() {
 
       {/* ================= MOBILE SIDEBAR ================= */}
       <aside
-        className={`fixed top-0 right-0 z-50
-  h-full w-full
-  bg-white
-  overflow-y-auto overscroll-contain
-  transform transition-transform duration-500
-  ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed top-0 right-0 z-50 h-full w-full bg-white
+        overflow-y-auto overscroll-contain transform transition-transform duration-500
+        ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         {/* HEADER */}
         <div className="flex items-center justify-between px-6 py-5 border-b">
@@ -238,10 +221,12 @@ export default function Navbar() {
         {/* MENU */}
         <div className="p-6 space-y-4 overflow-y-auto">
           {Object.values(navbarData).map((menu, index) => (
-            <div key={menu.label} className=" rounded-xl">
+            <div key={menu.label} className="rounded-xl">
               <button
                 onClick={() =>
-                  setMobileActiveMenu(mobileActiveMenu === index ? null : index)
+                  setMobileActiveMenu(
+                    mobileActiveMenu === index ? null : index
+                  )
                 }
                 className="flex items-center justify-between w-full px-4 py-4 font-semibold"
               >
@@ -296,9 +281,11 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* ================= CTA (UPDATED MOBILE SIZE) ================= */}
         <div className="p-6 border-t">
-          <button className="w-full py-4 text-lg text-white bg-purple-600 rounded-full">
+          <button
+            className="w-full py-3 text-base text-white transition bg-purple-600 rounded-full  sm:py-4 sm:text-lg"
+          >
             {translations[lang].contact}
           </button>
         </div>
