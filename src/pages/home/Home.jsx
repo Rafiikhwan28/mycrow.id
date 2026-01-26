@@ -202,7 +202,7 @@ export default function Home() {
       className="min-h-screen pt-10 bg-center bg-no-repeat bg-cover"
     >
       {/* ================= HERO ================= */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden pb-28">
         <div className="relative h-[460px] sm:h-[520px] md:h-[640px] bg-gradient-to-r">
           {/* HAND LEFT */}
           <motion.img
