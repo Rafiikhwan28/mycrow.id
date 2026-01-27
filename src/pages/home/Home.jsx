@@ -29,36 +29,15 @@ import iuconImage8 from "../../assets/icons/video.gif";
 export default function Home() {
   /* ================= STATE ================= */
   const [activeTab, setActiveTab] = useState("All");
-  const [servicePage, setServicePage] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [mobileIndex, setMobileIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(3);
   const [activeTitle, setActiveTitle] = useState(0);
+  const [activeService, setActiveService] = useState(1);
 
-  const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0,
-      scale: 0.95,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-    exit: (direction) => ({
-      x: direction > 0 ? -300 : 300,
-      opacity: 0,
-      scale: 0.95,
-      transition: {
-        duration: 0.4,
-        ease: "easeIn",
-      },
-    }),
+  const prevService = () => {
+    setActiveService((prev) => (prev > 0 ? prev - 1 : prev));
+  };
+
+  const nextService = () => {
+    setActiveService((prev) => (prev < services.length - 1 ? prev + 1 : prev));
   };
 
   const morphVariants = {
@@ -99,32 +78,6 @@ export default function Home() {
   ];
 
   /* ================= DERIVED ================= */
-  const ITEMS_PER_PAGE_DESKTOP = 3;
-  const totalPages = Math.ceil(services.length / ITEMS_PER_PAGE_DESKTOP);
-
-  const visibleServices = services.slice(
-    servicePage * ITEMS_PER_PAGE_DESKTOP,
-    servicePage * ITEMS_PER_PAGE_DESKTOP + ITEMS_PER_PAGE_DESKTOP,
-  );
-
-  const MOBILE_VISIBLE = 3; // 3 card kelihatan
-  const mobileCardWidth = 100 / MOBILE_VISIBLE; // %
-  const maxMobileIndex = services.length - MOBILE_VISIBLE;
-
-  const nextMobile = () => {
-    setMobileIndex((i) => Math.min(i + 1, maxMobileIndex));
-  };
-
-  const prevMobile = () => {
-    setMobileIndex((i) => Math.max(i - 1, 0));
-  };
-
-  const getItemsPerPage = () => {
-    if (typeof window === "undefined") return 3;
-    if (window.innerWidth >= 1024) return 3; // desktop
-    if (window.innerWidth >= 640) return 2; // tablet
-    return 1; // mobile
-  };
 
   const heroTitles = [
     "Empower Your Business with Fully Integrated Digital Solutions",
@@ -138,18 +91,6 @@ export default function Home() {
     }, 7000);
 
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setItemsPerPage(getItemsPerPage());
-      setServicePage(0); // reset biar tidak out of range
-    };
-
-    handleResize(); // ⬅️ PENTING: init saat pertama render
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const filteredApps =
@@ -303,59 +244,78 @@ export default function Home() {
               </h2>
 
               <div className="relative max-w-6xl mx-auto">
-                {/* ================= DESKTOP (TETAP, TIDAK DIUBAH) ================= */}
-                <div className="hidden md:block">
+                {/* MOBILE SERVICES */}
+                <div className="grid grid-cols-1 gap-6 md:hidden">
+                  {services.map((service) => (
+                    <div
+                      key={service.id}
+                      className="overflow-hidden bg-white shadow-lg rounded-2xl"
+                    >
+                      <div className="py-4 text-center text-white bg-purple-600">
+                        {service.title}
+                      </div>
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="object-contain w-full h-56 p-4"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* ================= DESKTOP ================= */}
+                <div className="relative block md:block">
+                  {/* LEFT */}
                   <button
-                    onClick={() => {
-                      setDirection(-1);
-                      setServicePage((p) => (p > 0 ? p - 1 : p));
-                    }}
-                    disabled={servicePage === 0}
-                    className="absolute left-0 z-10 items-center justify-center hidden w-12 h-12 text-white -translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl md:flex top-1/2 disabled:opacity-40"
+                    onClick={prevService}
+                    disabled={activeService === 0}
+                    className="absolute z-10 items-center justify-center hidden w-12 h-12 text-white -translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl -left-5 md:flex top-1/2 disabled:opacity-40"
                   >
                     ‹
                   </button>
 
+                  {/* RIGHT */}
                   <button
-                    onClick={() => {
-                      setDirection(1);
-                      setServicePage((p) => (p < totalPages - 1 ? p + 1 : p));
-                    }}
-                    disabled={servicePage === totalPages - 1}
-                    className="absolute right-0 z-10 items-center justify-center hidden w-12 h-12 text-white translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl md:flex top-1/2 disabled:opacity-40"
+                    onClick={nextService}
+                    disabled={activeService === services.length - 1}
+                    className="absolute z-10 items-center justify-center hidden w-12 h-12 text-white translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl -right-5 md:flex top-1/2 disabled:opacity-40"
                   >
                     ›
                   </button>
 
-                  <AnimatePresence mode="wait" custom={direction}>
-                    <motion.div
-                      key={servicePage}
-                      custom={direction}
-                      variants={slideVariants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      className="grid justify-center gap-6 px-20 py-20 md:grid-cols-3"
-                    >
-                      {visibleServices.map((service) => (
+                  {/* CARDS */}
+                  <div className="relative flex items-center justify-center h-[480px] px-20 overflow-hidden">
+                    {services.map((service, index) => {
+                      const offset = index - activeService;
+
+                      return (
                         <div
                           key={service.id}
+                          style={{
+                            transform: `
+                  translateX(${offset * 50}px)
+                  scale(${index === activeService ? 1 : 0.85})
+                `,
+                            zIndex: 20 - Math.abs(offset),
+                            opacity: Math.abs(offset) > 2 ? 0 : 1,
+                          }}
                           className="
-    group
-    relative
-    h-[400px]
-    w-[300px]
-    bg-white/80
-    backdrop-blur-xl
-    rounded-[28px]
-    border border-purple-200/60
-    overflow-hidden
-    shadow-lg
-    transition-all duration-500
-    hover:-translate-y-4
-    hover:shadow-purple-500/30
-    hover:shadow-2xl
-  "
+                absolute
+                transition-all duration-500
+                group
+                relative
+                h-[400px]
+                w-[300px]
+                bg-white/80
+                backdrop-blur-xl
+                rounded-[28px]
+                border border-purple-200/60
+                overflow-hidden
+                shadow-lg
+                hover:-translate-y-4
+                hover:shadow-purple-500/30
+                hover:shadow-2xl
+              "
                         >
                           {/* GRADIENT GLOW */}
                           <div className="absolute inset-0 transition duration-500 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-purple-500/20 via-blue-500/10 to-transparent" />
@@ -374,21 +334,9 @@ export default function Home() {
                             />
                           </div>
                         </div>
-                      ))}
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-
-                {/* ================= PAGINATION ================= */}
-                <div className="flex justify-center gap-2 mt-8">
-                  {Array.from({ length: totalPages }).map((_, i) => (
-                    <span
-                      key={i}
-                      className={`w-2.5 h-2.5 rounded-full ${
-                        i === servicePage ? "bg-purple-600" : "bg-purple-300/50"
-                      }`}
-                    />
-                  ))}
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
