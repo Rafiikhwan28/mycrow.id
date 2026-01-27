@@ -29,16 +29,10 @@ import iuconImage8 from "../../assets/icons/video.gif";
 export default function Home() {
   /* ================= STATE ================= */
   const [activeTab, setActiveTab] = useState("All");
+  const [servicePage, setServicePage] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3);
   const [activeTitle, setActiveTitle] = useState(0);
-  const [activeService, setActiveService] = useState(1);
-
-  const prevService = () => {
-    setActiveService((prev) => (prev > 0 ? prev - 1 : prev));
-  };
-
-  const nextService = () => {
-    setActiveService((prev) => (prev < services.length - 1 ? prev + 1 : prev));
-  };
 
   const morphVariants = {
     enter: {
@@ -78,6 +72,57 @@ export default function Home() {
   ];
 
   /* ================= DERIVED ================= */
+  const ITEMS_PER_PAGE_DESKTOP = 3;
+  const totalPages = Math.ceil(services.length / ITEMS_PER_PAGE_DESKTOP);
+
+  const visibleServices = services.slice(
+    servicePage * ITEMS_PER_PAGE_DESKTOP,
+    servicePage * ITEMS_PER_PAGE_DESKTOP + ITEMS_PER_PAGE_DESKTOP,
+  );
+
+  const MOBILE_VISIBLE = 3; // 3 card kelihatan
+  const mobileCardWidth = 100 / MOBILE_VISIBLE; // %
+  const maxMobileIndex = services.length - MOBILE_VISIBLE;
+
+  const nextMobile = () => {
+    setMobileIndex((i) => (i > 0 ? i - 1 : i, maxMobileIndex));
+  };
+
+  const prevMobile = () => {
+    setMobileIndex((i) => (i < services.length - 1 ? i + 1 : i));
+  };
+
+  //fungsi service slide
+  // ===== SERVICE SLIDER CONFIG =====
+  const VISIBLE = 3;
+  const CARD_WIDTH = 300;
+  const GAP = 24;
+
+  const [pageIndex, setPageIndex] = useState(0);
+  const [direction, setDirection] = useState(1); // 1 = kanan, -1 = kiri
+
+  const total = services.length;
+
+  const next = () => {
+    setDirection(1);
+    setPageIndex((prev) => (prev + 1) % total);
+  };
+
+  const prev = () => {
+    setDirection(-1);
+    setPageIndex((prev) => (prev - 1 + total) % total);
+  };
+
+  const visibleItems = Array.from({ length: VISIBLE }, (_, i) => {
+    return services[(pageIndex + i) % total];
+  });
+
+  const getItemsPerPage = () => {
+    if (typeof window === "undefined") return 3;
+    if (window.innerWidth >= 1024) return 3; // desktop
+    if (window.innerWidth >= 640) return 2; // tablet
+    return 1; // mobile
+  };
 
   const heroTitles = [
     "Empower Your Business with Fully Integrated Digital Solutions",
@@ -91,6 +136,18 @@ export default function Home() {
     }, 7000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(getItemsPerPage());
+      setServicePage(0); // reset biar tidak out of range
+    };
+
+    handleResize(); // ⬅️ PENTING: init saat pertama render
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const filteredApps =
@@ -244,98 +301,90 @@ export default function Home() {
               </h2>
 
               <div className="relative max-w-6xl mx-auto">
-                {/* MOBILE SERVICES */}
-                <div className="grid grid-cols-1 gap-6 md:hidden">
-                  {services.map((service) => (
-                    <div
-                      key={service.id}
-                      className="overflow-hidden bg-white shadow-lg rounded-2xl"
-                    >
-                      <div className="py-4 text-center text-white bg-purple-600">
-                        {service.title}
-                      </div>
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="object-contain w-full h-56 p-4"
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                {/* ================= DESKTOP ================= */}
-                <div className="relative block md:block">
+                <div className="relative hidden md:block">
                   {/* LEFT */}
                   <button
-                    onClick={prevService}
-                    disabled={activeService === 0}
-                    className="absolute z-10 items-center justify-center hidden w-12 h-12 text-white -translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl -left-5 md:flex top-1/2 disabled:opacity-40"
+                    onClick={next}
+                    className="absolute z-20 hidden w-12 h-12 text-2xl text-white -translate-x-1/2 -translate-y-1/2 bg-purple-500 rounded-full shadow-xl left-5 md:flex top-1/2"
                   >
                     ‹
                   </button>
 
                   {/* RIGHT */}
                   <button
-                    onClick={nextService}
-                    disabled={activeService === services.length - 1}
-                    className="absolute z-10 items-center justify-center hidden w-12 h-12 text-white translate-x-1/2 -translate-y-1/2 bg-purple-400 rounded-full shadow-xl -right-5 md:flex top-1/2 disabled:opacity-40"
+                    onClick={prev}
+                    className="absolute z-20 hidden w-12 h-12 text-2xl text-white translate-x-1/2 -translate-y-1/2 bg-purple-500 rounded-full shadow-xl right-5 md:flex top-1/2"
                   >
                     ›
                   </button>
 
-                  {/* CARDS */}
-                  <div className="relative flex items-center justify-center h-[480px] px-20 overflow-hidden">
-                    {services.map((service, index) => {
-                      const offset = index - activeService;
+                  {/* VIEWPORT */}
+                  <div className="px-20 overflow-hidden">
+                    <motion.div
+                      layout
+                      className="flex justify-center gap-6 py-20"
+                      transition={{
+                        type: "spring",
+                        stiffness: 90,
+                        damping: 20,
+                        mass: 0.8,
+                      }}
+                    >
+                      {visibleItems.map((service, index) => {
+                        const isCenter = index === 1;
 
-                      return (
-                        <div
-                          key={service.id}
-                          style={{
-                            transform: `
-                  translateX(${offset * 50}px)
-                  scale(${index === activeService ? 1 : 0.85})
-                `,
-                            zIndex: 20 - Math.abs(offset),
-                            opacity: Math.abs(offset) > 2 ? 0 : 1,
-                          }}
-                          className="
-                absolute
-                transition-all duration-500
-                group
-                relative
-                h-[400px]
-                w-[300px]
-                bg-white/80
-                backdrop-blur-xl
+                        return (
+                          <motion.div
+                            key={service.id}
+                            layout
+                            animate={{
+                              scale: isCenter ? 1.12 : 0.92,
+                              opacity: isCenter ? 1 : 0.55,
+                            }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 120,
+                              damping: 18,
+                              mass: 0.9,
+                            }}
+                            className="w-[300px] shrink-0"
+                            style={{
+                              filter: isCenter ? "blur(0px)" : "blur(0.1px)",
+                            }}
+                          >
+                            <div
+                              className="
+                group relative
+                h-[400px] w-[300px]
                 rounded-[28px]
                 border border-purple-200/60
-                overflow-hidden
-                shadow-lg
-                hover:-translate-y-4
-                hover:shadow-purple-500/30
-                hover:shadow-2xl
+                bg-white/80 backdrop-blur-xl
+                shadow-lg overflow-hidden
               "
-                        >
-                          {/* GRADIENT GLOW */}
-                          <div className="absolute inset-0 transition duration-500 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-purple-500/20 via-blue-500/10 to-transparent" />
+                              style={{
+                                boxShadow: isCenter
+                                  ? "0 35px 90px rgba(124,58,237,0.35)"
+                                  : "0 12px 30px rgba(0,0,0,0.15)",
+                              }}
+                            >
+                              {/* TITLE */}
+                              <div className="py-5 text-lg font-semibold text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
+                                {service.title}
+                              </div>
 
-                          {/* TITLE */}
-                          <div className="relative z-10 py-5 text-lg font-semibold text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
-                            {service.title}
-                          </div>
-
-                          {/* IMAGE */}
-                          <div className="relative z-10 flex items-center justify-center h-[352px] p-6">
-                            <img
-                              src={service.image}
-                              alt={service.title}
-                              className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-110 group-hover:-translate-y-2"
-                            />
-                          </div>
-                        </div>
-                      );
-                    })}
+                              {/* IMAGE */}
+                              <div className="flex items-center justify-center h-[352px] p-6">
+                                <img
+                                  src={service.image}
+                                  alt={service.title}
+                                  className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-110 group-hover:-translate-y-2"
+                                />
+                              </div>
+                            </div>
+                          </motion.div>
+                        );
+                      })}
+                    </motion.div>
                   </div>
                 </div>
               </div>
