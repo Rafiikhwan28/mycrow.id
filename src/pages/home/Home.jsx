@@ -37,38 +37,30 @@ export default function Home() {
 
   const slideVariants = {
     enter: (direction) => ({
-      x: direction > 0 ? 120 : -120,
+      x: direction > 0 ? 300 : -300,
       opacity: 0,
-      scale: 0.92,
-      filter: "blur(6px)",
+      scale: 0.95,
     }),
-
     center: {
       x: 0,
       opacity: 1,
       scale: 1,
-      filter: "blur(0px)",
       transition: {
-        x: { type: "spring", stiffness: 260, damping: 28 },
-        scale: { type: "spring", stiffness: 220, damping: 25 },
-        opacity: { duration: 0.3 },
-        filter: { duration: 0.25 },
+        duration: 0.6,
+        ease: "easeOut",
       },
     },
-
     exit: (direction) => ({
-      x: direction > 0 ? -120 : 120,
+      x: direction > 0 ? -300 : 300,
       opacity: 0,
-      scale: 0.92,
-      filter: "blur(6px)",
+      scale: 0.95,
       transition: {
-        x: { type: "spring", stiffness: 260, damping: 28 },
-        scale: { duration: 0.2 },
-        opacity: { duration: 0.2 },
-        filter: { duration: 0.2 },
+        duration: 0.4,
+        ease: "easeIn",
       },
     }),
   };
+
   const morphVariants = {
     enter: {
       opacity: 0,
@@ -92,7 +84,7 @@ export default function Home() {
     { id: 1, title: "ERP and MRP Solution", image: Image1 },
     { id: 2, title: "Build your app", image: Image2 },
     { id: 3, title: "Design Solutions", image: Image3 },
-    { id: 4, title: "Cloud Integration", image: Image4 },
+    { id: 4, title: "Digital Marketing", image: Image4 },
   ];
 
   const marketingServices = [
@@ -182,7 +174,7 @@ export default function Home() {
             className="
                     absolute
               -left-52 sm:-left-40 md:-left-44
-              bottom-3 sm:bottom-0
+              bottom-3 sm:-bottom-7
               w-[360px] sm:w-[520px] md:w-[900px]
               translate-y-6 sm:translate-y-20 
               block
@@ -200,7 +192,7 @@ export default function Home() {
             className="
                 absolute
           right-[-145px] sm:right-[-120px] md:right-0
-          bottom-[-40px] sm:bottom-[-120px] md:-bottom-32
+          bottom-[-40px] sm:bottom-[-120px] md:-bottom-44
           w-[340px] sm:w-[500px] md:w-[850px]
           translate-y-6 sm:translate-y-20
           block
@@ -211,24 +203,37 @@ export default function Home() {
 
           {/* CONTENT */}
           <div className="relative z-10 max-w-4xl px-5 mx-auto text-center pt-18 sm:pt-24">
-            {/* MYCROW LOGO */}
-            <motion.img
-              src={mycrowLogo}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mx-auto mb-4 h-7 sm:h-8"
-              alt="mycrow"
-            />
+            <div className="flex items-center justify-center gap-6 mb-5">
+              {/* MYCROW LOGO */}
+              <motion.img
+                src={mycrowLogo}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="object-contain h-8 pr-4"
+                alt="mycrow"
+              />
+              <div className="w-1 h-10 bg-purple-400"></div>
+
+              {/* ODOO LOGO */}
+              <motion.img
+                src={LearningPatner}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="object-contain h-20"
+                alt="Odoo Learning Partner"
+              />
+            </div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5 }}
               className="text-2xl font-bold leading-tight sm:text-3xl md:text-3xl"
             >
               {/* MORPHING TITLE */}
-              <span className="relative block overflow-hidden min-h-[72px]">
+              <span className="relative block overflow-hidden min-h-[110px]">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={activeTitle}
@@ -240,16 +245,11 @@ export default function Home() {
                       duration: 1.5,
                       ease: [0.4, 0, 0.2, 1], // premium easing
                     }}
-                    className="absolute left-0 right-0 text-3xl"
+                    className="absolute left-0 right-0 text-5xl l"
                   >
                     {heroTitles[activeTitle]}
                   </motion.span>
                 </AnimatePresence>
-              </span>
-
-              {/* STATIC SUBTITLE */}
-              <span className="block mt-2 font-semibold text-gray-700">
-                One solution covers all needs
               </span>
             </motion.h1>
 
@@ -262,33 +262,20 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="inline-flex
-  px-5 sm:px-7
-  py-2 sm:py-2.5
+  px-5 sm:px-10
+  py-2 sm:py-3.5
   mt-10 sm:mt-14
+  border-4
   text-xs sm:text-sm
   text-white
   bg-purple-600
-  rounded-full
+  rounded-xl
   shadow
   hover:bg-purple-700
   transition"
             >
               Meet Our Expert
             </motion.a>
-
-            {/* ODOO LOGO */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col items-center mt-14"
-            >
-              <img
-                src={LearningPatner}
-                alt="Odoo Learning Partner"
-                className="object-contain h-28 sm:h-28"
-              />
-            </motion.div>
           </div>
         </div>
       </section>
@@ -316,71 +303,6 @@ export default function Home() {
               </h2>
 
               <div className="relative max-w-6xl mx-auto">
-                {/* ================= MOBILE SLIDER ================= */}
-                <div className="relative md:hidden">
-                  {/* LEFT */}
-                  <button
-                    onClick={prevMobile}
-                    className="absolute z-10 w-8 h-8 text-white -translate-y-1/2 bg-purple-500 rounded-full shadow -left-2 top-1/2"
-                  >
-                    ‹
-                  </button>
-
-                  {/* RIGHT */}
-                  <button
-                    onClick={nextMobile}
-                    className="absolute z-10 w-8 h-8 text-white -translate-y-1/2 bg-purple-500 rounded-full shadow -right-2 top-1/2"
-                  >
-                    ›
-                  </button>
-
-                  {/* VIEWPORT */}
-                  <div className="overflow-hidden ">
-                    <motion.div
-                      animate={{
-                        x: `-${mobileIndex * mobileCardWidth}%`,
-                      }}
-                      transition={{ duration: 0.45, ease: "easeInOut" }}
-                      className="flex gap-14"
-                    >
-                      {services.map((service) => (
-                        <div
-                          key={service.id}
-                          style={{ width: `${mobileCardWidth}%` }}
-                          className="px-2 shrink-0"
-                        >
-                          <div
-                            className="
-    flex flex-col
-    h-[260px]
-    w-[130px]
-    bg-white
-    border border-purple-200
-    rounded-3xl
-    overflow-hidden
-    shadow-sm
-  "
-                          >
-                            {/* HEADER */}
-                            <div className="px-2 py-2 text-[11px] font-semibold text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
-                              {service.title}
-                            </div>
-
-                            {/* IMAGE */}
-                            <div className="flex items-center justify-center flex-1 p-3">
-                              <img
-                                src={service.image}
-                                alt={service.title}
-                                className="object-contain w-full h-full"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </motion.div>
-                  </div>
-                </div>
-
                 {/* ================= DESKTOP (TETAP, TIDAK DIUBAH) ================= */}
                 <div className="hidden md:block">
                   <button
@@ -418,17 +340,37 @@ export default function Home() {
                       {visibleServices.map((service) => (
                         <div
                           key={service.id}
-                          className="h-[400px] w-[300px] bg-white rounded-[28px] border-2 border-purple-200 overflow-hidden"
+                          className="
+    group
+    relative
+    h-[400px]
+    w-[300px]
+    bg-white/80
+    backdrop-blur-xl
+    rounded-[28px]
+    border border-purple-200/60
+    overflow-hidden
+    shadow-lg
+    transition-all duration-500
+    hover:-translate-y-4
+    hover:shadow-purple-500/30
+    hover:shadow-2xl
+  "
                         >
-                          <div className="py-5 text-lg font-semibold text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
+                          {/* GRADIENT GLOW */}
+                          <div className="absolute inset-0 transition duration-500 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-purple-500/20 via-blue-500/10 to-transparent" />
+
+                          {/* TITLE */}
+                          <div className="relative z-10 py-5 text-lg font-semibold text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
                             {service.title}
                           </div>
 
-                          <div className="flex items-center justify-center h-[352px]">
+                          {/* IMAGE */}
+                          <div className="relative z-10 flex items-center justify-center h-[352px] p-6">
                             <img
                               src={service.image}
                               alt={service.title}
-                              className="object-contain w-full h-full"
+                              className="object-contain w-full h-full transition-transform duration-700 group-hover:scale-110 group-hover:-translate-y-2"
                             />
                           </div>
                         </div>
@@ -469,11 +411,17 @@ export default function Home() {
                       sm:p-12 sm:pt-5 sm:mx-16 sm:rounded-[32px]
     "
               >
-                {/* Logo Odoo */}
+                {/* Logo mycrow */}
                 <img
                   src={odooLogo}
                   alt="Odoo Learning Partner"
-                  className="absolute object-contain h-5 top-4 right-4 sm:top-10 sm:right-4 sm:h-7 sm:mr-16 sm:mt-3"
+                  className="object-contain h-5 pl-12 sm:h-8 sm:mt-14"
+                />
+                {/* Logo Odoo */}
+                <img
+                  src={LearningPatner}
+                  alt="Odoo Learning Partner"
+                  className="absolute object-contain h-32 top-4 right-4 sm:top-10 sm:right-4 sm:h-24 sm:mr-16 sm:mt-3"
                 />
 
                 {/* TABS */}

@@ -198,7 +198,7 @@ export default function Navbar() {
                 href="https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20konsultasi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-5 py-3 my-2 text-sm text-white transition bg-purple-600 rounded-full hover:bg-purple-700"
+                className="inline-block px-5 py-3 my-2 text-sm text-white transition bg-purple-600 rounded-xl hover:bg-purple-700"
               >
                 Contact Us
               </a>
