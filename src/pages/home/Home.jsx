@@ -6,7 +6,7 @@ import handRight from "../../assets/Hand_cyborg.png";
 import bgImage from "../../assets/background.jpg";
 import odooLogo from "../../assets/odoo_logo.png";
 import LearningPatner from "../../assets/odoo_learning_partner_rgb.png";
-import { odooApps, odooTabs } from "../../data/LandingPage/odooApps";
+import { odooApps, odooTabs } from "../../data/LandingPage/odooApps.js";
 
 // Images
 import Image1 from "../../assets/01. Landing Page/banner-01.png";
@@ -79,8 +79,6 @@ export default function Home() {
     servicePage * ITEMS_PER_PAGE_DESKTOP + ITEMS_PER_PAGE_DESKTOP,
   );
 
- 
-
   // ===== SERVICE SLIDER CONFIG =====
   const VISIBLE = 3;
   const CARD_WIDTH = 300;
@@ -138,12 +136,29 @@ export default function Home() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  
+  //fungsi odoo
 
+  const ITEMS_PER_PAGE = 9;
+  const [currentPage, setCurrentPage] = useState(0);
+
+  // FILTER DATA (DATA ASLI TIDAK DIUBAH)
   const filteredApps =
     activeTab === "All"
-      ? odooApps
-      : odooApps.filter((item) => item.category === activeTab);
+      ? odooApps.filter((app) => app.id)
+      : odooApps.filter((app) => app.category === activeTab && app.id);
+
+  // PAGINATION
+  const totalPagesOdoo = Math.ceil(filteredApps.length / ITEMS_PER_PAGE);
+
+  const paginatedApps = filteredApps.slice(
+    currentPage * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE + ITEMS_PER_PAGE,
+  );
+
+  // RESET PAGE SAAT TAB BERUBAH
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [activeTab]);
 
   return (
     <main
@@ -328,7 +343,7 @@ export default function Home() {
                             layout
                             animate={{
                               scale: isCenter ? 1.12 : 0.92,
-                              opacity: isCenter ? 1 : 0.80,
+                              opacity: isCenter ? 1 : 0.8,
                             }}
                             transition={{
                               type: "spring",
@@ -382,58 +397,59 @@ export default function Home() {
             </div>
 
             {/* ================= ODOO ================= */}
-            <div className="mb-16 ">
+            <div className="mb-16">
               <h2 className="mb-6 text-base font-bold text-center text-purple-700 sm:mb-8 sm:text-3xl">
                 All digital transformation initiative in one solutions
               </h2>
 
               <div
                 className="
-                      relative
-                      p-6 pt-14
-                      mx-4
-                      backdrop-blur-sm
-                      rounded-[24px]
-                      shadow-2xl
-                      border-2 border-purple-500
-                      sm:p-12 sm:pt-5 sm:mx-16 sm:rounded-[32px]
+      relative
+      p-6 pt-14
+      mx-4
+      backdrop-blur-sm
+      rounded-[24px]
+      shadow-2xl
+      border-2 border-purple-500
+      sm:p-12 sm:pt-5 sm:mx-16 sm:rounded-[32px]
     "
               >
-                {/* Logo mycrow */}
+                {/* LOGO MYCROW */}
                 <img
                   src={mycrowLogo}
-                  alt="Odoo Learning Partner"
+                  alt="Mycrow"
                   className="object-contain h-5 pl-12 sm:h-8 sm:mt-14"
                 />
-                {/* Logo Odoo */}
+
+                {/* LOGO ODOO */}
                 <img
                   src={odooLogo}
-                  alt="Odoo Learning Partner"
+                  alt="Odoo"
                   className="absolute object-contain h-24 top-4 right-4 sm:top-10 sm:right-4 sm:h-14 sm:mr-16 sm:mt-3"
                 />
 
-                {/* TABS */}
+                {/* ================= TABS ================= */}
                 <div
                   className="
-  flex flex-wrap justify-center
-  gap-1.5 sm:gap-2
-  mt-6 sm:mt-20
-  mb-6 sm:mb-12
-  px-2 sm:px-10
-  text-[11px] sm:text-lg
-"
+    flex flex-nowrap overflow-x-auto
+    gap-1.5 sm:gap-2
+    mt-6 sm:mt-20
+    mb-6 sm:mb-12
+    px-2 sm:px-10
+    text-[11px] sm:text-lg
+    
+  "
                 >
                   {odooTabs.map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
                       className={`
-        px-3 py-1.5
-        sm:px-5 sm:py-2
+        flex-shrink-0
+        px-3 py-1.5 sm:px-5 sm:py-2
         rounded-full
         whitespace-nowrap
         transition-all duration-200
-        text-[11px] sm:text-base
         ${
           activeTab === tab
             ? "bg-purple-600 text-white shadow-lg"
@@ -446,23 +462,81 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* CONTENT */}
-                <div className="grid grid-cols-4 gap-4 px-2 py-4 sm:grid-cols-4 sm:gap-4 sm:px-1 sm:py-5 md:grid-cols-4 lg:grid-cols-8 ">
-                  {filteredApps.map((app) => (
+                {/* ================= CONTENT (3x3 GRID) ================= */}
+                <div className="grid grid-cols-1 gap-6 px-2 py-4 sm:grid-cols-2 lg:grid-cols-3 sm:px-6">
+                  {paginatedApps.map((app) => (
                     <div
                       key={app.id}
-                      className="flex flex-col items-center justify-center h-16 transition bg-white shadow rounded-xl hover:-translate-y-1 hover:shadow-lg sm:h-20 sm:rounded-2xl"
+                      className="flex flex-col p-4 transition bg-white shadow-lg h-72 sm:h-80 rounded-2xl hover:-translate-y-1 hover:shadow-2xl"
                     >
-                      <img
-                        src={app.image}
-                        alt={app.title}
-                        className="object-contain w-10 h-10 sm:w-14 sm:h-14"
-                      />
+                      {/* IMAGE */}
+                      {app.image && (
+                        <img
+                          src={app.image}
+                          alt={app.title}
+                          className="object-contain w-16 h-16 mx-auto mb-4 sm:w-20 sm:h-20"
+                        />
+                      )}
+
+                      {/* TITLE */}
+                      <h3 className="mb-2 text-sm font-semibold text-center text-purple-700 sm:text-lg">
+                        {app.title}
+                      </h3>
+
+                      {/* DESKRIPSI */}
+                      <p className="flex-grow text-xs text-center text-gray-500 sm:text-sm">
+                        {app.deskripsi}
+                      </p>
                     </div>
                   ))}
                 </div>
 
-                {/* EMPTY STATE */}
+                {/* ================= SLIDER NAVIGATION ================= */}
+                {filteredApps.length > ITEMS_PER_PAGE && (
+                  <div className="flex items-center justify-center gap-4 mt-6">
+                    <button
+                      onClick={() => setCurrentPage((p) => Math.max(p - 1, 0))}
+                      disabled={currentPage === 0}
+                      className="
+            px-4 py-1.5
+            text-sm
+            rounded-full
+            border
+            transition
+            disabled:opacity-40
+            hover:bg-purple-50
+          "
+                    >
+                      Prev
+                    </button>
+
+                    <span className="text-sm text-gray-500">
+                      {currentPage + 1} / {totalPagesOdoo}
+                    </span>
+
+                    <button
+                      onClick={() =>
+                        setCurrentPage((p) =>
+                          Math.min(p + 1, totalPagesOdoo - 1),
+                        )
+                      }
+                      disabled={currentPage === totalPagesOdoo - 1}
+                      className="
+            px-4 py-1.5
+            text-sm
+            rounded-full
+            border
+            transition
+            disabled:opacity-40
+            hover:bg-purple-50
+          "
+                    >
+                      Next
+                    </button>
+                  </div>
+                )}
+
+                {/* ================= EMPTY STATE ================= */}
                 {filteredApps.length === 0 && (
                   <p className="mt-8 text-xs text-center text-gray-400 sm:text-sm sm:mt-10">
                     No application found
