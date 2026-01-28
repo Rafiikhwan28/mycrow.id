@@ -30,7 +30,6 @@ export default function Home() {
   /* ================= STATE ================= */
   const [activeTab, setActiveTab] = useState("All");
   const [servicePage, setServicePage] = useState(0);
-  const [mobileIndex, setMobileIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
   const [activeTitle, setActiveTitle] = useState(0);
 
@@ -80,19 +79,8 @@ export default function Home() {
     servicePage * ITEMS_PER_PAGE_DESKTOP + ITEMS_PER_PAGE_DESKTOP,
   );
 
-  const MOBILE_VISIBLE = 3; // 3 card kelihatan
-  const mobileCardWidth = 100 / MOBILE_VISIBLE; // %
-  const maxMobileIndex = services.length - MOBILE_VISIBLE;
+ 
 
-  const nextMobile = () => {
-    setMobileIndex((i) => (i > 0 ? i - 1 : i, maxMobileIndex));
-  };
-
-  const prevMobile = () => {
-    setMobileIndex((i) => (i < services.length - 1 ? i + 1 : i));
-  };
-
-  //fungsi service slide
   // ===== SERVICE SLIDER CONFIG =====
   const VISIBLE = 3;
   const CARD_WIDTH = 300;
@@ -149,6 +137,8 @@ export default function Home() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  
 
   const filteredApps =
     activeTab === "All"
@@ -260,10 +250,9 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="inline-flex
-  px-5 sm:px-10
+  px-5 sm:px-8
   py-2 sm:py-3.5
   mt-10 sm:mt-14
-  border-4
   text-xs sm:text-sm
   text-white
   bg-purple-600
@@ -305,7 +294,7 @@ export default function Home() {
                   {/* LEFT */}
                   <button
                     onClick={next}
-                    className="absolute z-20 hidden w-12 h-12 text-2xl text-white -translate-x-1/2 -translate-y-1/2 bg-purple-500 rounded-full shadow-xl left-5 md:flex top-1/2"
+                    className="absolute z-20 hidden w-12 h-12 text-purple-500 -translate-x-1/2 -translate-y-1/2 left-10 text-8xl md:flex top-1/2"
                   >
                     ‹
                   </button>
@@ -313,7 +302,7 @@ export default function Home() {
                   {/* RIGHT */}
                   <button
                     onClick={prev}
-                    className="absolute z-20 hidden w-12 h-12 text-2xl text-white translate-x-1/2 -translate-y-1/2 bg-purple-500 rounded-full shadow-xl right-5 md:flex top-1/2"
+                    className="absolute z-20 hidden w-12 h-12 text-purple-500 translate-x-1/2 -translate-y-1/2 right-10 text-8xl md:flex top-1/2"
                   >
                     ›
                   </button>
@@ -339,7 +328,7 @@ export default function Home() {
                             layout
                             animate={{
                               scale: isCenter ? 1.12 : 0.92,
-                              opacity: isCenter ? 1 : 0.55,
+                              opacity: isCenter ? 1 : 0.80,
                             }}
                             transition={{
                               type: "spring",
@@ -354,13 +343,15 @@ export default function Home() {
                           >
                             <div
                               className="
-                group relative
-                h-[400px] w-[300px]
-                rounded-[28px]
-                border border-purple-200/60
-                bg-white/80 backdrop-blur-xl
-                shadow-lg overflow-hidden
-              "
+                              border-purple-600
+                                group relative
+                                h-[400px] w-[300px]
+                                rounded-[28px]
+                                border border-purple-200/60
+                                bg-white/80 backdrop-blur-xl
+                                shadow-lg overflow-hidden
+                                transition-transform duration-300 hover:-translate-y-2
+                              "
                               style={{
                                 boxShadow: isCenter
                                   ? "0 35px 90px rgba(124,58,237,0.35)"
