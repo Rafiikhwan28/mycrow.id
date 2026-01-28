@@ -4,7 +4,7 @@ import mycrowLogo from "../../assets/mycrow_logo_text.png";
 import handLeft from "../../assets/hand-gesture-pointing-invisible-screen.png";
 import handRight from "../../assets/Hand_cyborg.png";
 import bgImage from "../../assets/background.jpg";
-import odooLogo from "../../assets/mycrow_logo_text.png";
+import odooLogo from "../../assets/odoo_logo.png";
 import LearningPatner from "../../assets/odoo_learning_partner_rgb.png";
 import { odooApps, odooTabs } from "../../data/LandingPage/odooApps";
 
@@ -382,7 +382,7 @@ export default function Home() {
             </div>
 
             {/* ================= ODOO ================= */}
-            <div className="mb-16">
+            <div className="mb-16 ">
               <h2 className="mb-6 text-base font-bold text-center text-purple-700 sm:mb-8 sm:text-3xl">
                 All digital transformation initiative in one solutions
               </h2>
@@ -395,21 +395,21 @@ export default function Home() {
                       backdrop-blur-sm
                       rounded-[24px]
                       shadow-2xl
-
+                      border-2 border-purple-500
                       sm:p-12 sm:pt-5 sm:mx-16 sm:rounded-[32px]
     "
               >
                 {/* Logo mycrow */}
                 <img
-                  src={odooLogo}
+                  src={mycrowLogo}
                   alt="Odoo Learning Partner"
                   className="object-contain h-5 pl-12 sm:h-8 sm:mt-14"
                 />
                 {/* Logo Odoo */}
                 <img
-                  src={LearningPatner}
+                  src={odooLogo}
                   alt="Odoo Learning Partner"
-                  className="absolute object-contain h-32 top-4 right-4 sm:top-10 sm:right-4 sm:h-24 sm:mr-16 sm:mt-3"
+                  className="absolute object-contain h-24 top-4 right-4 sm:top-10 sm:right-4 sm:h-14 sm:mr-16 sm:mt-3"
                 />
 
                 {/* TABS */}
