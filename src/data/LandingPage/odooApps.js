@@ -26,7 +26,7 @@ import Website from "../../assets/Application Icons/02. Icon Website/website.png
 import Ecommerce from "../../assets/Application Icons/02. Icon Website/e-commerces.png"
 import Blog from "../../assets/Application Icons/02. Icon Website/blog.png"
 import Forum from "../../assets/Application Icons/02. Icon Website/form.png"
-import LiveChat from "../../assets/Application Icons/02. Icon Website/live Chat.png"
+import LiveChat from "../../assets/Application Icons/02. Icon Website/live-chat.png"
 import Elearning from "../../assets/Application Icons/02. Icon Website/E-learning.png"
 
 //Marketing
