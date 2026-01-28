@@ -23,31 +23,33 @@ export default function ByIndustryTemplate({ data }) {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       {/* ================= HERO ================= */}
-      <section className="grid items-center  px-6 mx-auto gap-14 max-w-7xl md:grid-cols-[1.2fr_0.8fr]">
+      <section className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] items-center gap-14 px-6 mx-auto max-w-7xl">
         {/* TEXT */}
-        <motion.div variants={fadeUp}>
-          <div className="flex items-center gap-4">
-            <img src={mycrowLogo} alt="MyCrow" className="h-8" />
+        <motion.div variants={fadeUp} className="text-center md:text-left">
+          <div className="flex items-center justify-center gap-3 md:justify-start">
+            <img src={mycrowLogo} alt="MyCrow" className="h-7 md:h-8" />
 
             {hero?.badge && (
-              <span className="flex items-center px-6 py-2 mb-4 text-xl font-medium leading-none text-purple-700 rounded-full">
+              <span className="px-4 py-1.5 text-sm md:text-base font-medium text-purple-700 rounded-full">
                 | {hero.badge}
               </span>
             )}
           </div>
 
-          <h1 className="mt-10 mb-6 text-4xl font-bold leading-tight text-gray-900 md:text-4xl">
+          <h1 className="mt-8 mb-6 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-6xl">
             {hero.title}
           </h1>
 
-          <p className="mb-8 text-lg text-gray-700">{hero.description}</p>
+          <p className="max-w-xl mx-auto mb-8 text-base text-gray-700 md:text-lg md:mx-0">
+            {hero.description}
+          </p>
 
           {hero.primaryButton && (
             <motion.a
               href={hero.primaryButton.link}
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.96 }}
-              className="inline-flex items-center py-3 text-white transition bg-purple-600 rounded-full shadow px-7 hover:bg-purple-700"
+              className="inline-flex items-center px-6 py-2.5 md:px-7 md:py-3 text-sm md:text-base text-white bg-purple-600 rounded-lg shadow hover:bg-purple-700 transition"
             >
               {hero.primaryButton.label}
             </motion.a>
@@ -56,13 +58,13 @@ export default function ByIndustryTemplate({ data }) {
 
         {/* IMAGE */}
         {hero.heroImage && (
-          <motion.img
-            src={hero.heroImage}
-            alt={hero.title}
-            className="w-full max-w-md h-[500px] mx-auto object-contain"
-            variants={fadeUp}
-            transition={{ delay: 0.2 }}
-          />
+          <motion.div variants={fadeUp} className="flex justify-center">
+            <img
+              src={hero.heroImage}
+              alt={hero.title}
+              className="w-full max-w-[260px] sm:max-w-sm md:max-w-md object-contain"
+            />
+          </motion.div>
         )}
       </section>
 
@@ -183,7 +185,7 @@ export default function ByIndustryTemplate({ data }) {
               </div>
             </div>
           )}
-          <ContactForm/>
+          <ContactForm />
         </div>
       </section>
     </main>

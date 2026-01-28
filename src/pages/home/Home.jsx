@@ -216,11 +216,14 @@ export default function Home() {
                 className="object-contain h-8 pr-4"
                 alt="mycrow"
               />
-              <div
+              {/* <div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }} 
-                 className="pb-4 text-4xl text-purple-400 ">|</div>
+                transition={{ duration: 0.6 }}
+                className="pb-4 text-4xl text-purple-400 "
+              >
+                |
+              </div> */}
 
               {/* ODOO LOGO */}
               <motion.img

@@ -23,7 +23,7 @@ export const erpData = {
         description:
           "Enterprise Resource Planning (ERP) is software that consolidates finance, sales, inventory, manufacturing, HR, and more into a single, integrated platform, automating processes, centralizing data, and delivering up‑to‑date visibility across your company, whether deployed in the cloud or on‑premise.",
         primaryButton: {
-          label: "Discover More",
+          label: "Meet Our Experts",
           link: "/contact",
         },
         heroImage:
@@ -109,7 +109,7 @@ export const erpData = {
         description:
           "Odoo combines an integrated suite of business apps with open‑source flexibility and fair pricing, giving you the power to launch fast, automate more, and scale without the usual ERP complexity.",
         primaryButton: {
-          label: "Talk to Our Expert",
+          label: "Meet Our Experts",
           link: "/contact",
         },
         heroImage:

@@ -80,7 +80,7 @@ export default function ErpTemplate({ data }) {
               href={hero.primaryButton.link}
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.96 }}
-              className="inline-flex items-center px-6 py-2.5 md:px-7 md:py-3 text-sm md:text-base text-white bg-purple-600 rounded-full shadow hover:bg-purple-700 transition"
+              className="inline-flex items-center px-6 py-2.5 md:px-7 md:py-3 text-sm md:text-base text-white bg-purple-600 rounded-lg shadow hover:bg-purple-700 transition"
             >
               {hero.primaryButton.label}
             </motion.a>

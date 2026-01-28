@@ -10,7 +10,7 @@ const odooAppData = {
         description:
           "Manage employees, attendance, time off, appraisals, and recruitment in one HRIS and extend with localized payroll and policies for Indonesia when needed.",
         primaryButton: {
-          label: "Request a Demo",
+          label: "Meet Our Experts",
           link: "/contact",
         },
         heroImage:
@@ -102,7 +102,7 @@ const odooAppData = {
         description:
           "Whether you run helpdesk, projects, field service, or appointments, Odoo links requests, time, materials, and invoices so utilization and margins stay visible. ",
         primaryButton: {
-          label: "Request a Demo",
+          label: "Meet Our Experts",
           link: "/contact",
         },
         heroImage:
@@ -188,7 +188,7 @@ const odooAppData = {
         description:
           "Replace scattered tools with built‑in messaging, docs, e‑sign, knowledge, and Studio, so teams collaborate in context and automate routine work without code.",
         primaryButton: {
-          label: "Request a Demo",
+          label: "Meet Our Experts",
           link: "/contact",
         },
         heroImage:
@@ -274,7 +274,7 @@ const odooAppData = {
         description:
           "Coordinate purchasing, reordering, routes, barcode execution, and dropshipping from one system that keeps service levels high and carrying costs low. ",
         primaryButton: {
-          label: "Request a Demo",
+          label: "Meet Our Experts",
           link: "/contact",
         },
         heroImage:
@@ -360,7 +360,7 @@ const odooAppData = {
         description:
           "Create SEO‑friendly websites and eCommerce stores with a visual builder, then connect products, payments, inventory, and marketing natively for a seamless customer journey.",
         primaryButton: {
-          label: "Request a Demo",
+          label: "Meet Our Experts",
           link: "/contact",
         },
         heroImage:
@@ -446,7 +446,7 @@ const odooAppData = {
         description:
           "Build audiences, send multi‑channel campaigns, nurture leads, and track ROI directly against CRM opportunities—no more exporting lists or stitching tools.",
         primaryButton: {
-          label: "Request a Demo",
+          label: "Meet Our Experts",
           link: "/contact",
         },
         heroImage:
@@ -532,7 +532,7 @@ const odooAppData = {
         description:
           "Odoo connects CRM, quotations, e‑sign, subscriptions, and invoicing so reps move from pipeline to payment in one flow, while management gets accurate forecasts and activities in real time.",
         primaryButton: {
-          label: "Request a Demo",
+          label: "Meet Our Experts",
           link: "/contact",
         },
         heroImage:
@@ -618,7 +618,7 @@ const odooAppData = {
         description:
           "Unify billing, payments, bank reconciliation, analytics, and local tax rules in one accounting platform that scales globally, complete with multi‑currency, automated exchange rates, and Indonesia’s e‑Faktur/Coretax support when you need it.",
         primaryButton: {
-          label: "Request a Demo",
+          label: "Meet Our Experts",
           link: "/contact",
         },
         heroImage:
