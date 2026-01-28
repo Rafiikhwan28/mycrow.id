@@ -3,7 +3,7 @@
 import CRM from "../../assets/Application Icons/01. Icon Sales/CRM.png"
 import Sales from "../../assets/Application Icons/01. Icon Sales/Sales.png"
 import Members from "../../assets/Application Icons/01. Icon Sales/members.png"
-import Pos from "../../assets/Application Icons/01. Icon Sales/Pos.png"
+import Pos from "../../assets/Application Icons/01. Icon Sales/POS.png"
 import Rental from "../../assets/Application Icons/01. Icon Sales/Rental.png"
 
 //icon Finance

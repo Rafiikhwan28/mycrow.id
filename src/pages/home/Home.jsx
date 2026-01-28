@@ -216,7 +216,11 @@ export default function Home() {
                 className="object-contain h-8 pr-4"
                 alt="mycrow"
               />
-              <div className="w-1 h-10 bg-purple-400"></div>
+              <div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }} 
+                 className="pb-4 text-4xl text-purple-400 ">|</div>
 
               {/* ODOO LOGO */}
               <motion.img
@@ -445,6 +449,7 @@ export default function Home() {
                       key={tab}
                       onClick={() => setActiveTab(tab)}
                       className={`
+                        m-2
         flex-shrink-0
         px-3 py-1.5 sm:px-5 sm:py-2
         rounded-full
