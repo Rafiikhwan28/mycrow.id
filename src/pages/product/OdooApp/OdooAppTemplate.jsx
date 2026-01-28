@@ -13,6 +13,25 @@ const fadeUp = {
 };
 
 export default function OdooAppTemplate({ data }) {
+  const getYoutubeEmbedUrl = (url) => {
+    if (!url) return null;
+
+    // youtu.be/xxxx
+    if (url.includes("youtu.be")) {
+      const id = url.split("youtu.be/")[1];
+      return `https://www.youtube.com/embed/${id}`;
+    }
+
+    // youtube.com/watch?v=xxxx
+    if (url.includes("youtube.com")) {
+      const params = new URL(url).searchParams;
+      const id = params.get("v");
+      return id ? `https://www.youtube.com/embed/${id}` : null;
+    }
+
+    return null;
+  };
+
   if (!data) return null;
 
   const { hero, video, reasons, benefits } = data;
@@ -128,14 +147,25 @@ export default function OdooAppTemplate({ data }) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="overflow-hidden shadow-2xl rounded-3xl"
+                className="overflow-hidden shadow-2xl rounded-3xl aspect-video"
               >
-                <video
-                  src={video.url}
-                  poster={video.thumbnail}
-                  controls
-                  className="w-full"
-                />
+                {getYoutubeEmbedUrl(video.url) ? (
+                  <iframe
+                    src={getYoutubeEmbedUrl(video.url)}
+                    title="Youtube Video"
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <video
+                    src={video.url}
+                    poster={video.thumbnail}
+                    controls
+                    className="object-cover w-full h-full"
+                  />
+                )}
               </motion.div>
             </div>
           )}

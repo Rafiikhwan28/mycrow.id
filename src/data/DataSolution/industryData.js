@@ -64,8 +64,7 @@ const industryData = {
       items: [
         {
           title: "Low‑Code Builder",
-          description:
-            "Drag‑and‑drop data models, forms, and lists.",
+          description: "Drag‑and‑drop data models, forms, and lists.",
           image: graphic1,
         },
         {
@@ -76,8 +75,7 @@ const industryData = {
         },
         {
           title: "Client Self‑Service",
-          description:
-            "Appointments and portals reduce back‑and‑forth.",
+          description: "Appointments and portals reduce back‑and‑forth.",
           image: graphic3,
         },
         {
@@ -90,7 +88,6 @@ const industryData = {
     },
   },
 
-
   trading: {
     slug: "trading",
     hero: {
@@ -100,7 +97,7 @@ const industryData = {
       description:
         "Orchestrate purchasing, reordering, routes, barcode execution, and global finance in one platform that scales from local wholesale to cross‑border trade. ",
       primaryButton: {
-        label: "Meet Our Experts",
+        label: "MMeet Our Experts",
         link: "/contact",
       },
       heroImage: image1,
@@ -149,8 +146,7 @@ const industryData = {
       items: [
         {
           title: "Smart Replenishment",
-          description:
-            "Rules order to Max and respect multiples and vendors.",
+          description: "Rules order to Max and respect multiples and vendors.",
           image: graphic1,
         },
         {
@@ -167,21 +163,18 @@ const industryData = {
         },
         {
           title: "Global Accounting",
-          description:
-            "Ledger, journals, and gains/losses handle FX cleanly.",
+          description: "Ledger, journals, and gains/losses handle FX cleanly.",
           image: graphic4,
         },
       ],
     },
   },
 
-
   consulting: {
     slug: "consulting",
     hero: {
       badge: "Odoo for Consulting & Professional Services",
-      title:
-        "Quote, deliver, timesheet, and invoice confidently and on time",
+      title: "Quote, deliver, timesheet, and invoice confidently and on time",
       description:
         "Connect CRM, Projects, Timesheets, Sales, and Accounting so your firm prices accurately, staffs efficiently, and bills without leakage.",
       primaryButton: {
@@ -246,8 +239,7 @@ const industryData = {
         },
         {
           title: "Deal → Project",
-          description:
-            "Start delivery the moment the proposal is accepted.",
+          description: "Start delivery the moment the proposal is accepted.",
           image: graphic3,
         },
         {
@@ -318,8 +310,7 @@ const industryData = {
       items: [
         {
           title: "Recurring Plans",
-          description:
-            "Self‑service portals simplify upgrades and renewals.",
+          description: "Self‑service portals simplify upgrades and renewals.",
           image: graphic1,
         },
         {
@@ -330,8 +321,7 @@ const industryData = {
         },
         {
           title: "Member Records",
-          description:
-            "Payments, history, and communications in one place.",
+          description: "Payments, history, and communications in one place.",
           image: graphic3,
         },
         {
@@ -343,8 +333,6 @@ const industryData = {
       ],
     },
   },
-
-
 
   foodBeverage: {
     slug: "foodBeverage",
@@ -410,14 +398,12 @@ const industryData = {
         },
         {
           title: "FEFO & Expiry Control",
-          description:
-            "Prevent waste and never ship or serve expired items.",
+          description: "Prevent waste and never ship or serve expired items.",
           image: graphic2,
         },
         {
           title: "Unified Stock",
-          description:
-            "All outlets.",
+          description: "All outlets.",
           image: graphic3,
         },
         {
@@ -429,8 +415,6 @@ const industryData = {
       ],
     },
   },
-
-
 
   realEstate: {
     slug: "realEstate",
@@ -515,7 +499,6 @@ const industryData = {
       ],
     },
   },
-
 
   manufacturing: {
     slug: "manufacturing",
@@ -620,7 +603,7 @@ const industryData = {
     video: {
       thumbnail:
         "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-      url: "https://www.w3schools.com/html/mov_bbb.mp4",
+      url: "https://youtu.be/eNt78mQJavY?si=ytcR74yyjnDFIJS9",
     },
 
     reasons: {

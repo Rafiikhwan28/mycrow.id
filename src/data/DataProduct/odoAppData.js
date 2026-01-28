@@ -628,7 +628,7 @@ const odooAppData = {
       video: {
         thumbnail:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-        url: "https://www.w3schools.com/html/mov_bbb.mp4",
+        url: "https://youtu.be/eNt78mQJavY?si=ytcR74yyjnDFIJS9",
       },
 
       reasons: {
