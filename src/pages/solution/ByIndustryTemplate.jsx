@@ -140,7 +140,7 @@ export default function ByIndustryTemplate({ data }) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="mb-16 text-2xl font-bold text-center text-purple-700"
+                className="text-2xl font-semibold text-center text-purple-700 mb-14"
               >
                 {reasons.title}
               </motion.h2>
@@ -163,7 +163,7 @@ export default function ByIndustryTemplate({ data }) {
                     <h3 className="mb-2 font-semibold text-slate-900">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-slate-600">{item.description}</p>
+                    <p className="text-base text-slate-600">{item.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -174,7 +174,7 @@ export default function ByIndustryTemplate({ data }) {
           {benefits && (
             <div className="max-w-5xl px-3 mx-auto mb-10">
               <div className="max-w-3xl mx-auto mb-20 text-center">
-                <h2 className="mb-4 text-3xl font-bold text-purple-700">
+                <h2 className="text-2xl font-semibold text-center text-purple-700 mb-14">
                   {benefits.title}
                 </h2>
                 <p className="text-slate-600">{benefits.description}</p>
@@ -206,7 +206,7 @@ export default function ByIndustryTemplate({ data }) {
                       <h3 className="mb-4 text-xl font-semibold text-slate-900">
                         {item.title}
                       </h3>
-                      <p className="leading-relaxed text-slate-600">
+                      <p className="text-base leading-relaxed text-gray-600">
                         {item.description}
                       </p>
                     </div>

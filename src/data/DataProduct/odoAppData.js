@@ -1,3 +1,64 @@
+//iconSales
+import CRM from "../../assets/Application Icons/01. Icon Sales/CRM.png"
+import Sales from "../../assets/Application Icons/01. Icon Sales/Sales.png"
+import Members from "../../assets/Application Icons/01. Icon Sales/members.png"
+import Pos from "../../assets/Application Icons/01. Icon Sales/POS.png"
+import Rental from "../../assets/Application Icons/01. Icon Sales/Rental.png"
+
+//icon Finance
+import Accounting from "../../assets/Application Icons/04. Finance/Accounting.png"
+import Invoicing from "../../assets/Application Icons/04. Finance/Invoicing.png"
+import Expenses from "../../assets/Application Icons/04. Finance/Expense.png"
+import Document from "../../assets/Application Icons/04. Finance/Dicument.png"
+import Sign from "../../assets/Application Icons/04. Finance/Sign.png"
+
+//Supply Chain
+import Inventory from "../../assets/Application Icons/03. Icon Supply Chain/Inventory.png"
+import Manufacture from "../../assets/Application Icons/03. Icon Supply Chain/Manufacturing.png"
+import Purchasing from "../../assets/Application Icons/03. Icon Supply Chain/Purchase.png"
+import Quality from "../../assets/Application Icons/03. Icon Supply Chain/Quality.png"
+import PLM from "../../assets/Application Icons/03. Icon Supply Chain/PLM.png"
+import Maintenance from "../../assets/Application Icons/03. Icon Supply Chain/Maintenance.png"
+
+//icon Website
+import Website from "../../assets/Application Icons/02. Icon Website/website.png"
+import Ecommerce from "../../assets/Application Icons/02. Icon Website/e-commerces.png"
+import Blog from "../../assets/Application Icons/02. Icon Website/blog.png"
+import Forum from "../../assets/Application Icons/02. Icon Website/form.png"
+import LiveChat from "../../assets/Application Icons/02. Icon Website/live-chat.png"
+import Elearning from "../../assets/Application Icons/02. Icon Website/E-learning.png"
+
+//Marketing
+import SocialMarketing from "../../assets/Application Icons/05. Marketing/Social_Marketing.png"
+import EmailMarketing from "../../assets/Application Icons/05. Marketing/email_marketing.png"
+import SMSMarketing from "../../assets/Application Icons/05. Marketing/SMS_Marketing.png"
+import Event from "../../assets/Application Icons/05. Marketing/Event.png"
+import MarketingAutomation from "../../assets/Application Icons/05. Marketing/marketing_authomation.png"
+import Survey from "../../assets/Application Icons/05. Marketing/Survey.png"
+
+//Human Resource
+import Recruitment from "../../assets/Application Icons/06. Human Resources/Recruitment.png"
+// import TimeOff from "../../assets/Application Icons/06. Human Resources/.png"
+import Appraisal from "../../assets/Application Icons/06. Human Resources/Aprecials.png"
+import Referral from "../../assets/Application Icons/06. Human Resources/Referals.png"
+import Fleet from "../../assets/Application Icons/06. Human Resources/Fleet.png"
+
+//Service
+import Project from "../../assets/Application Icons/07. Service/Project.png"
+import Timesheet from "../../assets/Application Icons/07. Service/Timesheet.png"
+import FieldService from "../../assets/Application Icons/07. Service/Field_Service.png"
+import Heldesk from "../../assets/Application Icons/07. Service/helpdesk.png"
+import Planning from "../../assets/Application Icons/07. Service/planning.png"
+import Appointment from "../../assets/Application Icons/07. Service/appointment.png"
+
+//Productivity
+import Discussion from "../../assets/Application Icons/08. Productivity/Discuss.png"
+import Approval from "../../assets/Application Icons/08. Productivity/approval.png"
+import IoT from "../../assets/Application Icons/08. Productivity/IoT.png"
+import VoIP from "../../assets/Application Icons/08. Productivity/Voip.png"
+import Knowledge from "../../assets/Application Icons/08. Productivity/Knowledge.png"
+
+
 const odooAppData = {
   odooApp: {
     humanResources: {
@@ -11,7 +72,7 @@ const odooAppData = {
           "Manage employees, attendance, time off, appraisals, and recruitment in one HRIS and extend with localized payroll and policies for Indonesia when needed.",
         primaryButton: {
           label: "Meet Our Experts",
-          link: "/contact",
+          link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
@@ -27,15 +88,15 @@ const odooAppData = {
         title: "Why Odoo is the smart choice for HR teams",
         items: [
           {
-            icon: "https://img.icons8.com/color/96/pos-terminal.png",
-            title: "Single employee record",
+            icon: Recruitment,
+            title: "Recruitment",
             description:
-              "Keep contracts, documents, time off, and skills in one secure profile.",
+              "Post job openings with various tracking features that make it easier for HR to review incoming applications.",
           },
           {
             icon: "https://img.icons8.com/color/96/combo-chart.png",
-            title: "Time & attendance",
-            description: "Capture timesheets and check‑ins to feed payroll and projects.",
+            title: "Time off",
+            description: "Manage employee leave in a calendar view updated in real time, with easy-to-generate statistical reports.",
           },
           {
             icon: "https://img.icons8.com/color/96/cloud.png",
@@ -103,7 +164,7 @@ const odooAppData = {
           "Whether you run helpdesk, projects, field service, or appointments, Odoo links requests, time, materials, and invoices so utilization and margins stay visible. ",
         primaryButton: {
           label: "Meet Our Experts",
-          link: "/contact",
+          link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
@@ -189,7 +250,7 @@ const odooAppData = {
           "Replace scattered tools with built‑in messaging, docs, e‑sign, knowledge, and Studio, so teams collaborate in context and automate routine work without code.",
         primaryButton: {
           label: "Meet Our Experts",
-          link: "/contact",
+          link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
@@ -275,7 +336,7 @@ const odooAppData = {
           "Coordinate purchasing, reordering, routes, barcode execution, and dropshipping from one system that keeps service levels high and carrying costs low. ",
         primaryButton: {
           label: "Meet Our Experts",
-          link: "/contact",
+          link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
@@ -361,7 +422,7 @@ const odooAppData = {
           "Create SEO‑friendly websites and eCommerce stores with a visual builder, then connect products, payments, inventory, and marketing natively for a seamless customer journey.",
         primaryButton: {
           label: "Meet Our Experts",
-          link: "/contact",
+          link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
@@ -447,7 +508,7 @@ const odooAppData = {
           "Build audiences, send multi‑channel campaigns, nurture leads, and track ROI directly against CRM opportunities—no more exporting lists or stitching tools.",
         primaryButton: {
           label: "Meet Our Experts",
-          link: "/contact",
+          link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
@@ -533,7 +594,7 @@ const odooAppData = {
           "Odoo connects CRM, quotations, e‑sign, subscriptions, and invoicing so reps move from pipeline to payment in one flow, while management gets accurate forecasts and activities in real time.",
         primaryButton: {
           label: "Meet Our Experts",
-          link: "/contact",
+          link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
@@ -619,7 +680,7 @@ const odooAppData = {
           "Unify billing, payments, bank reconciliation, analytics, and local tax rules in one accounting platform that scales globally, complete with multi‑currency, automated exchange rates, and Indonesia’s e‑Faktur/Coretax support when you need it.",
         primaryButton: {
           label: "Meet Our Experts",
-          link: "/contact",
+          link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",

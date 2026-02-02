@@ -24,7 +24,7 @@ export const stagesData = {
           "Running a growing business often means juggling disconnected tools, manual processes, and operational bottlenecks. With Odoo, you can unify everything sales, finance, inventory, operations, and more into one powerful platform built to help SMEs accelerate growth.",
         primaryButton: {
           label: "Meet Our Experts",
-          link: "/contact",
+          link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
           baner1,
@@ -110,7 +110,7 @@ export const stagesData = {
           "In a fast‑moving global landscape, enterprises need more than a traditional ERP, they need a centralized, intelligent platform that can simplify complexity, accelerate decision‑making, and support continuous expansion. Odoo Enterprise delivers exactly that: a flexible, unified ERP designed to manage large-scale operations with speed, reliability, and precision.",
         primaryButton: {
           label: "Meet Our Experts",
-          link: "/contact",
+          link:"https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
           baner2,

@@ -16,7 +16,7 @@ const industryData = {
         "Odoo covers CRM, Sales, Inventory, Accounting, HR, Helpdesk, and more—and with Odoo Studio you can tailor data, screens, and approvals without code debt. ",
       primaryButton: {
         label: "Meet Our Experts",
-        link: "/contact",
+        link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
       heroImage: image1,
     },
@@ -98,7 +98,7 @@ const industryData = {
         "Orchestrate purchasing, reordering, routes, barcode execution, and global finance in one platform that scales from local wholesale to cross‑border trade. ",
       primaryButton: {
         label: "MMeet Our Experts",
-        link: "/contact",
+        link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
       heroImage: image1,
     },
@@ -179,7 +179,7 @@ const industryData = {
         "Connect CRM, Projects, Timesheets, Sales, and Accounting so your firm prices accurately, staffs efficiently, and bills without leakage.",
       primaryButton: {
         label: "Meet Our Experts",
-        link: "/contact",
+        link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
       heroImage: image1,
     },
@@ -262,7 +262,7 @@ const industryData = {
         "Bring memberships, recurring billing, class scheduling, trainer calendars, POS, and member portals into one client‑friendly journey.",
       primaryButton: {
         label: "Meet Our Experts",
-        link: "/contact",
+        link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
       heroImage: image1,
     },
@@ -344,7 +344,7 @@ const industryData = {
         "Odoo links POS, Inventory, Purchase, and Accounting to keep menus moving, prevent overselling, and rotate perishables by FEFO to cut waste.",
       primaryButton: {
         label: "Meet Our Experts",
-        link: "/contact",
+        link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
       heroImage: image1,
     },
@@ -426,7 +426,7 @@ const industryData = {
         "Centralize property data, CRM leads, contract templates, availability calendars, and automated recurring billing to keep occupancy high and operations lean.",
       primaryButton: {
         label: "Meet Our Experts",
-        link: "/contact",
+        link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
       heroImage: image1,
     },
@@ -510,7 +510,7 @@ const industryData = {
         "Odoo unifies MRP, MES, PLM, Quality, Maintenance, Inventory, and Accounting so planners, engineers, and operators work from one real‑time system shortening lead times, cutting scrap, and boosting throughput.",
       primaryButton: {
         label: "Meet Our Experts",
-        link: "/contact",
+        link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
       heroImage: image1,
     },
@@ -595,7 +595,7 @@ const industryData = {
         "Today’s retail customers expect consistency, speed, and personalization across every channel. Odoo gives retailers the powerful all‑in‑one platform they need to unify online and offline operations, boost efficiency, and maximize sales. From POS and e‑commerce to inventory and finance, Odoo brings every part of your retail business together in one smart ecosystem.",
       primaryButton: {
         label: "Meet Our Experts",
-        link: "/contact",
+        link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
       heroImage: image1,
     },

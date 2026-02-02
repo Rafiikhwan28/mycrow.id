@@ -60,14 +60,62 @@ export default function Home() {
   ];
 
   const marketingServices = [
-    { id: 1, title: "Search Engine Optimization (SEO)", image: iuconImage1 },
-    { id: 2, title: "Search Engine Marketing (SEM)", image: iuconImage2 },
-    { id: 3, title: "Social Media Marketing (SMM)", image: iuconImage3 },
-    { id: 4, title: "Online Reputation Management (ORM)", image: iuconImage4 },
-    { id: 5, title: "Annual Report Design", image: iuconImage5 },
-    { id: 6, title: "Logo and Collateral Design", image: iuconImage6 },
-    { id: 7, title: "Magazine and Publications", image: iuconImage7 },
-    { id: 8, title: "Video and Motions Graphic", image: iuconImage8 },
+    {
+      id: 1,
+      title: "Search Engine Optimization (SEO)",
+      image: iuconImage1,
+      deskripsi:
+        "Website optimization strategies designed to improve organic search rankings, making your website more visible and accessible to your target audience.",
+    },
+    {
+      id: 2,
+      title: "Search Engine Marketing (SEM)",
+      image: iuconImage2,
+      deskripsi:
+        "Paid marketing services through search engines to reach the right audience quickly and drive higher traffic, leads, and conversions.",
+    },
+    {
+      id: 3,
+      title: "Social Media Marketing (SMM)",
+      image: iuconImage3,
+      deskripsi:
+        "Strategic social media management to increase brand awareness, engagement, and meaningful interactions with your audience.",
+    },
+    {
+      id: 4,
+      title: "Online Reputation Management (ORM)",
+      image: iuconImage4,
+      deskripsi:
+        "Professional management of your brand’s online presence to maintain a positive, trustworthy, and credible public image.",
+    },
+    {
+      id: 5,
+      title: "Annual Report Design",
+      image: iuconImage5,
+      deskripsi:
+        "Creative and professional annual report designs that present company performance in a clear, visual, and impactful way.",
+    },
+    {
+      id: 6,
+      title: "Logo and Collateral Design",
+      image: iuconImage6,
+      deskripsi:
+        "Custom logo and brand collateral designs that ensure consistency, creativity, and a strong visual identity.",
+    },
+    {
+      id: 7,
+      title: "Magazine and Publications",
+      image: iuconImage7,
+      deskripsi:
+        "Modern and visually appealing magazine and publication designs that communicate information clearly and effectively.",
+    },
+    {
+      id: 8,
+      title: "Video and Motions Graphic",
+      image: iuconImage8,
+      deskripsi:
+        "Creative video and motion graphic production to enhance visual storytelling and deliver your brand message dynamically.",
+    },
   ];
 
   /* ================= DERIVED ================= */
@@ -417,7 +465,6 @@ export default function Home() {
       backdrop-blur-sm
       rounded-[24px]
       shadow-2xl
-      border-2 border-purple-500
       sm:p-12 sm:pt-5 sm:mx-16 sm:rounded-[32px]
     "
               >
@@ -563,18 +610,7 @@ export default function Home() {
                 {marketingServices.map((item) => (
                   <div
                     key={item.id}
-                    className="
-          relative
-          flex flex-col items-center justify-center
-          h-[130px] px-4
-          text-center
-          bg-white border border-purple-300
-          rounded-2xl
-          transition
-          hover:-translate-y-1 hover:shadow-lg
-
-          md:h-[150px] md:px-6
-        "
+                    className="relative flex flex-col p-4 transition bg-white shadow-lg h-72 sm:h-80 rounded-2xl hover:-translate-y-1 hover:shadow-lg"
                   >
                     {/* ICON FLOATING */}
                     <div className="absolute flex items-center justify-center w-20 h-20 bg-white rounded-full -top-8 md:-top-10 md:w-20 md:h-20">
@@ -588,8 +624,12 @@ export default function Home() {
                     </div>
 
                     {/* TEXT */}
-                    <p className="mt-6 text-sm font-medium leading-snug text-purple-700 md:mt-8 md:text-xl">
+                    <p className="mt-6 text-xs font-medium leading-snug text-purple-700 md:mt-8 md:text-xl">
                       {item.title}
+                    </p>
+                    {/* DESKRIPSI */}
+                    <p className="flex-grow my-3 text-xs text-gray-800 sm:text-base">
+                      {item.deskripsi}
                     </p>
                   </div>
                 ))}

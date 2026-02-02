@@ -109,12 +109,12 @@ export default function OdooAppTemplate({ data }) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="mb-16 text-2xl font-bold text-center text-slate-900"
+                className="text-2xl font-semibold text-center text-purple-700 mb-14"
               >
                 {reasons.title}
               </motion.h2>
 
-              <div className="flex grid justify-center gap-12 px-6 mx-auto max-w-7xl md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid justify-center gap-12 px-6 mx-auto max-w-7xl md:grid-cols-2 lg:grid-cols-3">
                 {reasons.items?.map((item, index) => (
                   <motion.div
                     key={index}
@@ -174,7 +174,7 @@ export default function OdooAppTemplate({ data }) {
           {benefits && (
             <div className="max-w-5xl px-3 mx-auto mb-10">
               <div className="max-w-3xl mx-auto mb-20 text-center">
-                <h2 className="mb-4 text-3xl font-bold text-slate-900">
+                <h2 className="text-2xl font-semibold text-center text-purple-700 mb-14">
                   {benefits.title}
                 </h2>
                 <p className="text-slate-600">{benefits.description}</p>
@@ -202,7 +202,7 @@ export default function OdooAppTemplate({ data }) {
                       <h3 className="mb-4 text-xl font-semibold text-slate-900">
                         {item.title}
                       </h3>
-                      <p className="leading-relaxed text-slate-600">
+                      <p className="text-base leading-relaxed text-gray-600">
                         {item.description}
                       </p>
                     </div>

@@ -143,7 +143,7 @@ export default function ByStagesTemplate({ data }) {
                         <h3 className="mb-3 font-semibold">
                           {item.title}
                         </h3>
-                        <p className="text-sm leading-relaxed text-gray-600">
+                        <p className="text-base leading-relaxed text-gray-600">
                           {item.description}
                         </p>
                       </motion.div>
