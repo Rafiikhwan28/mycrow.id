@@ -81,7 +81,7 @@ const odooAppData = {
       video: {
         thumbnail:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-        url: "https://www.w3schools.com/html/mov_bbb.mp4",
+        url: "https://youtu.be/wQDfhnQM_zM",
       },
 
       reasons: {
@@ -173,7 +173,7 @@ const odooAppData = {
       video: {
         thumbnail:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-        url: "https://www.w3schools.com/html/mov_bbb.mp4",
+        url: "https://youtu.be/c6j76APuJfM",
       },
 
       reasons: {
@@ -259,7 +259,7 @@ const odooAppData = {
       video: {
         thumbnail:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-        url: "https://www.w3schools.com/html/mov_bbb.mp4",
+        url: "https://youtu.be/bSn6GLVxrfM",
       },
 
       reasons: {
@@ -345,7 +345,7 @@ const odooAppData = {
       video: {
         thumbnail:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-        url: "https://www.w3schools.com/html/mov_bbb.mp4",
+        url: "https://youtu.be/SjW6NUIiHug",
       },
 
       reasons: {
@@ -431,7 +431,7 @@ const odooAppData = {
       video: {
         thumbnail:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-        url: "https://www.w3schools.com/html/mov_bbb.mp4",
+        url: "https://youtu.be/_yzUhaL7RYw",
       },
 
       reasons: {
@@ -517,7 +517,7 @@ const odooAppData = {
       video: {
         thumbnail:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-        url: "https://www.w3schools.com/html/mov_bbb.mp4",
+        url: "https://youtu.be/BJXmLEUoXZA",
       },
 
       reasons: {
@@ -603,7 +603,7 @@ const odooAppData = {
       video: {
         thumbnail:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-        url: "https://www.w3schools.com/html/mov_bbb.mp4",
+        url: "https://youtu.be/N4zw-2t6spk",
       },
 
       reasons: {
@@ -689,7 +689,7 @@ const odooAppData = {
       video: {
         thumbnail:
           "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-        url: "https://youtu.be/eNt78mQJavY?si=ytcR74yyjnDFIJS9",
+        url: "https://youtu.be/QGcpONNTdYM",
       },
 
       reasons: {
