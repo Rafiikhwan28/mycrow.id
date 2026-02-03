@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 import youtube from "../../assets/icons/youtube.png";
 import instagram from "../../assets/icons/instagram.png";
 import facebook from "../../assets/icons/facebook.png";
 import mycrowLogo from "../../assets/logo_putih-01.png";
 
+import { navbarData } from "../../data/navbar.js";
 
 export default function Footer() {
-  const socials = [
-    { id: 1, src: youtube, alt: "YouTube" },
-    { id: 2, src: instagram, alt: "Instagram" },
-    { id: 3, src: facebook, alt: "Facebook" },
-  ];
+  /* ================= ANIMATION ================= */
   const fadeUp = {
     hidden: { opacity: 0, y: 24 },
     visible: {
@@ -27,60 +26,23 @@ export default function Footer() {
     },
   };
 
-  const menus = [
-    {
-      title: "Solution",
-      items: [
-        "Retail",
-        "F&B",
-        "Manufacturing",
-        "Health & Fitness",
-        "Real Estate",
-        "Trades",
-        "Consulting",
-        "Others",
-      ],
-    },
-    {
-      title: "Product",
-      items: [
-        "Sales",
-        "Finance",
-        "Supply Chain",
-        "Marketing",
-        "Website",
-        "Human Capital",
-        "Productivity",
-        "Service",
-      ],
-    },
-    {
-      title: "Service",
-      items: [
-        "SEO",
-        "SEM",
-        "SMM",
-        "CRM",
-        "Annual Report",
-        "Logo Design",
-        "Publications",
-        "Video & Motions",
-      ],
-    },
-    {
-      title: "Company",
-      items: ["Vision", "Mission", "Values", "Teams", "Contact Us"],
-    },
-    {
-      title: "Knowledge",
-      items: [
-        "Digital Transformation",
-        "Digital Marketing",
-        "Design",
-        "Trends",
-      ],
-    },
+  /* ================= SOCIAL ================= */
+  const socials = [
+    { id: 1, src: youtube, alt: "YouTube", href: "https://youtube.com" },
+    { id: 2, src: instagram, alt: "Instagram", href: "https://instagram.com" },
+    { id: 3, src: facebook, alt: "Facebook", href: "https://facebook.com" },
   ];
+
+  /* ================= PATH BUILDER ================= */
+  const buildPath = (menu, section, item) => {
+    if (section?.sectionPath) {
+      return `${menu.basePath}/${section.sectionPath}/${item.slug}`;
+    }
+    return `${menu.basePath}/${item.slug}`;
+  };
+
+  console.log("NAVBAR DATA:", navbarData);
+
 
   return (
     <motion.footer
@@ -92,7 +54,8 @@ export default function Footer() {
     >
       <div className="px-6 py-20 mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-7">
-          {/* COMPANY INFO */}
+
+          {/* ================= COMPANY INFO ================= */}
           <motion.div variants={fadeUp} className="space-y-4 lg:col-span-2">
             <img src={mycrowLogo} alt="MyCrow" className="h-7 md:h-8" />
 
@@ -111,42 +74,54 @@ export default function Footer() {
               <p>mustain@mycrow.id</p>
             </div>
 
-            <div className="flex pt-4 ">
+            <div className="flex pt-4">
               {socials.map((item) => (
-                <motion.div
+                <motion.a
                   key={item.id}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ y: -4 }}
-                  className="w-16 h-16 p-2 transition rounded-full shadow-sm cursor-pointer"
+                  className="w-12 h-12 p-2 mr-3 transition rounded-full shadow-sm hover:bg-white/10"
                 >
                   <img
                     src={item.src}
                     alt={item.alt}
-                    className="w-[28px] h-[28px] object-contain"
+                    className="object-contain w-full h-full"
                   />
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </motion.div>
 
-          {/* MENUS */}
-          {menus.map((menu, index) => (
-            <motion.div key={index} variants={fadeUp}>
-              <h3 className="mb-3 text-xs font-semibold tracking-widest uppercase opacity-90">
-                {menu.title}
-              </h3>
+          {/* ================= MENUS ================= */}
+          {Object.entries(navbarData).map(([key, menu]) => (
+  <motion.div key={key} variants={fadeUp}>
+    <h3 className="mb-3 text-xs font-semibold tracking-widest uppercase opacity-90">
+      {menu.label}
+    </h3>
 
-              <ul className="space-y-2 text-xs leading-relaxed opacity-85">
-                {menu.items.map((item, i) => (
-                  <li
-                    key={i}
-                    className="transition cursor-pointer hover:underline hover:opacity-100"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+    <ul className="space-y-2 text-xs leading-relaxed opacity-85">
+      {menu.sections?.map((section) =>
+        section.items?.map((item) => (
+          <li key={item.slug}>
+            <Link
+              to={
+                section.sectionPath
+                  ? `${menu.basePath}/${section.sectionPath}/${item.slug}`
+                  : `${menu.basePath}/${item.slug}`
+              }
+              className="transition hover:underline hover:opacity-100"
+            >
+              {item.title}
+            </Link>
+          </li>
+        ))
+      )}
+    </ul>
+  </motion.div>
+))}
+
         </div>
       </div>
     </motion.footer>

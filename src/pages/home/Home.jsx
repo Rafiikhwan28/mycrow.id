@@ -354,7 +354,7 @@ export default function Home() {
       "
           >
             {/* ================= SERVICES ================= */}
-            <div className="mb-16">
+            <div data-section className="mb-16">
               <h2 className="mb-6 text-base font-bold text-center text-purple-700 sm:text-3xl">
                 Discover Our Product and Service
               </h2>
@@ -452,7 +452,7 @@ export default function Home() {
             </div>
 
             {/* ================= ODOO ================= */}
-            <div className="mb-16">
+            <div  className="mb-16">
               <h2 className="mb-6 text-base font-bold text-center text-purple-700 sm:mb-8 sm:text-3xl">
                 All digital transformation initiative in one solutions
               </h2>
