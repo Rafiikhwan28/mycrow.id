@@ -1,17 +1,30 @@
 import baner1 from "../../assets/01. Landing Page/banner-01.png";
 import baner2 from "../../assets/01. Landing Page/banner-02.png";
 
-//icon
+//icon1
 import icon1 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/Quick_deployment.png";
 import icon2 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/revenue.png";
 import icon3 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/allin.png";
 import icon4 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/expert_support.png";
 
-//grapics
+//icon1
+import icon1b from "../../assets/Solution/Stages/03. Enterprise/organization.png";
+import icon2b from "../../assets/Solution/Stages/03. Enterprise/scale.png";
+import icon3b from "../../assets/Solution/Stages/03. Enterprise/security.png";
+import icon4b from "../../assets/Solution/Stages/03. Enterprise/integration.png";
+
+
+//grapics SMB
 import graphic1 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/Business operations.jpg";
 import graphic2 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/flexible.jpg";
 import graphic3 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/dashboard.jpg";
 import graphic4 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/guided_implementation.jpg";
+
+//grapics SMB
+import graphic1b from "../../assets/Solution/Stages/03. Enterprise/integrated.jpg";
+import graphic2b from "../../assets/Solution/Stages/03. Enterprise/global_growth.jpg";
+import graphic3b from "../../assets/Solution/Stages/03. Enterprise/enterprise.jpg";
+import graphic4b from "../../assets/Solution/Stages/03. Enterprise/implementation.jpg";
 
 export const stagesData = {
   byStages: {
@@ -121,28 +134,28 @@ export const stagesData = {
         items: [
           {
             icon:
-              icon1,
+              icon1b,
             title: "Centralized Operations Across the Entire Organization",
             description:
               "Replace multiple legacy tools with one connected system. Odoo unifies sales, inventory, HR, finance, supply chain, and more eliminating data silos and reducing the cost of managing fragmented systems.",
           },
           {
             icon:
-              icon2,
+              icon2b,
             title: "Built for Enterprise-Level Scale",
             description:
               "Whether you manage multiple subsidiaries, business units, or international branches, Odoo’s modular architecture ensures fast, efficient scaling without infrastructure headaches.",
           },
           {
             icon:
-              icon3,
+              icon3b,
             title: "Robust Security & High Performance",
             description:
               "Designed for large enterprises handling heavy data loads and high transaction volumes, Odoo delivers consistent performance and enterprise-grade security to protect mission-critical operations.",
           },
           {
             icon:
-              icon4,
+              icon4b,
             title: "Seamless Integration with Existing Systems",
             description:
               "Odoo effortlessly connects with your current software ecosystem, allowing you to modernize without disrupting core operations or compromising data integrity.",
@@ -160,28 +173,28 @@ export const stagesData = {
             description:
               "Consolidate everything—from master data and procurement to financial reporting—under one digital ecosystem. Odoo streamlines even the most complex workflows, helping you eliminate operational friction and improve organizational clarity.",
             image:
-              graphic1,
+              graphic1b,
           },
           {
             title: "Future-Ready Scalability for Global Growth",
             description:
               "Unlike rigid traditional ERPs, Odoo evolves alongside your business. Its modular design enables you to expand capabilities, support new markets, and onboard new teams with zero disruptions.",
             image:
-              graphic2,
+              graphic2b,
           },
           {
             title: "Enterprise-Grade Reliability",
             description:
               "Handle high-volume workloads with confidence. Odoo ensures data consistency, strong system performance, and unified reporting across every business function and location.",
             image:
-              graphic3,
+              graphic3b,
           },
           {
             title: "Smooth, Structured Implementation",
             description:
               "Our proven enterprise implementation methodology ensures a seamless transition—from change management to system deployment—minimizing risk and maximizing long-term adoption.",
             image:
-              graphic4,
+              graphic4b,
           },
         ],
       },

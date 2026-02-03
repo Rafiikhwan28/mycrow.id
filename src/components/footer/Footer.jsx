@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import youtube from "../../assets/icons/youtube.png";
 import instagram from "../../assets/icons/instagram.png";
 import facebook from "../../assets/icons/facebook.png";
+import mycrowLogo from "../../assets/logo_putih-01.png";
+
 
 export default function Footer() {
   const socials = [
@@ -92,10 +94,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-7">
           {/* COMPANY INFO */}
           <motion.div variants={fadeUp} className="space-y-4 lg:col-span-2">
-            <h2 className="text-2xl font-bold">mycrow</h2>
+            <img src={mycrowLogo} alt="MyCrow" className="h-7 md:h-8" />
 
             <p className="text-xs font-semibold tracking-wide opacity-90">
-              PT Mycro Digital Indonesia
+              PT Mycrow Digital Indonesia
             </p>
 
             <p className="max-w-sm text-xs leading-relaxed opacity-85">
@@ -106,7 +108,7 @@ export default function Footer() {
 
             <div className="space-y-1 text-xs opacity-85">
               <p>www.mycrow.id</p>
-              <p>info@mycrow.id</p>
+              <p>mustain@mycrow.id</p>
             </div>
 
             <div className="flex pt-4 ">
