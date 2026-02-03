@@ -30,7 +30,11 @@ export default function Navbar() {
   /* ================= SCROLL EFFECT ================= */
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 90);
-    window.addEventListener("scroll", onScroll);
+    window.scrollTo({
+      top: 0,
+      behavior: window.innerWidth < 768 ? "smooth" : "auto",
+    });
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -44,9 +48,16 @@ export default function Navbar() {
 
   useEffect(() => {
     if (prevPath.current !== location.pathname) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      // LANGSUNG KE TOP (TANPA SCROLL)
+      window.scrollTo({
+        top: 0,
+        behavior: window.innerWidth < 768 ? "smooth" : "auto",
+      });
+
+      // Reset navbar state
       setMobileOpen(false);
       setMobileActiveMenu(null);
+
       prevPath.current = location.pathname;
     }
   }, [location.pathname]);
@@ -273,7 +284,6 @@ export default function Navbar() {
             </div>
           ))}
         </div>
-
       </aside>
     </header>
   );

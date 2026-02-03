@@ -1,7 +1,8 @@
 import { useState } from "react";
+import emailjs from "emailjs-com";
 
 export default function ContactForm() {
-  const ADMIN_PHONE = "6287835759531"; // GANTI nomor admin
+  const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
     name: "",
@@ -20,35 +21,44 @@ export default function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validasi sederhana
+    // VALIDASI
     if (!form.name || !form.phone || !form.brief) {
       alert("Please fill required fields");
       return;
     }
 
-    const message = `
-📩 *New Contact Request*
+    setLoading(true);
 
-👤 Name:
-${form.name}
-
-📱 Phone:
-${form.phone}
-
-📧 Email:
-${form.email || "-"}
-
-📝 Brief:
-${form.brief}
-    `;
-
-    const whatsappUrl = `https://wa.me/${ADMIN_PHONE}?text=${encodeURIComponent(
-      message
-    )}`;
-
-    window.open(whatsappUrl, "_blank");
+    emailjs
+      .send(
+        "SERVICE_ID", // contoh: service_xxxxx
+        "TEMPLATE_ID", // contoh: template_xxxxx
+        {
+          name: form.name,
+          phone: form.phone,
+          email: form.email || "-",
+          brief: form.brief,
+        },
+        "PUBLIC_KEY" // contoh: xxxxxxxxx
+      )
+      .then(() => {
+        alert("Message sent successfully to admin email ✅");
+        setForm({
+          name: "",
+          phone: "",
+          email: "",
+          brief: "",
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Failed to send email ❌");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
-
+  
   return (
     <section className="flex justify-center px-4 sm:px-6">
       <div className="w-full max-w-4xl">
@@ -57,71 +67,74 @@ ${form.brief}
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
-          {/* Name */}
-          <div className="grid gap-2 sm:gap-4 sm:grid-cols-[180px_20px_1fr] items-center">
+          {/* NAME */}
+          <div className="grid gap-2 sm:grid-cols-[180px_20px_1fr] items-center">
             <label className="font-medium text-purple-600">Name</label>
-            <span className="hidden text-purple-600 sm:block">:</span>
+            <span className="hidden sm:block">:</span>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
               placeholder="Your name"
-              className="w-full px-4 py-3 border border-purple-300 outline-none rounded-xl bg-purple-50 focus:ring-2 focus:ring-purple-400"
+              className="w-full px-4 py-3 border rounded-xl bg-purple-50 focus:ring-2 focus:ring-purple-400"
             />
           </div>
 
-          {/* Phone */}
-          <div className="grid gap-2 sm:gap-4 sm:grid-cols-[180px_20px_1fr] items-center">
-            <label className="font-medium text-purple-600">Mobile Phone</label>
-            <span className="hidden text-purple-600 sm:block">:</span>
+          {/* PHONE */}
+          <div className="grid gap-2 sm:grid-cols-[180px_20px_1fr] items-center">
+            <label className="font-medium text-purple-600">
+              Mobile Phone
+            </label>
+            <span className="hidden sm:block">:</span>
             <input
               type="tel"
               name="phone"
               value={form.phone}
               onChange={handleChange}
               placeholder="+62..."
-              className="w-full px-4 py-3 border border-purple-300 outline-none rounded-xl bg-purple-50 focus:ring-2 focus:ring-purple-400"
+              className="w-full px-4 py-3 border rounded-xl bg-purple-50 focus:ring-2 focus:ring-purple-400"
             />
           </div>
 
-          {/* Email */}
-          <div className="grid gap-2 sm:gap-4 sm:grid-cols-[180px_20px_1fr] items-center">
+          {/* EMAIL */}
+          <div className="grid gap-2 sm:grid-cols-[180px_20px_1fr] items-center">
             <label className="font-medium text-purple-600">Email</label>
-            <span className="hidden text-purple-600 sm:block">:</span>
+            <span className="hidden sm:block">:</span>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
               placeholder="your@email.com"
-              className="w-full px-4 py-3 border border-purple-300 outline-none rounded-xl bg-purple-50 focus:ring-2 focus:ring-purple-400"
+              className="w-full px-4 py-3 border rounded-xl bg-purple-50 focus:ring-2 focus:ring-purple-400"
             />
           </div>
 
-          {/* Brief */}
-          <div className="grid gap-2 sm:gap-4 sm:grid-cols-[180px_20px_1fr]">
+          {/* BRIEF */}
+          <div className="grid gap-2 sm:grid-cols-[180px_20px_1fr]">
             <label className="font-medium text-purple-600 sm:pt-3">
               Give us a short brief
             </label>
-            <span className="hidden pt-3 text-purple-600 sm:block">:</span>
+            <span className="hidden pt-3 sm:block">:</span>
             <textarea
               rows={4}
               name="brief"
               value={form.brief}
               onChange={handleChange}
               placeholder="Tell us about your project..."
-              className="w-full px-4 py-3 border border-purple-300 outline-none resize-none rounded-xl bg-purple-50 focus:ring-2 focus:ring-purple-400"
+              className="w-full px-4 py-3 border resize-none rounded-xl bg-purple-50 focus:ring-2 focus:ring-purple-400"
             />
           </div>
 
-          {/* Submit */}
-          <div className="flex justify-start pt-4 sm:justify-end">
+          {/* SUBMIT */}
+          <div className="flex justify-end pt-4">
             <button
               type="submit"
-              className="w-full px-10 py-3 font-semibold text-white transition bg-purple-600 sm:w-auto rounded-xl hover:bg-purple-700 active:scale-95"
+              disabled={loading}
+              className="px-10 py-3 font-semibold text-white bg-purple-600 rounded-xl hover:bg-purple-700 disabled:opacity-50"
             >
-              Send to WhatsApp
+              {loading ? "Sending..." : "Send Email"}
             </button>
           </div>
         </form>
