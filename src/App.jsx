@@ -13,12 +13,13 @@ import ContactForm from "./components/contactForm/ContactForm.jsx";
 import OdooAppPage from "./pages/product/OdooApp/OdooAppPage.jsx";
 import KnowledgePage from "./pages/knowledge/KnowledgePage.jsx";
 import MarketingPage from "./pages/service/Marketing/MarketingPage.jsx";
+import AppDevelopmentPage from "./pages/service/AppDevelopment/AppDevelopmentPage.jsx";
+import GraphicDesighnPage from "./pages/service/GraphicDesighn/GraphicDesighnPage.jsx";
+
 
 // components
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
-
-
 
 /* ================= ROUTE WRAPPER ================= */
 function AnimatedRoutes() {
@@ -30,19 +31,23 @@ function AnimatedRoutes() {
         <main className="min-h-screen pt-16">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
+
             {/* solution */}
             <Route path="/solutions/stages/:slug" element={<ByStagesPage />} />
             <Route path="/solutions/industry/:slug" element={<ByIndustryPage />} />
+
             {/* product */}
             <Route path="/products/erp/:slug" element={<ErpPage />} />
             <Route path="/products/odooApp/:slug" element={<OdooAppPage />} />
+
             {/* service */}
-            {/* <Route path="/services/appDevelopment/:slug" element={<ServicePage />} /> */}
+            <Route path="/services/appDevelopment/:slug" element={<AppDevelopmentPage />} />
             <Route path="/services/marketing/:slug" element={<MarketingPage />} />
-            {/* <Route path="/services/grapicDesign/:slug" element={<ServicePage />} /> */}
+            <Route path="/services/grapicDesign/:slug" element={<GraphicDesighnPage />} />
             
             {/* company */}
             <Route path="/company/:slug" element={<CompanyPage />} />
+            
             {/* knowledge */}
             <Route path="/knowledge/:slug" element={<KnowledgePage/>}/>
 

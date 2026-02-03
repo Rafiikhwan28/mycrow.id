@@ -214,7 +214,7 @@ export default function Home() {
       className="min-h-screen pt-10 bg-center bg-no-repeat bg-cover"
     >
       {/* ================= HERO ================= */}
-      <section className="relative overflow-hidden pb-28">
+      <section className="relative pt-5 overflow-hidden pb-28">
         <div className="relative h-[460px] sm:h-[520px] md:h-[640px] bg-gradient-to-r">
           {/* HAND LEFT */}
           <motion.img
@@ -356,7 +356,7 @@ export default function Home() {
             {/* ================= SERVICES ================= */}
             <div className="mb-16">
               <h2 className="mb-6 text-base font-bold text-center text-purple-700 sm:text-3xl">
-                Discover our product and service that you need
+                Discover Our Product and Service
               </h2>
 
               <div className="relative max-w-6xl mx-auto">
@@ -472,14 +472,14 @@ export default function Home() {
                 <img
                   src={mycrowLogo}
                   alt="Mycrow"
-                  className="object-contain h-5 pl-12 sm:h-8 sm:mt-14"
+                  className="object-contain h-10 pl-12 sm:h-10 sm:mt-12"
                 />
 
                 {/* LOGO ODOO */}
                 <img
                   src={odooLogo}
                   alt="Odoo"
-                  className="absolute object-contain h-24 top-4 right-4 sm:top-10 sm:right-4 sm:h-14 sm:mr-16 sm:mt-3"
+                  className="absolute object-contain h-10 top-4 right-4 sm:top-10 sm:right-4 sm:h-12 sm:mr-16 sm:mt-3"
                 />
 
                 {/* ================= TABS ================= */}
@@ -534,7 +534,7 @@ export default function Home() {
                       )}
 
                       {/* TITLE */}
-                      <h3 className="mb-2 text-sm font-semibold text-center text-purple-700 sm:text-lg">
+                      <h3 className="mb-2 text-sm font-semibold text-center text-black sm:text-lg">
                         {app.title}
                       </h3>
 
@@ -603,7 +603,7 @@ export default function Home() {
             {/* ================= MARKETING ================= */}
             <div className="py-16 sm:py-24">
               <h2 className="mb-10 text-base font-bold text-center text-purple-700 sm:mb-14 sm:text-3xl">
-                Marketing strategy and Design Service Solutions
+                Marketing Strategy and Design Service Solutions
               </h2>
 
               <div className="grid max-w-6xl grid-cols-2 px-6 mx-auto mt-16 gap-x-6 gap-y-14 sm:px-10 sm:grid-cols-2 md:grid-cols-4 md:gap-x-12 md:gap-y-20 md:mt-24">
@@ -624,11 +624,11 @@ export default function Home() {
                     </div>
 
                     {/* TEXT */}
-                    <p className="mt-6 text-xs font-medium leading-snug text-purple-700 md:mt-8 md:text-xl">
+                    <p className="mt-6 text-xs font-medium leading-snug text-black md:mt-8 md:text-xl">
                       {item.title}
                     </p>
                     {/* DESKRIPSI */}
-                    <p className="flex-grow my-3 text-xs text-gray-800 sm:text-base">
+                    <p className="flex-grow my-3 text-xs text-gray-500 sm:text-base">
                       {item.deskripsi}
                     </p>
                   </div>

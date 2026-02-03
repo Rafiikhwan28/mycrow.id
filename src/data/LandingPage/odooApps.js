@@ -39,7 +39,7 @@ import Survey from "../../assets/Application Icons/05. Marketing/Survey.png"
 
 //Human Resource
 import Recruitment from "../../assets/Application Icons/06. Human Resources/Recruitment.png"
-// import TimeOff from "../../assets/Application Icons/06. Human Resources/.png"
+import TimeOff from "../../assets/Application Icons/06. Human Resources/leave.png"
 import Appraisal from "../../assets/Application Icons/06. Human Resources/Aprecials.png"
 import Referral from "../../assets/Application Icons/06. Human Resources/Referals.png"
 import Fleet from "../../assets/Application Icons/06. Human Resources/Fleet.png"
@@ -327,7 +327,7 @@ export const odooApps = [
     id: 30,
     title: "Time off",
     category: "Human Resources",
-    // image: TimeOff,
+    image: TimeOff,
     deskripsi:
       "Manage employee leave in a calendar view updated in real time, with easy-to-generate statistical reports.",
   },

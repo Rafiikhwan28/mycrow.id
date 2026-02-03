@@ -1,13 +1,13 @@
-const marketingData = {
-  marketing: {
-    digitalMarketingSolutions: {
-      slug: "digitalMarketingSolutions",
+const graphicDesighnData = {
+  grapicDesign: {
+    brandIdentity: {
+      slug: "brandIdentity",
 
       hero: {
-        badge: " Digital Marketing Solutions",
-        title: "Make your business visible on search engine and get conversions",
+        badge: "brandIdentity",
+        title: "Brand Identity That Moves Markets Position, name, design, and codify your brand for consistency and growth",
         description:
-          "We help brands grow through SEO, SEM, content, and performance-driven digital marketing strategies that generate measurable results.",
+          "We craft strategy and visual systems that are distinct, flexible, and built to scale across touchpoints. [accenture.com]",
         primaryButton: {
           label: "Meet Our Expert",
           link: "/contact",
@@ -83,14 +83,14 @@ const marketingData = {
       },
     },
 
-    socialMediaSolutions: {
-      slug: "socialMediaSolutions",
+    annualReport: {
+      slug: "annualReport",
 
       hero: {
-        badge: "socialMediaSolutions",
+        badge: "annualReport",
         title: "Make your business visible on search engine and get conversions",
         description:
-          "We help brands grow through SEO, SEM, content, and performance-driven digital marketing strategies that generate measurable results.",
+          "We help buildSolutionOdoo grow through SEO, SEM, content, and performance-driven digital marketing strategies that generate measurable results.",
         primaryButton: {
           label: "Meet Our Expert",
           link: "/contact",
@@ -168,4 +168,4 @@ const marketingData = {
   },
 };
 
-export default marketingData;
+export default graphicDesighnData;
