@@ -12,21 +12,6 @@ const buildLink = (menu, section, item) => {
   return `${menu.basePath}/${item.slug}`;
 };
 
-/* ================= TRANSLATION ================= */
-const translations = {
-  EN: {
-    topBar:
-      "Your Trusted Partner for Secure and Scalable Digital Transformation",
-    explore: "Explore solutions",
-    contact: "Contact Us",
-  },
-  ID: {
-    topBar: "",
-    explore: "Jelajahi solusi",
-    contact: "Hubungi Kami",
-  },
-};
-
 export default function Navbar() {
   // MENU
   const [openMenu, setOpenMenu] = useState(null);
@@ -220,10 +205,6 @@ export default function Navbar() {
         overflow-y-auto overscroll-contain transform transition-transform duration-500
         ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        {/*Top bar */}
-        <div className="py-3 text-sm text-center text-white bg-gradient-to-r from-purple-600 to-blue-500">
-          {translations[lang].topBar}
-        </div>
         {/* HEADER */}
         <div className="flex items-center justify-between px-6 py-5">
           <img src={logo} alt="logo" className="h-16" />
@@ -293,12 +274,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* ================= CTA (UPDATED MOBILE SIZE) ================= */}
-        <div className="p-6">
-          <button className="w-full py-3 text-base text-white transition bg-purple-600 rounded-full sm:py-4 sm:text-lg">
-            {translations[lang].contact}
-          </button>
-        </div>
       </aside>
     </header>
   );

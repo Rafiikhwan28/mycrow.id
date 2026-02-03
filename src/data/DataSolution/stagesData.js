@@ -2,16 +2,16 @@ import baner1 from "../../assets/01. Landing Page/banner-01.png";
 import baner2 from "../../assets/01. Landing Page/banner-02.png";
 
 //icon
-import icon1 from "../../assets/icons/achievement_9746277.png";
-import icon2 from "../../assets/icons/revenue_9428460.png";
-import icon3 from "../../assets/icons/safebox_1954179.png";
-import icon4 from "../../assets/icons/startup_4159353.png";
+import icon1 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/Quick_deployment.png";
+import icon2 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/revenue.png";
+import icon3 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/allin.png";
+import icon4 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/expert_support.png";
 
 //grapics
-import graphic1 from "../../assets/Graphics/operations.png";
-import graphic2 from "../../assets/Graphics/scalable.png";
-import graphic3 from "../../assets/Graphics/dashboard.png";
-import graphic4 from "../../assets/Graphics/implementation.png";
+import graphic1 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/Business operations.jpg";
+import graphic2 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/flexible.jpg";
+import graphic3 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/dashboard.jpg";
+import graphic4 from "../../assets/Solution/Stages/02. Small and Medium Enterprise/guided_implementation.jpg";
 
 export const stagesData = {
   byStages: {
@@ -31,7 +31,7 @@ export const stagesData = {
       },
 
       reasons: {
-        title: "The reasons, why SMEs Choose Our Odoo Solutions",
+        title: "The Reasons Why SMEs Choose Our Odoo Solutions",
         items: [
           {
             icon:
@@ -43,7 +43,7 @@ export const stagesData = {
           {
             icon:
               icon2,
-            title: "Cost-Effective & Modular",
+            title: "Cost-Effective and Modular",
             description:
               "Start with essential apps and expand as your business grows. No expensive overhauls.",
           },
@@ -77,21 +77,21 @@ export const stagesData = {
               graphic1,
           },
           {
-            title: "Scalable & Flexible Architecture",
+            title: "Scalable and Flexible Architecture",
             description:
               "Start small, customize as needed, and expand seamlessly as your business grows. Choose cloud or on‑premise deployment.",
             image:
               graphic2,
           },
           {
-            title: "Real‑Time Dashboards & Analytics",
+            title: "Real‑Time Dashboards and Analytics",
             description:
               "Make informed decisions using dynamic dashboards integrated across departments.",
             image:
               graphic3,
           },
           {
-            title: "Smooth, Guided Implementation",
+            title: "Smooth and Guided Implementation",
             description:
               "Our certified team supports you through setup, data migration, training, and ongoing optimization.",
             image:
