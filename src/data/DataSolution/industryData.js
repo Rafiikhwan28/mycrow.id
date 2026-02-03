@@ -24,7 +24,7 @@ const industryData = {
     video: {
       thumbnail:
         "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-      url: "https://www.w3schools.com/html/mov_bbb.mp4",
+      url: "https://youtu.be/IRbj-SzTcrY",
     },
 
     reasons: {
@@ -106,7 +106,7 @@ const industryData = {
     video: {
       thumbnail:
         "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-      url: "https://www.w3schools.com/html/mov_bbb.mp4",
+      url: "https://youtu.be/yZdcmAApq-0",
     },
 
     reasons: {
@@ -187,7 +187,7 @@ const industryData = {
     video: {
       thumbnail:
         "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-      url: "https://www.w3schools.com/html/mov_bbb.mp4",
+      url: "https://youtu.be/T45Jo3s_Pt4",
     },
 
     reasons: {
@@ -270,7 +270,7 @@ const industryData = {
     video: {
       thumbnail:
         "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-      url: "https://www.w3schools.com/html/mov_bbb.mp4",
+      url: "https://youtu.be/4Rko1UHuDWU",
     },
 
     reasons: {
@@ -352,7 +352,7 @@ const industryData = {
     video: {
       thumbnail:
         "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-      url: "https://www.w3schools.com/html/mov_bbb.mp4",
+      url: "https://youtu.be/5Bl60GkEa50",
     },
 
     reasons: {
@@ -434,7 +434,7 @@ const industryData = {
     video: {
       thumbnail:
         "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-      url: "https://www.w3schools.com/html/mov_bbb.mp4",
+      url: "https://youtu.be/qkbVGUyIExk",
     },
 
     reasons: {
@@ -518,7 +518,7 @@ const industryData = {
     video: {
       thumbnail:
         "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-      url: "https://www.w3schools.com/html/mov_bbb.mp4",
+      url: "https://youtu.be/3BUQjNCl9bs",
     },
 
     reasons: {
@@ -603,7 +603,7 @@ const industryData = {
     video: {
       thumbnail:
         "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
-      url: "https://youtu.be/eNt78mQJavY?si=ytcR74yyjnDFIJS9",
+      url: "https://youtu.be/pctpdVurqRc",
     },
 
     reasons: {

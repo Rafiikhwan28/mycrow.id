@@ -35,15 +35,15 @@ export default function ScrollSmoothStep() {
       whileHover={{ scale: 1.15 }}
       whileTap={{ scale: 0.92 }}
       className="
-        fixed bottom-10 left-1/2 -translate-x-1/2 z-[9999]
-        w-14 h-14 rounded-full
-        bg-white/20 backdrop-blur-xl
-        border border-white/30
-        flex items-center justify-center
-        text-white
-      "
+    fixed bottom-14 left-1/2 -translate-x-1/2 z-[9999]
+    w-16 h-16 rounded-full
+    bg-white/20 backdrop-blur-xl
+    border border-white/30
+    flex items-center justify-center
+    text-white hover:text-purple-500
+  "
     >
-      <ChevronDown size={30} />
+      <ChevronDown size={40} />
     </motion.button>
   );
 }
