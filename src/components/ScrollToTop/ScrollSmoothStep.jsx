@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 export default function ScrollSmoothStep() {
-  const STEP = 500; // jarak scroll per klik (px)
-  const DURATION = 520; // ms
+  const STEP = 900; // jarak scroll per klik (px)
+  const DURATION = 720; // ms
 
   const smoothScrollStep = () => {
     const start = window.scrollY;

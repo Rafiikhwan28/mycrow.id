@@ -173,11 +173,11 @@ export default function ByIndustryTemplate({ data }) {
           {/* ================= BENEFITS ================= */}
           {benefits && (
             <div className="max-w-5xl px-3 mx-auto mb-10">
-              <div className="max-w-3xl mx-auto mb-20 text-center">
-                <h2 className="text-2xl font-semibold text-center text-purple-700 mb-14">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="mb-4 text-2xl font-semibold text-center text-purple-700">
                   {benefits.title}
                 </h2>
-                <p className="text-slate-600">{benefits.description}</p>
+                <p className="max-w-3xl mx-auto mb-20 text-base text-center text-gray-700 md:text-lg">{benefits.description}</p>
               </div>
 
               <div className="space-y-32">
@@ -198,15 +198,15 @@ export default function ByIndustryTemplate({ data }) {
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="object-contain w-full h-80"
+                        className="object-contain w-full h-auto max-w-md shadow-2xl rounded-3xl"
                       />
                     </div>
 
                     <div>
-                      <h3 className="mb-4 text-xl font-semibold text-slate-900">
+                      <h3 className="mb-4 text-2xl font-semibold">
                         {item.title}
                       </h3>
-                      <p className="text-base leading-relaxed text-gray-600">
+                      <p className="text-base leading-relaxed text-gray-700 md:text-lg">
                         {item.description}
                       </p>
                     </div>

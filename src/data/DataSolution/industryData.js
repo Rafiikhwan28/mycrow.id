@@ -5,6 +5,54 @@ import graphic1 from "../../assets/Graphics/operations.png";
 import graphic2 from "../../assets/Graphics/scalable.png";
 import graphic3 from "../../assets/Graphics/dashboard.png";
 import graphic4 from "../../assets/Graphics/implementation.png";
+
+//Manufacture
+//Banner
+import bannerManufacture from "../../assets/Solution/Industri/06. Manufacture/manufacture_banner.png"
+//icon
+import icon1c from "../../assets/Solution/Industri/06. Manufacture/manufacture.png"
+import icon2c from "../../assets/Solution/Industri/06. Manufacture/control2.png"
+import icon3c from "../../assets/Solution/Industri/06. Manufacture/quality2.png"
+import icon4c from "../../assets/Solution/Industri/06. Manufacture/maintenance2.png"
+//img 
+import img1c from "../../assets/Solution/Industri/06. Manufacture/process.jpg"
+import img2c from "../../assets/Solution/Industri/06. Manufacture/track.jpg"
+import img3c from "../../assets/Solution/Industri/06. Manufacture/quality-control-improvement-development-concept.jpg"
+import img4c from "../../assets/Solution/Industri/06. Manufacture/integrated.jpg"
+
+
+//F&B
+//Banner
+import bannerFNB from "../../assets/Solution/Industri/05. Food and Beverages/Food_Beverage_banner.png"
+//icon 
+import icon1b from "../../assets/Solution/Industri/05. Food and Beverages/speed.png"
+import icon2b from "../../assets/Solution/Industri/05. Food and Beverages/inventory.png"
+import icon3b from "../../assets/Solution/Industri/05. Food and Beverages/channel.png"
+import icon4b from "../../assets/Solution/Industri/05. Food and Beverages/barcode.png"
+//img 
+import img1b from "../../assets/Solution/Industri/05. Food and Beverages/speedfast.jpg"
+import img2b from "../../assets/Solution/Industri/05. Food and Beverages/control.jpg"
+import img3b from "../../assets/Solution/Industri/05. Food and Beverages/stock.jpg"
+import img4b from "../../assets/Solution/Industri/05. Food and Beverages/barcodepayment.jpg"
+
+
+
+//Retail
+//Banner
+import bannerRetail from "../../assets/Solution/Industri/04. Retail/banner.png"
+//icon 
+import icon1a from "../../assets/Solution/Industri/04. Retail/Inventory.png"
+import icon2a from "../../assets/Solution/Industri/04. Retail/POS.png"
+import icon3a from "../../assets/Solution/Industri/04. Retail/omnichannelpng.png"
+import icon4a from "../../assets/Solution/Industri/04. Retail/supply-chain.png"
+//img 
+import img1a from "../../assets/Solution/Industri/04. Retail/transaction.jpg"
+import img2a from "../../assets/Solution/Industri/04. Retail/inventory.jpg"
+import img3a from "../../assets/Solution/Industri/04. Retail/customer_interactions.jpg"
+import img4a from "../../assets/Solution/Industri/04. Retail/payment.jpg"
+
+
+
 const industryData = {
   customize: {
     slug: "customize",
@@ -346,7 +394,7 @@ const industryData = {
         label: "Meet Our Experts",
         link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
-      heroImage: image1,
+      heroImage: bannerFNB,
     },
 
     video: {
@@ -359,25 +407,25 @@ const industryData = {
       title: "Why Odoo is the smart choice for F&B operators",
       items: [
         {
-          icon: "https://img.icons8.com/color/96/pos-terminal.png",
+          icon: icon1b,
           title: "POS built for speed",
           description:
             "Serve quickly with offline mode, split bills, tips, and integrated payments that post to Accounting.",
         },
         {
-          icon: "https://img.icons8.com/color/96/combo-chart.png",
+          icon: icon2b,
           title: "Perishable‑ready inventory",
           description:
             "Track lots and expiration dates, enforce FEFO, and display expiry data on slips.",
         },
         {
-          icon: "https://img.icons8.com/color/96/cloud.png",
+          icon: icon3b,
           title: "One inventory, many channels",
           description:
             "Sync stock across outlets and online so availability is always accurate.",
         },
         {
-          icon: "https://img.icons8.com/color/96/settings.png",
+          icon: icon4b,
           title: "Barcode precision",
           description:
             "Scan to receive, pick, and count so every movement is correct the first time.",
@@ -394,23 +442,23 @@ const industryData = {
           title: "Fast, Flexible POS",
           description:
             "Web‑based, device‑agnostic, and easy for staff to learn.",
-          image: graphic1,
+          image: img1b,
         },
         {
           title: "FEFO & Expiry Control",
           description: "Prevent waste and never ship or serve expired items.",
-          image: graphic2,
+          image: img2b,
         },
         {
           title: "Unified Stock",
           description: "All outlets.",
-          image: graphic3,
+          image: img3b,
         },
         {
           title: "Barcode Operations",
           description:
             "GS1 supports speeds receiving and counts with fewer errors.",
-          image: graphic4,
+          image: img4b,
         },
       ],
     },
@@ -512,7 +560,7 @@ const industryData = {
         label: "Meet Our Experts",
         link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
-      heroImage: image1,
+      heroImage: bannerManufacture,
     },
 
     video: {
@@ -525,25 +573,25 @@ const industryData = {
       title: "Why Odoo is the smart choice for modern manufacturers",
       items: [
         {
-          icon: "https://img.icons8.com/color/96/pos-terminal.png",
+          icon: icon1c,
           title: "End‑to‑end MRP + MES",
           description:
             "Plan multi‑level BOMs with finite capacity, then execute barcode‑driven work orders that update availability and costs in real time.",
         },
         {
-          icon: "https://img.icons8.com/color/96/combo-chart.png",
+          icon: icon2c,
           title: "PLM & ECO control",
           description:
             "Version products, route ECO approvals, and sync instructions to the shop floor without juggling external tools.",
         },
         {
-          icon: "https://img.icons8.com/color/96/cloud.png",
+          icon: icon3c,
           title: "Quality & traceability",
           description:
             "Use control points, alerts, and lot/serial tracking to meet standards and simplify audits and recalls.",
         },
         {
-          icon: "https://img.icons8.com/color/96/settings.png",
+          icon: icon4c,
           title: "Proactive maintenance",
           description:
             "Schedule preventive work and raise requests from workcenters to reduce downtime and lift OEE.",
@@ -560,25 +608,25 @@ const industryData = {
           title: "Real‑Time Work Orders",
           description:
             "Tablet UIs capture time, scrap, and by‑products as operators work.",
-          image: graphic1,
+          image: img1c,
         },
         {
           title: "Traceability",
           description:
             "Lots/serials track every move from components to finished goods.",
-          image: graphic2,
+          image: img2c,
         },
         {
           title: "In‑process Quality",
           description:
             "Control points and CAPA keep defects from flowing downstream.",
-          image: graphic3,
+          image: img3c,
         },
         {
           title: "Integrated Maintenance",
           description:
             "Requests and schedules live next to workcenters to prevent breakdowns.",
-          image: graphic4,
+          image: img4c,
         },
       ],
     },
@@ -597,7 +645,7 @@ const industryData = {
         label: "Meet Our Experts",
         link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
-      heroImage: image1,
+      heroImage: bannerRetail,
     },
 
     video: {
@@ -610,25 +658,25 @@ const industryData = {
       title: "Why Odoo Is the Smart Choice for Modern Retailers",
       items: [
         {
-          icon: "https://img.icons8.com/color/96/pos-terminal.png",
+          icon: icon1a,
           title: "Smarter Inventory Control, Less Waste",
           description:
             "Odoo helps retailers optimize stock levels, minimize overstocking, and streamline replenishment workflows ensuring the right products are always available when customers need them.",
         },
         {
-          icon: "https://img.icons8.com/color/96/combo-chart.png",
+          icon: icon2a,
           title: "Integrated POS for Faster, Smoother Checkouts",
           description:
             "Process transactions instantly, track stock in real time, and maintain customer profiles effortlessly through a fully integrated Point of Sale system.",
         },
         {
-          icon: "https://img.icons8.com/color/96/cloud.png",
+          icon: icon3a,
           title: "A True Omnichannel Experience",
           description:
             "Deliver a consistent and unified shopping journey whether customers shop online, in-store, or via mobile. Odoo syncs all channels to enhance satisfaction, loyalty, and repeat purchases.",
         },
         {
-          icon: "https://img.icons8.com/color/96/settings.png",
+          icon: icon4a,
           title: "Total Supply Chain Visibility",
           description:
             "Track warehouses, SKUs, serial numbers, lot numbers, purchasing, routes, and fulfillment with complete clarity giving retailers control over margins, stock movement, and operational costs.",
@@ -645,25 +693,25 @@ const industryData = {
           title: "Lightning-Fast Transactions",
           description:
             "Ensure quick, seamless checkout experiences that minimize queues and boost customer satisfaction.",
-          image: graphic1,
+          image: img1a,
         },
         {
           title: "Real-Time Stock Sync",
           description:
             "Your POS is always connected to your inventory—stopping overselling and improving stock accuracy.",
-          image: graphic2,
+          image: img2a,
         },
         {
           title: "Personalized Customer Interaction",
           description:
             "Capture customer data and purchase history to deliver targeted offers and memorable service.",
-          image: graphic3,
+          image: img3a,
         },
         {
           title: "Flexible Payment Options",
           description:
             "Support multiple payment methods, making transactions smoother for every shopper.",
-          image: graphic4,
+          image: img4a,
         },
       ],
     },
