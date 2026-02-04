@@ -28,15 +28,7 @@ export default function Navbar() {
   const [mobileActiveMenu, setMobileActiveMenu] = useState(null);
 
   /* ================= SCROLL EFFECT ================= */
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 90);
-    window.scrollTo({
-      top: 0,
-      behavior: window.innerWidth < 768 ? "smooth" : "auto",
-    });
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  useEffect(() => { const onScroll = () => setIsScrolled(window.scrollY > 90); window.addEventListener("scroll", onScroll); return () => window.removeEventListener("scroll", onScroll); }, []);
 
   /* ================= LOCK BODY SCROLL ================= */
   useEffect(() => {
