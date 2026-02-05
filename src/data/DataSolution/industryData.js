@@ -6,6 +6,81 @@ import graphic2 from "../../assets/Graphics/scalable.png";
 import graphic3 from "../../assets/Graphics/dashboard.png";
 import graphic4 from "../../assets/Graphics/implementation.png";
 
+//Customize
+//Banner
+import bannerCustomize from "../../assets/Solution/Industri/11. customize/customize_banner.png"
+//icon
+import icon1h from "../../assets/Solution/Industri/11. customize/lowcode.png"
+import icon2h from "../../assets/Solution/Industri/11. customize/omnichannel.png"
+import icon3h from "../../assets/Solution/Industri/11. customize/appointment.png"
+import icon4h from "../../assets/Solution/Industri/11. customize/global.png"
+//img 
+import img1h from "../../assets/Solution/Industri/11. customize/lowcode.jpg"
+import img2h from "../../assets/Solution/Industri/11. customize/approval.jpg"
+import img3h from "../../assets/Solution/Industri/11. customize/self_service.jpg"
+import img4h from "../../assets/Solution/Industri/11. customize/accounting_global.jpg"
+
+
+//Trading
+//Banner
+import bannerTrading from "../../assets/Solution/Industri/10. trading/trading_banner.png"
+//icon
+import icon1g from "../../assets/Solution/Industri/10. trading/automation.png"
+import icon2g from "../../assets/Solution/Industri/10. trading/dropshipping.png"
+import icon3g from "../../assets/Solution/Industri/10. trading/barcode.png"
+import icon4g from "../../assets/Solution/Industri/10. trading/multicurrency.png"
+//img 
+import img1g from "../../assets/Solution/Industri/10. trading/Replenishment.jpg"
+import img2g from "../../assets/Solution/Industri/10. trading/dropshipper.jpg"
+import img3g from "../../assets/Solution/Industri/10. trading/barcode.jpg"
+import img4g from "../../assets/Solution/Industri/10. trading/accounting.jpg"
+
+
+//Consultant
+//Banner
+import bannerConsultant from "../../assets/Solution/Industri/09. Consultant/3d-cartoon-scene-depicting-variety-people-multitasking (2).png"
+//icon
+import icon1f from "../../assets/Solution/Industri/09. Consultant/project.png"
+import icon2f from "../../assets/Solution/Industri/09. Consultant/billimng.png"
+import icon3f from "../../assets/Solution/Industri/09. Consultant/CRM.png"
+import icon4f from "../../assets/Solution/Industri/09. Consultant/profitability.png"
+//img 
+import img1f from "../../assets/Solution/Industri/09. Consultant/Invoicing.jpg"
+import img2f from "../../assets/Solution/Industri/09. Consultant/roles.jpg"
+import img3f from "../../assets/Solution/Industri/09. Consultant/deal.jpg"
+import img4f from "../../assets/Solution/Industri/09. Consultant/cost.jpg"
+
+
+
+//RealEstate
+//Banner
+import bannerRealEstate from "../../assets/Solution/Industri/08. Real estate/realestate_banner.jpg"
+//icon
+import icon1e from "../../assets/Solution/Industri/08. Real estate/oneflow.png"
+import icon2e from "../../assets/Solution/Industri/08. Real estate/automated_billing.png"
+import icon3e from "../../assets/Solution/Industri/08. Real estate/availability.png"
+import icon4e from "../../assets/Solution/Industri/08. Real estate/alignment.png"
+//img 
+import img1e from "../../assets/Solution/Industri/08. Real estate/CRM.jpg"
+import img2e from "../../assets/Solution/Industri/08. Real estate/Gantt.jpg"
+import img3e from "../../assets/Solution/Industri/08. Real estate/Invoicing.jpg"
+import img4e from "../../assets/Solution/Industri/08. Real estate/Maintenance_task.jpg"
+
+
+//Health
+//Banner
+import bannerHealth from "../../assets/Solution/Industri/07. Health and fitness/Health_fintess_banner.png"
+//icon
+import icon1d from "../../assets/Solution/Industri/07. Health and fitness/calendar_1277032.png"
+import icon2d from "../../assets/Solution/Industri/07. Health and fitness/mobile_18410115.png"
+import icon3d from "../../assets/Solution/Industri/07. Health and fitness/card_1283235.png"
+import icon4d from "../../assets/Solution/Industri/07. Health and fitness/retail_12341503.png"
+//img 
+import img1d from "../../assets/Solution/Industri/07. Health and fitness/Recurring_plan.jpg"
+import img2d from "../../assets/Solution/Industri/07. Health and fitness/calendar_integration.jpg"
+import img3d from "../../assets/Solution/Industri/07. Health and fitness/member schedule.jpg"
+import img4d from "../../assets/Solution/Industri/07. Health and fitness/POS_accounting.jpg"
+
 //Manufacture
 //Banner
 import bannerManufacture from "../../assets/Solution/Industri/06. Manufacture/manufacture_banner.png"
@@ -19,7 +94,6 @@ import img1c from "../../assets/Solution/Industri/06. Manufacture/process.jpg"
 import img2c from "../../assets/Solution/Industri/06. Manufacture/track.jpg"
 import img3c from "../../assets/Solution/Industri/06. Manufacture/quality-control-improvement-development-concept.jpg"
 import img4c from "../../assets/Solution/Industri/06. Manufacture/integrated.jpg"
-
 
 //F&B
 //Banner
@@ -66,7 +140,7 @@ const industryData = {
         label: "Meet Our Experts",
         link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
-      heroImage: image1,
+      heroImage: bannerCustomize,
     },
 
     video: {
@@ -79,25 +153,25 @@ const industryData = {
       title: "Why Odoo is the smart choice across industries",
       items: [
         {
-          icon: "https://img.icons8.com/color/96/pos-terminal.png",
+          icon: icon1h,
           title: "Low‑code agility",
           description:
             "Add fields, views, automations, and approval rules with upgrade‑safe Studio.",
         },
         {
-          icon: "https://img.icons8.com/color/96/combo-chart.png",
+          icon: icon2h,
           title: "Omnichannel sales",
           description:
             "Run POS, eCommerce, and CRM on one database for a single customer view.",
         },
         {
-          icon: "https://img.icons8.com/color/96/cloud.png",
+          icon: icon3h,
           title: "Appointments & portals",
           description:
             "Let clients self‑book, confirm, and self‑serve through your website.",
         },
         {
-          icon: "https://img.icons8.com/color/96/settings.png",
+          icon: icon4h,
           title: "Operate globally",
           description:
             "Use multi‑company/multi‑currency and localizations as you scale.",
@@ -113,24 +187,24 @@ const industryData = {
         {
           title: "Low‑Code Builder",
           description: "Drag‑and‑drop data models, forms, and lists.",
-          image: graphic1,
+          image: img1h,
         },
         {
           title: "Automations & Approvals",
           description:
             "Trigger emails, tasks, and multi‑step approvals on conditions.",
-          image: graphic2,
+          image: img2h,
         },
         {
           title: "Client Self‑Service",
           description: "Appointments and portals reduce back‑and‑forth.",
-          image: graphic3,
+          image: img3h,
         },
         {
           title: "Global Finance Ready",
           description:
             "Multi‑currency and country localizations keep you compliant.",
-          image: graphic4,
+          image: img4h,
         },
       ],
     },
@@ -148,7 +222,7 @@ const industryData = {
         label: "MMeet Our Experts",
         link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
-      heroImage: image1,
+      heroImage: bannerTrading,
     },
 
     video: {
@@ -161,25 +235,25 @@ const industryData = {
       title: "Why Odoo is the smart choice for traders & distributors",
       items: [
         {
-          icon: "https://img.icons8.com/color/96/pos-terminal.png",
+          icon: icon1g,
           title: "Automated replenishment",
           description:
             "Min/Max reordering rules raise RFQs exactly when stock hits thresholds.",
         },
         {
-          icon: "https://img.icons8.com/color/96/combo-chart.png",
+          icon: icon2g,
           title: "Routes & dropshipping",
           description:
             "Define push/pull rules and ship supplier‑to‑customer for special orders.",
         },
         {
-          icon: "https://img.icons8.com/color/96/cloud.png",
+          icon: icon3g,
           title: "Barcode operations",
           description:
             "Use scanners and GS1 to receive, pick, and count quickly and accurately.",
         },
         {
-          icon: "https://img.icons8.com/color/96/settings.png",
+          icon: icon4g,
           title: "Multi‑currency finance",
           description:
             "Invoice and reconcile in foreign currencies with automatic FX differences.",
@@ -195,24 +269,24 @@ const industryData = {
         {
           title: "Smart Replenishment",
           description: "Rules order to Max and respect multiples and vendors.",
-          image: graphic1,
+          image: img1g,
         },
         {
           title: "Dropship Flow",
           description:
             "Supplier POs and partner‑to‑partner deliveries are fully linked.",
-          image: graphic2,
+          image: img2g,
         },
         {
           title: "Barcode Picking",
           description:
             "Operations are faster and more accurate with scan‑to‑process.",
-          image: graphic3,
+          image: img3g,
         },
         {
           title: "Global Accounting",
           description: "Ledger, journals, and gains/losses handle FX cleanly.",
-          image: graphic4,
+          image: img4g,
         },
       ],
     },
@@ -229,7 +303,7 @@ const industryData = {
         label: "Meet Our Experts",
         link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
-      heroImage: image1,
+      heroImage: bannerConsultant,
     },
 
     video: {
@@ -242,25 +316,25 @@ const industryData = {
       title: "Why Odoo is the smart choice for service firms",
       items: [
         {
-          icon: "https://img.icons8.com/color/96/pos-terminal.png",
+          icon: icon1f,
           title: "Project + Timesheets",
           description:
             "Log hours by task and role with approvals and analytic accounts for clean WIP.",
         },
         {
-          icon: "https://img.icons8.com/color/96/combo-chart.png",
+          icon: icon2f,
           title: "Flexible billing",
           description:
             "Invoice time & materials, fixed price, or retainers directly from the project.",
         },
         {
-          icon: "https://img.icons8.com/color/96/cloud.png",
+          icon: icon3f,
           title: "CRM‑to‑delivery handoff",
           description:
             "Convert won deals into projects with scope, budgets, and deliverables intact.",
         },
         {
-          icon: "https://img.icons8.com/color/96/settings.png",
+          icon: icon4f,
           title: "Engagement profitability",
           description:
             "Tie hours, expenses, and POs to each project to see margins in real time.",
@@ -277,24 +351,24 @@ const industryData = {
           title: "Timesheet → Invoice",
           description:
             "Bill weekly, monthly, or milestone periods with one click.",
-          image: graphic1,
+          image: img1f,
         },
         {
           title: "Role‑Based Rates",
           description:
             "Price by skill or seniority to reflect value delivered.",
-          image: graphic2,
+          image: img2f,
         },
         {
           title: "Deal → Project",
           description: "Start delivery the moment the proposal is accepted.",
-          image: graphic3,
+          image: img3f,
         },
         {
           title: "Cost & Expense Link",
           description:
             "Attach expenses and vendor bills to keep margins honest.",
-          image: graphic4,
+          image: img4f,
         },
       ],
     },
@@ -312,7 +386,7 @@ const industryData = {
         label: "Meet Our Experts",
         link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
-      heroImage: image1,
+      heroImage: bannerHealth,
     },
 
     video: {
@@ -325,25 +399,25 @@ const industryData = {
       title: "Why Odoo is the smart choice for gyms & studios",
       items: [
         {
-          icon: "https://img.icons8.com/color/96/pos-terminal.png",
+          icon: icon1d,
           title: "Subscription memberships",
           description:
             "Automate sign‑up, renewals, and dunning while tracking MRR and churn by plan.",
         },
         {
-          icon: "https://img.icons8.com/color/96/combo-chart.png",
+          icon: icon2d,
           title: "Online booking",
           description:
             "Publish services and schedules, then auto‑sync appointments to staff calendars.",
         },
         {
-          icon: "https://img.icons8.com/color/96/cloud.png",
+          icon: icon3d,
           title: "Member management",
           description:
             "Track status and fees, and publish directories or benefits when needed.",
         },
         {
-          icon: "https://img.icons8.com/color/96/settings.png",
+          icon: icon4d,
           title: "Front‑desk retail",
           description:
             "Sell merchandise and add‑ons via POS that settles to Accounting automatically.",
@@ -359,24 +433,24 @@ const industryData = {
         {
           title: "Recurring Plans",
           description: "Self‑service portals simplify upgrades and renewals.",
-          image: graphic1,
+          image: img1d,
         },
         {
           title: "Calendar Integration",
           description:
             "Coordinate trainers, rooms, and equipment with resource‑based slots.",
-          image: graphic2,
+          image: img2d,
         },
         {
           title: "Member Records",
           description: "Payments, history, and communications in one place.",
-          image: graphic3,
+          image: img3d,
         },
         {
           title: "POS & Accounting",
           description:
             "Transparent revenue with automated posting and reconciliation.",
-          image: graphic4,
+          image: img4d,
         },
       ],
     },
@@ -476,7 +550,7 @@ const industryData = {
         label: "Meet Our Experts",
         link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
-      heroImage: image1,
+      heroImage: bannerRealEstate,
     },
 
     video: {
@@ -489,25 +563,25 @@ const industryData = {
       title: "Why Odoo is the smart choice for property teams",
       items: [
         {
-          icon: "https://img.icons8.com/color/96/pos-terminal.png",
+          icon: icon1e,
           title: "Lead‑to‑Lease in one flow",
           description:
             "Capture inquiries on your website, progress them in CRM, and convert to lease agreements seamlessly.",
         },
         {
-          icon: "https://img.icons8.com/color/96/combo-chart.png",
+          icon: icon2e,
           title: "Automated contracts & billing",
           description:
             "Define terms, meter readings, and billing dates so rent invoices go out on time—every time.",
         },
         {
-          icon: "https://img.icons8.com/color/96/cloud.png",
+          icon: icon3e,
           title: "Availability at a glance",
           description:
             "Use Gantt views to see vacancies, overlaps, and renewals so you act before revenue slips.",
         },
         {
-          icon: "https://img.icons8.com/color/96/settings.png",
+          icon: icon4e,
           title: "Operational follow‑through",
           description:
             "Create tasks for inspections and maintenance to protect NOI and tenant satisfaction.",
@@ -524,25 +598,25 @@ const industryData = {
           title: "Listings & CRM",
           description:
             "Publish properties and manage inquiries in one pipeline.",
-          image: graphic1,
+          image: img1e,
         },
         {
           title: "Gantt Scheduling",
           description:
             "Plan move‑ins, renewals, and turnarounds without clashes.",
-          image: graphic2,
+          image: img2e,
         },
         {
           title: "Recurring Invoicing",
           description:
             "Contracts drive rent invoices and reminders automatically.",
-          image: graphic3,
+          image: img3e,
         },
         {
           title: "Maintenance Tasks",
           description:
             "Track inspections and repairs to keep units market‑ready.",
-          image: graphic4,
+          image: img4e,
         },
       ],
     },
