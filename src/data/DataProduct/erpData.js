@@ -13,6 +13,18 @@ import graphic2 from "../../assets/Graphics/scalable.png";
 import graphic3 from "../../assets/Graphics/dashboard.png";
 import graphic4 from "../../assets/Graphics/implementation.png";
 
+//iconERP
+import icon1a from "../../assets/Product/ERP/12. What is ERP/one_source.png"
+import icon1b from "../../assets/Product/ERP/12. What is ERP/Scalable.png"
+import icon1c from "../../assets/Product/ERP/12. What is ERP/fast.png"
+import icon1d from "../../assets/Product/ERP/12. What is ERP/flexible_deploy.png"
+//imgERP
+import img1a from "../../assets/Product/ERP/12. What is ERP/integration.jpg"
+import img1b from "../../assets/Product/ERP/12. What is ERP/automation.jpg"
+import img1c from "../../assets/Product/ERP/12. What is ERP/ontime.jpg"
+import img1d from "../../assets/Product/ERP/12. What is ERP/oncloud_premise.jpg"
+
+
 export const erpData = {
   erp: {
     whatErp: {
@@ -35,28 +47,28 @@ export const erpData = {
         items: [
           {
             icon:
-              icon1,
+              icon1a,
             title: "One source of truth",
             description:
               "ERP eliminates data silos by centralizing operations and information so teams work from the same, reliable facts.",
           },
           {
             icon:
-              icon2,
+              icon1b,
             title: "Automation that scales",
             description:
               "Standardized workflows and built‑in automation reduce manual tasks, errors, and handoffs across departments.",
           },
           {
             icon:
-              icon3,
+              icon1c,
             title: "Faster, better decisions",
             description:
               "Real‑time reporting and consolidated dashboards help leaders act quickly with a holistic view of performance.",
           },
           {
             icon:
-              icon4,
+              icon1d,
             title: "Flexible deployment",
             description:
               "Modern ERPs offer cloud and on‑premise options to fit your security, cost, and customization needs.",
@@ -74,28 +86,28 @@ export const erpData = {
             description:
               "Run sales, inventory, accounting, projects, and more on one platform.",
             image:
-              graphic1,
+              img1a,
           },
           {
             title: "Automation & Workflows",
             description:
               "Standardize processes to cut cycle times and reduce manual work. ",
             image:
-              graphic2,
+              img1b,
           },
           {
             title: "Real‑Time Visibility",
             description:
               "Use live data and reports to steer the performance company wide.",
             image:
-              graphic3,
+              img1c,
           },
           {
             title: "Cloud or On‑Premise",
             description:
               "Deploy the way you want and evolve at your own pace.",
             image:
-              graphic4,
+              img1d,
           },
         ],
       },

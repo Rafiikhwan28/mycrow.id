@@ -1,11 +1,3 @@
-import image1 from "../../assets/Graphics/ERP.png";
-
-//grapics
-import graphic1 from "../../assets/Graphics/operations.png";
-import graphic2 from "../../assets/Graphics/scalable.png";
-import graphic3 from "../../assets/Graphics/dashboard.png";
-import graphic4 from "../../assets/Graphics/implementation.png";
-
 //Customize
 //Banner
 import bannerCustomize from "../../assets/Solution/Industri/11. customize/customize_banner.png"
