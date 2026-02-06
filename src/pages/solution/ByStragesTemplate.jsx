@@ -184,7 +184,7 @@ export default function ByStagesTemplate({ data }) {
                           <img
                             src={item.image}
                             alt={item.title}
-                            className="object-contain w-full h-auto max-w-md shadow-2xl rounded-3xl"
+                            className="object-contain w-full h-auto max-w-md shadow-2xl rounded-xl"
                           />
                         </div>
 

@@ -38,7 +38,7 @@ import Survey from "../../assets/Application Icons/05. Marketing/Survey.png"
 
 //Human Resource
 import Recruitment from "../../assets/Application Icons/06. Human Resources/Recruitment.png"
-// import TimeOff from "../../assets/Application Icons/06. Human Resources/.png"
+import TimeOff from "../../assets/Application Icons/06. Human Resources/leave.png"
 import Appraisal from "../../assets/Application Icons/06. Human Resources/Aprecials.png"
 import Referral from "../../assets/Application Icons/06. Human Resources/Referals.png"
 import Fleet from "../../assets/Application Icons/06. Human Resources/Fleet.png"
@@ -58,6 +58,8 @@ import IoT from "../../assets/Application Icons/08. Productivity/IoT.png"
 import VoIP from "../../assets/Application Icons/08. Productivity/Voip.png"
 import Knowledge from "../../assets/Application Icons/08. Productivity/Knowledge.png"
 
+//Banner
+import BannerFinance from "../../assets/Product/OdooAPP/14. Finance/banner.jpg"
 
 const odooAppData = {
   odooApp: {
@@ -94,27 +96,27 @@ const odooAppData = {
               "Post job openings with various tracking features that make it easier for HR to review incoming applications.",
           },
           {
-            icon: "https://img.icons8.com/color/96/combo-chart.png",
+            icon: TimeOff,
             title: "Time off",
             description: "Manage employee leave in a calendar view updated in real time, with easy-to-generate statistical reports.",
           },
           {
-            icon: "https://img.icons8.com/color/96/cloud.png",
-            title: "Performance & growth",
+            icon: Appraisal,
+            title: "Appraisal",
             description:
-              "Run appraisals and track development with configurable cycles.",
+              "Simplify employee evaluations with appraisal timelines, automatic reminders, and self-assessment features.",
           },
           {
-            icon: "https://img.icons8.com/color/96/settings.png",
-            title: "Localization options",
+            icon: Referral,
+            title: "Referral",
             description:
-              "Adopt Indonesian payroll and HR compliance via localized modules.",
+              "Encourage employees to refer their connections to join your team through an engaging interface.",
           },
           {
-            icon: "https://img.icons8.com/color/96/settings.png",
-            title: "Localization options",
+            icon: Fleet,
+            title: "Fleet",
             description:
-              "Adopt Indonesian payroll and HR compliance via localized modules.",
+              "Centralize the management of contracts, costs, insurance, and company vehicle usage with data automatically pulled from integrations with the Sales and Finance modules.",
           },
         ],
       },
@@ -180,27 +182,39 @@ const odooAppData = {
         title: "Why Odoo is the smart choice for service teams",
         items: [
           {
-            icon: "https://img.icons8.com/color/96/pos-terminal.png",
-            title: "Helpdesk to project",
+            icon: Project,
+            title: "Project",
             description:
-              "Route tickets to tasks and escalate with full history.",
+              "Design, schedule, and analyze both internal and external projects to enhance team collaboration.",
           },
           {
-            icon: "https://img.icons8.com/color/96/combo-chart.png",
-            title: "Timesheet billing",
-            description: "Bill approved hours by period, milestone, or T&M directly from projects.",
+            icon: Timesheet,
+            title: "Timesheet",
+            description: "Track productivity to generate invoices based on working time and forecast project performance as well as employee availability using data from other integrated apps.",
           },
           {
-            icon: "https://img.icons8.com/color/96/cloud.png",
-            title: "Field service readiness",
+            icon: FieldService,
+            title: "Field Service",
             description:
-              "Schedule routes, capture parts/time on site, and invoice instantly.",
+              "Enable field staff to work from anywhere, on any device, while continuing to deliver the best service.",
           },
           {
-            icon: "https://img.icons8.com/color/96/settings.png",
-            title: "Self‑service booking",
+            icon: Heldesk,
+            title: "Heldesk",
             description:
-              "Let clients book appointments online with calendar integration.",
+              "Get real-time visibility into client questions and complaints and deliver timely service based on SLAs to improve productivity.",
+          },
+          {
+            icon: Planning,
+            title: "Planning",
+            description:
+              "Organize schedules in a calendar view and simplify coordination for employee shift assignments or cancellations.",
+          },
+          {
+            icon: Appointment,
+            title: "Appointment",
+            description:
+              "Manage online meetings and automate scheduling with easily customizable appointment forms.",
           },
         ],
       },
@@ -266,27 +280,33 @@ const odooAppData = {
         title: "Why Odoo is the smart choice for busy teams",
         items: [
           {
-            icon: "https://img.icons8.com/color/96/pos-terminal.png",
-            title: "Discuss & Knowledge",
+            icon: Discussion,
+            title: "Discussion",
             description:
-              "Centralize conversations and institutional know‑how alongside work.",
+              "Communicate and collaborate with your team from any Odoo application.",
           },
           {
-            icon: "https://img.icons8.com/color/96/combo-chart.png",
-            title: "Documents & Sign",
-            description: "Route files, request signatures, and track versions without leaving Odoo.",
+            icon: Approval,
+            title: "Approval",
+            description: "Manage employee requests from a centralized dashboard with easily customizable approval rules.",
           },
           {
-            icon: "https://img.icons8.com/color/96/cloud.png",
-            title: "Approvals & Automations",
+            icon: IoT,
+            title: "IoT",
             description:
-              "Standardize requests and trigger actions on conditions.",
+              "Connect and integrate all external devices with the Odoo database to improve productivity.",
           },
           {
-            icon: "https://img.icons8.com/color/96/settings.png",
-            title: "Low‑code customization",
+            icon: VoIP,
+            title: "VoIP",
             description:
-              "Use Odoo Studio to tailor screens, reports, and flows safely.",
+              "Explore more ways to connect with customers through phone calls, with activities logged directly in the Odoo database.",
+          },
+          {
+            icon: Knowledge,
+            title: "Knowledge",
+            description:
+              "Collaborate on shared notes that can be accessed from other integrated Odoo applications.",
           },
         ],
       },
@@ -352,27 +372,39 @@ const odooAppData = {
         title: "Why Odoo is the smart choice for operations",
         items: [
           {
-            icon: "https://img.icons8.com/color/96/pos-terminal.png",
-            title: "Automated replenishment",
+            icon: Inventory,
+            title: "Inventory",
             description:
-              "Min/Max reordering rules raise RFQs exactly when stock hits thresholds.",
+              "Control stock from purchasing through sales with a double-entry system, real-time reporting, and automated data processing integrated with accounting.",
           },
           {
-            icon: "https://img.icons8.com/color/96/combo-chart.png",
-            title: "Push/pull routes",
-            description: "Configure one‑ to multi‑step moves and automate internal logistics.",
+            icon: Manufacture,
+            title: "Manufacture",
+            description: "Improve production efficiency with comprehensive tracking, production planning, work order management, and more.",
           },
           {
-            icon: "https://img.icons8.com/color/96/cloud.png",
-            title: "Barcode‑driven accuracy",
+            icon: Purchasing,
+            title: "Purchasing",
             description:
-              "Receive, pick, and count faster with GS1 support.",
+              "Automate purchasing workflows and track every detail and approval from quotations to purchase orders to secure the best offers.",
           },
           {
-            icon: "https://img.icons8.com/color/96/settings.png",
-            title: "Dropship on demand",
+            icon: Quality,
+            title: "Quality",
             description:
-              "Ship supplier‑to‑customer with linked SO/PO and delivery records. ",
+              "Set QC checkpoints and receive quality alerts directly from the work center dashboard in the Manufacturing app.",
+          },
+          {
+            icon: PLM,
+            title: "PLM",
+            description:
+              "Effectively manage and update product development history for all relevant teams in real time.",
+          },
+          {
+            icon: Maintenance,
+            title: "Maintenance",
+            description:
+              "Track, schedule, and initiate maintenance procedures with automatically generated statistics, including MTBF and MTTR, for optimal performance.",
           },
         ],
       },
@@ -438,27 +470,39 @@ const odooAppData = {
         title: "Why Odoo is the smart choice for web teams",
         items: [
           {
-            icon: "https://img.icons8.com/color/96/pos-terminal.png",
-            title: "Drag‑and‑drop builder",
+            icon: Website,
+            title: "Website",
             description:
-              "Launch pages and product catalogs without code, then iterate fast.",
+              "Create a complete and attractive website using simple drag-and-drop blocks for text, images, and more.",
           },
           {
-            icon: "https://img.icons8.com/color/96/combo-chart.png",
-            title: "eCommerce that’s integrated",
-            description: "Stock, pricing, taxes, and fulfillment sync automatically with Inventory and Accounting.",
+            icon: Ecommerce,
+            title: "E-commerce",
+            description: "Any business can sell online, turn website visitors into customers! Fully integrated with the Website and supporting apps such as Sales, Inventory, and Accounting.",
           },
           {
-            icon: "https://img.icons8.com/color/96/cloud.png",
-            title: "Modern UX & SEO boosts",
+            icon: Blog,
+            title: "Blog",
             description:
-              "New snippets, cleaner layouts, and better eCommerce UX in recent releases.",
+              "Publish articles on a mobile-friendly blog platform using an easy drag-and-drop feature.",
           },
           {
-            icon: "https://img.icons8.com/color/96/settings.png",
-            title: "Local payments & connectors",
+            icon: Forum,
+            title: "Forum",
             description:
-              "Support local methods and marketplaces as your store scales.",
+              "Attract more visitors to your website, anticipate customer needs, foster collaboration, and grow your community.",
+          },
+          {
+            icon: LiveChat,
+            title: "Live Chat",
+            description:
+              "Interact directly with website visitors to provide real-time assistance and answers.",
+          },
+          {
+            icon: Elearning,
+            title: "E-Learning",
+            description:
+              "Build a Learning Management System (LMS) with a knowledge-sharing approach to create a collaborative learning community.",
           },
         ],
       },
@@ -524,27 +568,39 @@ const odooAppData = {
         title: "Why Odoo is the smart choice for marketers",
         items: [
           {
-            icon: "https://img.icons8.com/color/96/pos-terminal.png",
-            title: "Email & SMS together",
+            icon: SocialMarketing,
+            title: "Social Marketing",
             description:
-              "Design, schedule, and personalize messages with unified reporting.",
+              "Plan, manage, and monitor all social media, web push notifications, and live chat from a single application.",
           },
           {
-            icon: "https://img.icons8.com/color/96/combo-chart.png",
-            title: "Social made manageable",
-            description: "Plan posts, reply to messages, and track engagement within the suite.",
+            icon: EmailMarketing,
+            title: "Email Marketing",
+            description: "Run campaigns using ready-made templates or content blocks and track real-time analytics on link tracking, ROI, and other advanced features.",
           },
           {
-            icon: "https://img.icons8.com/color/96/cloud.png",
-            title: "Automation that sells",
+            icon: SMSMarketing,
+            title: "SMS Marketing",
             description:
-              "Trigger journeys from behavior, segments, and pipeline changes.",
+              "Deliver marketing campaign messages directly to the right prospects.",
           },
           {
-            icon: "https://img.icons8.com/color/96/settings.png",
-            title: "First‑party analytics",
+            icon: Event,
+            title: "Event",
             description:
-              "Measure leads, pipeline, and revenue lift without context switching.",
+              "Manage the entire event planning process, from website creation and ticket sales to promotion and search engine visibility.",
+          },
+          {
+            icon: MarketingAutomation,
+            title: "Marketing Automation",
+            description:
+              "Boost sales performance with intelligent, data-driven automated campaigns to manage the end-to-end customer journey more efficiently.",
+          },
+          {
+            icon: Survey,
+            title: "Survey",
+            description:
+              "Automatically manage employee reviews, customer satisfaction surveys, suggestion forms, and more to gather feedback for better business strategy decisions.",
           },
         ],
       },
@@ -610,27 +666,33 @@ const odooAppData = {
         title: "Why Odoo is the smart choice for revenue teams",
         items: [
           {
-            icon: "https://img.icons8.com/color/96/pos-terminal.png",
-            title: "Pipeline you can act on",
+            icon: CRM,
+            title: "CRM",
             description:
-              "Kanban stages, activities, and probability‑based forecasting keep teams focused on the next best move.",
+              "Manage all sales activities by consolidating customer data, generating accurate forecasts, and creating real-time reports.",
           },
           {
-            icon: "https://img.icons8.com/color/96/combo-chart.png",
-            title: "Quotes that convert",
-            description: "Send branded quotes, collect signatures, and convert to orders and invoices in clicks.",
+            icon: Sales,
+            title: "Sales",
+            description: "Create quotations and invoices online that automatically sync with email, Odoo Finance, and the Website once an order is confirmed.",
           },
           {
-            icon: "https://img.icons8.com/color/96/cloud.png",
-            title: "Subscriptions built‑in",
+            icon: Members,
+            title: "Members",
             description:
-              "Sell recurring services and track MRR/renewals without leaving the suite.",
+              "Automatically generate invoices for subscription-based transactions and use Odoo’s built-in analytics features to boost sales.",
           },
           {
-            icon: "https://img.icons8.com/color/96/settings.png",
-            title: "One database, zero re‑entry",
+            icon: Pos,
+            title: "POS",
             description:
-              "Products, pricing, and stock availability feed quotes and orders automatically.",
+              "Process transactions through an intelligent interface compatible with all devices and integrated with Odoo Inventory for real-time stock control.",
+          },
+          {
+            icon: Rental,
+            title: "Rental",
+            description:
+              "Simplify the rental process from scheduling to billing. Designed to work seamlessly with other Odoo apps to complete your business cycle.",
           },
         ],
       },
@@ -683,7 +745,7 @@ const odooAppData = {
           link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
-          "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+          BannerFinance,
       },
 
       video: {
@@ -696,27 +758,33 @@ const odooAppData = {
         title: "Why Odoo is the smart choice for finance teams",
         items: [
           {
-            icon: "https://img.icons8.com/color/96/pos-terminal.png",
-            title: "Multi‑currency made simple",
+            icon: Accounting,
+            title: "Accounting",
             description:
-              "Invoice, receive bills, and post FX differences automatically with scheduled rate updates.",
+              "Easily manage finances with bank synchronization, automatic reconciliation, flexible fiscal localization options, and customizable reporting.",
           },
           {
-            icon: "https://img.icons8.com/color/96/combo-chart.png",
-            title: "Banking that reconciles itself",
-            description: "Connect journals and automate reconciliation flows for faster period closes.",
+            icon: Invoicing,
+            title: "Invoicing",
+            description: "Streamline accounting with automatic billing for orders, deliveries, contracts, and even timesheets. Create custom analytical reports using data from other Odoo applications.",
           },
           {
-            icon: "https://img.icons8.com/color/96/cloud.png",
-            title: "Localization for Indonesia",
+            icon: Expenses,
+            title: "Expenses",
             description:
-              "Generate Coretax‑ready e‑Faktur XML files and capture NPWP/PKP details to stay compliant.",
+              "Monitor budgets and simplify the submission, validation, and rejection of reimbursements. Filter expense reports to track each team member’s budget.",
           },
           {
-            icon: "https://img.icons8.com/color/96/settings.png",
-            title: "One set of books, real‑time",
+            icon: Document,
+            title: "Document",
             description:
-              "All apps feed Accounting so revenue, costs, and taxes are always in sync.",
+              "Save time and improve efficiency by going paperless. Record bills, scan contracts, and approve electronic documents.",
+          },
+          {
+            icon: Sign,
+            title: "Sign",
+            description:
+              "Avoid human error when writing, filling out, and signing contracts online with the drag-and-drop feature.",
           },
         ],
       },

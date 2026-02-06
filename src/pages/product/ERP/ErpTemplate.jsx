@@ -183,7 +183,7 @@ export default function ErpTemplate({ data }) {
                           <img
                             src={item.image}
                             alt={item.title}
-                            className="object-contain w-full h-auto max-w-md"
+                            className="object-contain w-full h-auto max-w-md shadow-2xl rounded-3xl"
                           />
                         </div>
 

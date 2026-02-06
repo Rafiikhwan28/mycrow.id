@@ -211,7 +211,7 @@ const industryData = {
       description:
         "Orchestrate purchasing, reordering, routes, barcode execution, and global finance in one platform that scales from local wholesale to cross‑border trade. ",
       primaryButton: {
-        label: "MMeet Our Experts",
+        label: "Meet Our Experts",
         link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
       },
       heroImage: bannerTrading,

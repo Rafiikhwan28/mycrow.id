@@ -101,43 +101,107 @@ export default function OdooAppTemplate({ data }) {
           px-6 sm:px-10 md:px-16
           py-24"
         >
-          {/* ================= REASONS ================= */}
-          {reasons && (
-            <div className="px-6 mx-auto mb-32 max-w-7xl">
-              <motion.h2
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="text-2xl font-semibold text-center text-purple-700 mb-14"
-              >
-                {reasons.title}
-              </motion.h2>
+          {/* ================= REASONS SLIDER ================= */}
+{reasons && (
+  <div className="px-6 mx-auto mb-32 max-w-7xl">
+    <motion.h2
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="mb-16 text-2xl font-semibold text-center text-purple-700"
+    >
+      {reasons.title}
+    </motion.h2>
 
-              <div className="grid justify-center gap-12 px-6 mx-auto max-w-7xl md:grid-cols-2 lg:grid-cols-3">
-                {reasons.items?.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="justify-center text-center "
-                  >
-                    <img
-                      src={item.icon}
-                      alt={item.title}
-                      className="mx-auto mb-4 h-14"
-                    />
-                    <h3 className="mb-2 font-semibold text-slate-900">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-slate-600">{item.description}</p>
-                  </motion.div>
-                ))}
-              </div>
+    {/* SLIDER WRAPPER */}
+    <div className="relative">
+      {/* LEFT BUTTON */}
+      <button
+        onClick={() =>
+          document.getElementById("reasons-slider").scrollBy({
+            left: -360,
+            behavior: "smooth",
+          })
+        }
+        className="absolute left-0 z-10 items-center justify-center hidden w-12 h-12 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-xl lg:flex top-1/2"
+      >
+        ‹
+      </button>
+
+      {/* RIGHT BUTTON */}
+      <button
+        onClick={() =>
+          document.getElementById("reasons-slider").scrollBy({
+            left: 360,
+            behavior: "smooth",
+          })
+        }
+        className="absolute right-0 z-10 items-center justify-center hidden w-12 h-12 translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-xl lg:flex top-1/2"
+      >
+        ›
+      </button>
+
+      {/* HORIZONTAL SCROLL */}
+      <div
+        id="reasons-slider"
+        className="
+          flex gap-10
+          overflow-x-auto
+          scroll-smooth
+          snap-x snap-mandatory
+          px-4
+          pb-6
+          [-ms-overflow-style:none]
+          [scrollbar-width:none]
+          [&::-webkit-scrollbar]:hidden
+        "
+      >
+        {reasons.items?.map((item, index) => (
+          <motion.div
+            key={index}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="
+              snap-center
+              shrink-0
+              w-[300px]
+              relative
+              flex flex-col items-center
+              px-8 pt-16 pb-10
+              mt-10
+              text-center
+              backdrop-blur-xl
+              rounded-3xl
+              shadow-[0_30px_80px_rgba(0,0,0,0.12)]
+              transition
+              hover:-translate-y-2
+            "
+          >
+            {/* ICON FLOATING */}
+            <div className="absolute flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg -top-10">
+              <img
+                src={item.icon}
+                alt={item.title}
+                className="object-contain w-16 h-16 rounded-full"
+              />
             </div>
-          )}
+
+            <h3 className="mt-2 mb-3 text-lg font-semibold text-slate-900">
+              {item.title}
+            </h3>
+
+            <p className="text-sm leading-relaxed text-slate-600">
+              {item.description}
+            </p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </div>
+)}
 
           {/* ================= VIDEO ================= */}
           {video && (
@@ -194,7 +258,7 @@ export default function OdooAppTemplate({ data }) {
                       <img
                         src={item.image}
                         alt={item.title}
-                        className=" rounded-2xl"
+                        className="object-contain w-full h-auto max-w-md shadow-2xl rounded-3xl"
                       />
                     </div>
 
