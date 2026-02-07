@@ -53,10 +53,7 @@ export default function ErpTemplate({ data }) {
       {/* ================= HERO ================= */}
       <section className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] items-center gap-14 px-6 mx-auto max-w-7xl">
         {/* TEXT */}
-        <motion.div
-          variants={fadeUp}
-          className="text-center md:text-left"
-        >
+        <motion.div variants={fadeUp} className="text-center md:text-left">
           <div className="flex items-center justify-center gap-3 md:justify-start">
             <img src={mycrowLogo} alt="MyCrow" className="h-7 md:h-8" />
 
@@ -89,10 +86,7 @@ export default function ErpTemplate({ data }) {
 
         {/* IMAGE */}
         {hero.heroImage && (
-          <motion.div
-            variants={fadeUp}
-            className="flex justify-center"
-          >
+          <motion.div variants={fadeUp} className="flex justify-center">
             <img
               src={hero.heroImage}
               alt={hero.title}
@@ -139,9 +133,7 @@ export default function ErpTemplate({ data }) {
                           alt={item.title}
                           className="mx-auto mb-6 h-14"
                         />
-                        <h3 className="mb-3 font-semibold">
-                          {item.title}
-                        </h3>
+                        <h3 className="mb-3 font-semibold">{item.title}</h3>
                         <p className="text-base leading-relaxed text-gray-600">
                           {item.description}
                         </p>
@@ -180,11 +172,13 @@ export default function ErpTemplate({ data }) {
                             i % 2 !== 0 ? "md:order-2" : ""
                           }`}
                         >
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="object-contain w-full h-auto max-w-md shadow-2xl rounded-3xl"
-                          />
+                          <div className="overflow-hidden rounded-3xl group">
+                            <img
+                              src={item.image}
+                              alt={item.title}
+                              className="object-contain w-full h-full transition-transform duration-300 ease-out shadow-2xl group-hover:scale-105"
+                            />
+                          </div>
                         </div>
 
                         <div className="text-center md:text-left">

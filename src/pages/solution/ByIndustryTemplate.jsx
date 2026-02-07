@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import backgroundImage from "../../assets/background.jpg";
+import bgImage from "../../assets/background.jpg";
 import mycrowLogo from "../../assets/mycrow_logo_text.png";
 import ContactForm from "../../components/contactForm/ContactForm";
 
@@ -9,6 +9,12 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
   },
 };
 
@@ -37,9 +43,12 @@ export default function ByIndustryTemplate({ data }) {
   const { hero, video, reasons, benefits } = data;
 
   return (
-    <main
-      className="min-h-screen bg-center bg-no-repeat bg-cover pt-28"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+    <motion.main
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+      style={{ backgroundImage: `url(${bgImage})` }}
+      className="min-h-screen pt-24 overflow-x-hidden bg-center bg-no-repeat bg-cover md:pt-28"
     >
       {/* ================= HERO ================= */}
       <section className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] items-center gap-14 px-6 mx-auto max-w-7xl">
@@ -68,7 +77,7 @@ export default function ByIndustryTemplate({ data }) {
               href={hero.primaryButton.link}
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.96 }}
-              className="inline-flex items-center px-6 py-2.5 md:px-7 md:py-3 text-sm md:text-base text-white bg-purple-600 rounded-lg shadow hover:bg-purple-700 transition"
+              className="inline-flex items-center px-6 py-2.5 md:px-7 md:py-3 text-sm md:text-base text-white bg-purple-600 rounded-xl shadow hover:bg-purple-700 transition"
             >
               {hero.primaryButton.label}
             </motion.a>
@@ -163,7 +172,9 @@ export default function ByIndustryTemplate({ data }) {
                     <h3 className="mb-2 font-semibold text-slate-900">
                       {item.title}
                     </h3>
-                    <p className="text-base text-slate-600">{item.description}</p>
+                    <p className="text-base text-slate-600">
+                      {item.description}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -177,7 +188,9 @@ export default function ByIndustryTemplate({ data }) {
                 <h2 className="mb-4 text-2xl font-semibold text-center text-purple-700">
                   {benefits.title}
                 </h2>
-                <p className="max-w-3xl mx-auto mb-20 text-base text-center text-gray-700 md:text-lg">{benefits.description}</p>
+                <p className="max-w-3xl mx-auto mb-20 text-base text-center text-gray-700 md:text-lg">
+                  {benefits.description}
+                </p>
               </div>
 
               <div className="space-y-32">
@@ -218,6 +231,6 @@ export default function ByIndustryTemplate({ data }) {
           <ContactForm />
         </div>
       </section>
-    </main>
+    </motion.main>
   );
 }

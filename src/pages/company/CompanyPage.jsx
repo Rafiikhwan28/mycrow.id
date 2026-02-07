@@ -1,5 +1,3 @@
-// src/pages/company/CompanyPage.jsx
-
 import { useParams } from "react-router-dom";
 import companyData from "../../data/Company/companyData.js";
 import CompanyTemplate from "./CompanyTamplate.jsx";

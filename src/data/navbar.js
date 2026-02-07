@@ -36,6 +36,7 @@ export const navbarData = {
   solutions: {
     label: "Solutions",
     basePath: "/solutions",
+    type: "dropdown",
     sections: [
       {
         title: "By Stages",
@@ -44,7 +45,7 @@ export const navbarData = {
           {
             title: "Small & Medium Business",
             slug: "smb",
-            explore: "Streamline, Scale, and Succeed With a Smarter All‑in‑One ERP",
+            explore: "Streamline, Scale, and Succeed With a Smarter All-in-One ERP",
             icon: TrendingUp,
           },
           {
@@ -66,7 +67,7 @@ export const navbarData = {
           { title: "Real Estate", slug: "realEstate", explore: "From listings to leases to invoices, manage your portfolio in one system", icon: Building2 },
           { title: "Consultant", slug: "consulting", explore: "Quote, deliver, timesheet, and invoice, confidently and on time", icon: Briefcase },
           { title: "Trading", slug: "trading", explore: "Buy better, stock smarter, and fulfill faster across warehouses and channels", icon: Boxes },
-          { title: "Customize solutions", slug: "customize", explore: "Composable apps + low‑code customization = a system that fits your business", icon: Layers },
+          { title: "Customize solutions", slug: "customize", explore: "Composable apps + low-code customization = a system that fits your business", icon: Layers },
         ],
       },
     ],
@@ -75,6 +76,7 @@ export const navbarData = {
   products: {
     label: "Products",
     basePath: "/products",
+    type: "dropdown",
     sections: [
       {
         title: "ERP",
@@ -90,7 +92,7 @@ export const navbarData = {
         items: [
           { title: "Finance", slug: "finance", explore: "Close faster, stay compliant, and see cash clearly across your business", icon: BarChart3 },
           { title: "Sales", slug: "sales", explore: "Quote faster, win more deals, and hand off to delivery without friction", icon: TrendingUp },
-          { title: "Human Resources", explore: "Centralize people data, streamline payroll, and elevate employee experience", slug: "humanResources", icon: Users },
+          { title: "Human Resources", slug: "humanResources", explore: "Centralize people data, streamline payroll, and elevate employee experience", icon: Users },
           { title: "Marketing", slug: "marketing", explore: "Launch campaigns faster with email, social, and automation in one place", icon: Megaphone },
           { title: "Website", slug: "website", explore: "Design, publish, and sell online no plugins, no patchwork", icon: Globe },
           { title: "Supply Chain", slug: "supplyChain", explore: "Plan smarter, stock right, and fulfill faster across every warehouse", icon: Truck },
@@ -104,6 +106,7 @@ export const navbarData = {
   services: {
     label: "Services",
     basePath: "/services",
+    type: "dropdown",
     sections: [
       {
         title: "App Development",
@@ -118,7 +121,7 @@ export const navbarData = {
           {
             title: "Build solution from scratch",
             slug: "buildSolutionScratch",
-            explore: "When your process is the product, we design and build it end‑to‑en",
+            explore: "When your process is the product, we design and build it end-to-end",
             icon: DollarSign,
           },
         ],
@@ -136,7 +139,7 @@ export const navbarData = {
           {
             title: "Social Media Solutions",
             slug: "socialMediaSolutions",
-            explore: "Governed, scalable, and ROI‑driven social media programs",
+            explore: "Governed, scalable, and ROI-driven social media programs",
             icon: Share2,
           },
         ],
@@ -160,7 +163,7 @@ export const navbarData = {
           {
             title: "Video Motion Graphic",
             slug: "videoGraphic",
-            explore: "Explainers, brand films, product demos, social cut‑downs",
+            explore: "Explainers, brand films, product demos, social cut-downs",
             icon: Video,
           },
           {
@@ -172,7 +175,7 @@ export const navbarData = {
           {
             title: "UI/UX Design",
             slug: "UiUxDesign",
-            explore: "Research‑driven design for web and product experiences",
+            explore: "Research-driven design for web and product experiences",
             icon: UserCheck,
           },
           {
@@ -189,48 +192,34 @@ export const navbarData = {
   knowledge: {
     label: "Knowledge",
     basePath: "/knowledge",
+    type: "dropdown", // simple dropdown (no mega menu)
     sections: [
       {
-        title: "Knowledge Artikel",
-        items: [
-          {
-            title: "Digital Marketing",
-            slug: "digitalMarketing",
-            icon: Lightbulb,
-          },
-          {
-            title: "Tell Us Your Problem",
-            slug: "tellUs",
-            icon: Target,
-          },
-          {
-            title: "Careers",
-            slug: "careers",
-            icon: Gem,
-          },
-          {
-            title: "Contact Us",
-            slug: "contact",
-            icon: Phone,
-          },
-        ],
+        title: "Digital Marketing",
+        slug: "digitalMarketing",
+        icon: Lightbulb,
+      },
+      {
+        title: "Tell Us Your Problem",
+        slug: "tellUs",
+        icon: Target,
+      },
+      {
+        title: "Careers",
+        slug: "careers",
+        icon: Gem,
+      },
+      {
+        title: "Contact Us",
+        slug: "contact",
+        icon: Phone,
       },
     ],
   },
 
   company: {
-    label: "Company",
-    basePath: "/company",
-    sections: [
-      {
-        title: "About Us",
-        items: [
-          { title: "About mycrow.id", slug: "about", icon: Eye },
-          { title: "Tell Us Your Problem", slug: "tellUs", icon: Target },
-          { title: "Careers", slug: "careers", icon: Gem },
-          { title: "Contact Us", slug: "contact", icon: Phone },
-        ],
-      },
-    ],
-  },
+  label: "Company",
+  basePath: "/company/about", // 👈 langsung ke about
+  type: "link",
+  }
 };

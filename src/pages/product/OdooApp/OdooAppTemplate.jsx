@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import backgroundImage from "../../../assets/background.jpg";
+import bgImage from "../../../assets/background.jpg";
 import mycrowLogo from "../../../assets/mycrow_logo_text.png";
 import ContactForm from "../../../components/contactForm/ContactForm";
 
@@ -9,6 +9,13 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
   },
 };
 
@@ -37,9 +44,12 @@ export default function OdooAppTemplate({ data }) {
   const { hero, video, reasons, benefits } = data;
 
   return (
-    <main
-      className="min-h-screen bg-top bg-no-repeat bg-cover pt-28"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+    <motion.main
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+      style={{ backgroundImage: `url(${bgImage})` }}
+      className="min-h-screen pt-24 overflow-x-hidden bg-center bg-no-repeat bg-cover md:pt-28"
     >
       {/* ================= HERO ================= */}
       <section className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] items-center gap-14 px-6 mx-auto max-w-7xl">
@@ -102,69 +112,71 @@ export default function OdooAppTemplate({ data }) {
           py-24"
         >
           {/* ================= REASONS SLIDER ================= */}
-{reasons && (
-  <div className="px-6 mx-auto mb-32 max-w-7xl">
-    <motion.h2
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="mb-16 text-2xl font-semibold text-center text-purple-700"
-    >
-      {reasons.title}
-    </motion.h2>
+          {reasons && (
+            <div className="px-6 mx-auto mb-32 max-w-7xl ">
+              <motion.h2
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="mb-16 text-2xl font-semibold text-center text-purple-700"
+              >
+                {reasons.title}
+              </motion.h2>
 
-    {/* SLIDER WRAPPER */}
-    <div className="relative">
-      {/* LEFT BUTTON */}
-      <button
-        onClick={() =>
-          document.getElementById("reasons-slider").scrollBy({
-            left: -360,
-            behavior: "smooth",
-          })
-        }
-        className="absolute left-0 z-10 items-center justify-center hidden w-12 h-12 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-xl lg:flex top-1/2"
-      >
-        ‹
-      </button>
+              {/* SLIDER WRAPPER */}
+              <div className="relative">
+                {/* LEFT BUTTON */}
+                <button
+                  onClick={() =>
+                    document.getElementById("reasons-slider").scrollBy({
+                      left: -360,
+                      behavior: "smooth",
+                    })
+                  }
+                  className="absolute z-10 items-center justify-center hidden w-12 h-12 text-purple-400 -translate-x-1/2 -left-5 -translate-y-1/2rounded-full text-8xl lg:flex top-28 hover:text-purple-500"
+                >
+                  ‹
+                </button>
 
-      {/* RIGHT BUTTON */}
-      <button
-        onClick={() =>
-          document.getElementById("reasons-slider").scrollBy({
-            left: 360,
-            behavior: "smooth",
-          })
-        }
-        className="absolute right-0 z-10 items-center justify-center hidden w-12 h-12 translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-xl lg:flex top-1/2"
-      >
-        ›
-      </button>
+                {/* RIGHT BUTTON */}
+                <button
+                  onClick={() =>
+                    document.getElementById("reasons-slider").scrollBy({
+                      left: 360,
+                      behavior: "smooth",
+                    })
+                  }
+                  className="absolute z-10 items-center justify-center hidden w-12 h-12 text-purple-400 translate-x-1/2 -translate-y-1/2 rounded-full -right-5 text-8xl lg:flex top-32 hover:text-purple-500"
+                >
+                  ›
+                </button>
 
-      {/* HORIZONTAL SCROLL */}
-      <div
-        id="reasons-slider"
-        className="
+                {/* HORIZONTAL SCROLL */}
+                <div
+                  id="reasons-slider"
+                  className="
           flex gap-10
           overflow-x-auto
           scroll-smooth
           snap-x snap-mandatory
           px-4
-          pb-6
+          pb-10
           [-ms-overflow-style:none]
           [scrollbar-width:none]
           [&::-webkit-scrollbar]:hidden
+          rounded-3xl
         "
-      >
-        {reasons.items?.map((item, index) => (
-          <motion.div
-            key={index}
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="
+                >
+                  {reasons.items?.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      variants={fadeUp}
+                      initial="hidden"
+                      whileInView="visible"
+                      whileHover={{ y: -8 }}
+                      viewport={{ once: true }}
+                      className="
               snap-center
               shrink-0
               w-[300px]
@@ -179,29 +191,29 @@ export default function OdooAppTemplate({ data }) {
               transition
               hover:-translate-y-2
             "
-          >
-            {/* ICON FLOATING */}
-            <div className="absolute flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg -top-10">
-              <img
-                src={item.icon}
-                alt={item.title}
-                className="object-contain w-16 h-16 rounded-full"
-              />
+                    >
+                      {/* ICON FLOATING */}
+                      <div className="absolute flex items-center justify-center w-20 h-20 rounded-full -top-10 ">
+                        <img
+                          src={item.icon}
+                          alt={item.title}
+                          className="object-contain w-20 h-20"
+                        />
+                      </div>
+
+                      <h3 className="mt-2 mb-3 text-lg font-semibold text-slate-900">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-base leading-relaxed text-slate-600">
+                        {item.description}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </div>
-
-            <h3 className="mt-2 mb-3 text-lg font-semibold text-slate-900">
-              {item.title}
-            </h3>
-
-            <p className="text-sm leading-relaxed text-slate-600">
-              {item.description}
-            </p>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </div>
-)}
+          )}
 
           {/* ================= VIDEO ================= */}
           {video && (
@@ -255,12 +267,15 @@ export default function OdooAppTemplate({ data }) {
                     className="grid items-center gap-16 md:grid-cols-2"
                   >
                     <div className={index % 2 !== 0 ? "md:order-2" : ""}>
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="object-contain w-full h-auto max-w-md shadow-2xl rounded-3xl"
-                      />
-                    </div>
+  <div className="overflow-hidden rounded-3xl group">
+    <img
+      src={item.image}
+      alt={item.title}
+      className="object-contain w-full h-full transition-transform duration-300 ease-out shadow-2xl group-hover:scale-105"
+    />
+  </div>
+</div>
+
 
                     <div>
                       <h3 className="mb-4 text-xl font-semibold text-slate-900">
@@ -278,6 +293,6 @@ export default function OdooAppTemplate({ data }) {
           <ContactForm />
         </div>
       </section>
-    </main>
+    </motion.main>
   );
 }
