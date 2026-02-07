@@ -144,8 +144,8 @@ export default function Navbar() {
                     ) : (
                       /* ===== DEFAULT MEGA MENU (UNCHANGED) ===== */
                       <div
-                        className={`absolute left-1/2 top-full mt-6 -translate-x-1/3
-                        w-[780px] rounded-2xl bg-white shadow-xl border transition-all
+                        className={`absolute left-1/2 top-full mt-6 -translate-x-10
+                        w-[780px] rounded-2xl bg-white shadow-xl border transition-all 
                         ${
                           openMenu === index
                             ? "opacity-100 translate-y-0 pointer-events-auto"
