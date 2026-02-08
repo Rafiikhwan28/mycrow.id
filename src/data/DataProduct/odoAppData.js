@@ -4,6 +4,11 @@ import Sales from "../../assets/Application Icons/01. Icon Sales/Sales.png"
 import Members from "../../assets/Application Icons/01. Icon Sales/members.png"
 import Pos from "../../assets/Application Icons/01. Icon Sales/POS.png"
 import Rental from "../../assets/Application Icons/01. Icon Sales/Rental.png"
+//imgSales
+import SalesImg1 from "../../assets/Product/OdooAPP/15. Sales/Actionable.jpg"
+import SalesImg2 from "../../assets/Product/OdooAPP/15. Sales/invoicing.jpg"
+import SalesImg3 from "../../assets/Product/OdooAPP/15. Sales/Subscription.jpg"
+import SalesImg4 from "../../assets/Product/OdooAPP/15. Sales/Instant.jpg"
 
 //icon Finance
 import Accounting from "../../assets/Application Icons/04. Finance/Accounting.png"
@@ -11,6 +16,12 @@ import Invoicing from "../../assets/Application Icons/04. Finance/Invoicing.png"
 import Expenses from "../../assets/Application Icons/04. Finance/Expense.png"
 import Document from "../../assets/Application Icons/04. Finance/Dicument.png"
 import Sign from "../../assets/Application Icons/04. Finance/Sign.png"
+//imgFinace
+import FinanceImg1 from "../../assets/Product/OdooAPP/14. Finance/rates.jpg"
+import FinanceImg2 from "../../assets/Product/OdooAPP/14. Finance/e-Faktur.jpg"
+import FinanceImg3 from "../../assets/Product/OdooAPP/14. Finance/bank.jpg"
+import FinanceImg4 from "../../assets/Product/OdooAPP/14. Finance/apps.jpg"
+
 
 //Supply Chain
 import Inventory from "../../assets/Application Icons/03. Icon Supply Chain/Inventory.png"
@@ -59,7 +70,9 @@ import VoIP from "../../assets/Application Icons/08. Productivity/Voip.png"
 import Knowledge from "../../assets/Application Icons/08. Productivity/Knowledge.png"
 
 //Banner
-import BannerFinance from "../../assets/Product/OdooAPP/14. Finance/banner.jpg"
+import BannerFinance from "../../assets/Product/OdooAPP/14. Finance/Finance.png"
+import BannerSales from "../../assets/Product/OdooAPP/15. Sales/BannerSales.png"
+import BannerHR from "../../assets/Product/OdooAPP/16. Human Resources/BannerHR.png"
 
 const odooAppData = {
   odooApp: {
@@ -77,7 +90,7 @@ const odooAppData = {
           link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
-          "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+          BannerHR,
       },
 
       video: {
@@ -653,7 +666,7 @@ const odooAppData = {
           link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
-          "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+          BannerSales,
       },
 
       video: {
@@ -707,25 +720,25 @@ const odooAppData = {
             description:
               "Schedule calls, emails, and meetings from cards.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              SalesImg1,
           },
           {
             title: "E‑sign & Invoicing",
             description: "Close deals and generate invoices without leaving the order.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              SalesImg2,
           },
           {
             title: "Subscription Sales",
             description: "Automate renewals and revenue metrics natively.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              SalesImg3,
           },
           {
             title: "Instant Availability",
             description: "Inventory and routes inform delivery dates at quote time.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              SalesImg4,
           },
         ],
       },
@@ -799,25 +812,25 @@ const odooAppData = {
             description:
               "Daily/weekly/monthly updates and auto FX gains/losses.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              FinanceImg1,
           },
           {
             title: "e‑Faktur (Coretax)",
             description: "Download XML files that follow DJP structure from posted invoices.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              FinanceImg2,
           },
           {
             title: "Bank Reconciliation",
             description: "Streamlined journals and matching to speed period end.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              FinanceImg3,
           },
           {
             title: "All‑in‑One Apps",
             description: "Sales, Inventory, and POS post to Accounting automatically.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              FinanceImg4,
           },
         ],
       },
