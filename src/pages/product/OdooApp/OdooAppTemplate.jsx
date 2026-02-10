@@ -91,7 +91,7 @@ export default function OdooAppTemplate({ data }) {
             <img
               src={hero.heroImage}
               alt={hero.title}
-              className="w-full max-w-[260px] sm:max-w-sm md:max-w-md object-contain"
+              className="object-contain w-full h-full sm:max-w-sm md:max-w-md"
             />
           </motion.div>
         )}
@@ -267,15 +267,14 @@ export default function OdooAppTemplate({ data }) {
                     className="grid items-center gap-16 md:grid-cols-2"
                   >
                     <div className={index % 2 !== 0 ? "md:order-2" : ""}>
-  <div className="overflow-hidden rounded-3xl group">
-    <img
-      src={item.image}
-      alt={item.title}
-      className="object-contain w-full h-full transition-transform duration-300 ease-out shadow-2xl group-hover:scale-105"
-    />
-  </div>
-</div>
-
+                      <div className="overflow-hidden rounded-3xl group">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="object-contain w-full h-full transition-transform duration-300 ease-out shadow-2xl group-hover:scale-105"
+                        />
+                      </div>
+                    </div>
 
                     <div>
                       <h3 className="mb-4 text-xl font-semibold text-slate-900">

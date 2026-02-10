@@ -38,6 +38,12 @@ import Blog from "../../assets/Application Icons/02. Icon Website/blog.png"
 import Forum from "../../assets/Application Icons/02. Icon Website/form.png"
 import LiveChat from "../../assets/Application Icons/02. Icon Website/live-chat.png"
 import Elearning from "../../assets/Application Icons/02. Icon Website/E-learning.png"
+//img Website
+import WebsiteImg1 from "../../assets/Product/OdooAPP/18. Website/page.jpg"
+import WebsiteImg2 from "../../assets/Product/OdooAPP/18. Website/ledge.jpg"
+import WebsiteImg3 from "../../assets/Product/OdooAPP/18. Website/UX.jpg"
+import WebsiteImg4 from "../../assets/Product/OdooAPP/18. Website/payment.jpg"
+
 
 //Marketing
 import SocialMarketing from "../../assets/Application Icons/05. Marketing/Social_Marketing.png"
@@ -46,6 +52,12 @@ import SMSMarketing from "../../assets/Application Icons/05. Marketing/SMS_Marke
 import Event from "../../assets/Application Icons/05. Marketing/Event.png"
 import MarketingAutomation from "../../assets/Application Icons/05. Marketing/marketing_authomation.png"
 import Survey from "../../assets/Application Icons/05. Marketing/Survey.png"
+//img marketing
+import MarketingImg1 from "../../assets/Product/OdooAPP/17. Marketing/Studio.jpg"
+import MarketingImg2 from "../../assets/Product/OdooAPP/17. Marketing/inbox.jpg"
+import MarketingImg3 from "../../assets/Product/OdooAPP/17. Marketing/jurney.jpg"
+import MarketingImg4 from "../../assets/Product/OdooAPP/17. Marketing/Reporting.jpg"
+
 
 //Human Resource
 import Recruitment from "../../assets/Application Icons/06. Human Resources/Recruitment.png"
@@ -53,6 +65,11 @@ import TimeOff from "../../assets/Application Icons/06. Human Resources/leave.pn
 import Appraisal from "../../assets/Application Icons/06. Human Resources/Aprecials.png"
 import Referral from "../../assets/Application Icons/06. Human Resources/Referals.png"
 import Fleet from "../../assets/Application Icons/06. Human Resources/Fleet.png"
+//img human resource
+import HRImg1 from "../../assets/Product/OdooAPP/16. Human Resources/EmployeFile.jpg"
+import HRImg2 from "../../assets/Product/OdooAPP/16. Human Resources/peforma.jpg"
+import HRImg3 from "../../assets/Product/OdooAPP/16. Human Resources/timeSheet.jpg"
+import HRImg4 from "../../assets/Product/OdooAPP/16. Human Resources/pyroll.jpg"
 
 //Service
 import Project from "../../assets/Application Icons/07. Service/Project.png"
@@ -73,6 +90,9 @@ import Knowledge from "../../assets/Application Icons/08. Productivity/Knowledge
 import BannerFinance from "../../assets/Product/OdooAPP/14. Finance/Finance.png"
 import BannerSales from "../../assets/Product/OdooAPP/15. Sales/BannerSales.png"
 import BannerHR from "../../assets/Product/OdooAPP/16. Human Resources/BannerHR.png"
+import Bannermarketing from "../../assets/Product/OdooAPP/17. Marketing/Bannermarketing.png"
+import BannerWebsite from "../../assets/Product/OdooAPP/18. Website/website.png"
+
 
 const odooAppData = {
   odooApp: {
@@ -144,25 +164,25 @@ const odooAppData = {
             description:
               "Contracts, IDs, docs, and history in one place.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              HRImg1,
           },
           {
             title: "Attendance & Timesheets",
             description: "Accurate hours for payroll and project costing.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              HRImg2,
           },
           {
             title: "Performance Cycles",
             description: "Configurable reviews and objectives tracking.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              HRImg3,
           },
           {
             title: "Indonesian Payroll",
             description: "Local rules and reporting supported via localization.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              HRImg4,
           },
         ],
       },
@@ -470,7 +490,7 @@ const odooAppData = {
           link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
-          "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+          BannerWebsite,
       },
 
       video: {
@@ -530,25 +550,25 @@ const odooAppData = {
             description:
               "Launch and localize content with reusable blocks.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              WebsiteImg1,
           },
           {
             title: "Storefront to Ledger",
             description: "Orders post to Inventory and Accounting automatically. ",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              WebsiteImg2,
           },
           {
             title: "UX & SEO Enhancements",
             description: "New snippets and improvements streamline shopping.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              WebsiteImg3,
           },
           {
             title: "Payments & Marketplaces",
             description: "Extend with native and partner connectors as you grow. ",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              WebsiteImg4,
           },
         ],
       },
@@ -568,7 +588,7 @@ const odooAppData = {
           link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
-          "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+          Bannermarketing,
       },
 
       video: {
@@ -628,25 +648,25 @@ const odooAppData = {
             description:
               "Drag‑and‑drop templates with audience filters. ",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              MarketingImg1,
           },
           {
             title: "Social Inbox",
             description: "Manage comments and DMs with unified scheduling. ",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              MarketingImg2,
           },
           {
             title: "Journey Automation",
             description: "Behavior‑based flows that create qualified leads.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              MarketingImg3,
           },
           {
             title: "Closed‑Loop Reporting",
             description: "See campaign‑to‑revenue attribution natively.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              MarketingImg4,
           },
         ],
       },

@@ -43,7 +43,6 @@ export default function Footer() {
 
   console.log("NAVBAR DATA:", navbarData);
 
-
   return (
     <motion.footer
       initial="hidden"
@@ -54,7 +53,6 @@ export default function Footer() {
     >
       <div className="px-6 py-20 mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-7">
-
           {/* ================= COMPANY INFO ================= */}
           <motion.div variants={fadeUp} className="space-y-4 lg:col-span-2">
             <img src={mycrowLogo} alt="MyCrow" className="h-7 md:h-8" />
@@ -95,33 +93,64 @@ export default function Footer() {
           </motion.div>
 
           {/* ================= MENUS ================= */}
-          {Object.entries(navbarData).map(([key, menu]) => (
-  <motion.div key={key} variants={fadeUp}>
-    <h3 className="mb-3 text-xs font-semibold tracking-widest uppercase opacity-90">
-      {menu.label}
-    </h3>
+          {Object.entries(navbarData).map(([key, menu]) => {
+            // HANYA tampilkan menu yang relevan di footer
+            if (!menu.sections && menu.type === "link") return null;
 
-    <ul className="space-y-2 text-xs leading-relaxed opacity-85">
-      {menu.sections?.map((section) =>
-        section.items?.map((item) => (
-          <li key={item.slug}>
-            <Link
-              to={
-                section.sectionPath
-                  ? `${menu.basePath}/${section.sectionPath}/${item.slug}`
-                  : `${menu.basePath}/${item.slug}`
-              }
-              className="transition hover:underline hover:opacity-100"
-            >
-              {item.title}
-            </Link>
-          </li>
-        ))
-      )}
-    </ul>
-  </motion.div>
-))}
+            return (
+              <motion.div key={key} variants={fadeUp}>
+                <h3 className="mb-3 text-xs font-semibold tracking-widest uppercase opacity-90">
+                  {menu.label}
+                </h3>
 
+                <ul className="space-y-2 text-xs leading-relaxed opacity-85">
+                  {/* CASE 1: MENU LINK LANGSUNG (Company) */}
+                  {menu.type === "link" && (
+                    <li>
+                      <Link
+                        to={menu.basePath}
+                        className="transition hover:underline hover:opacity-100"
+                      >
+                        About
+                      </Link>
+                    </li>
+                  )}
+
+                  {/* CASE 2: MENU DROPDOWN SEDERHANA (Knowledge) */}
+                  {menu.type === "dropdown" &&
+                    menu.sections?.map((item) => (
+                      <li key={item.slug}>
+                        <Link
+                          to={`${menu.basePath}/${item.slug}`}
+                          className="transition hover:underline hover:opacity-100"
+                        >
+                          {item.title}
+                        </Link>
+                      </li>
+                    ))}
+
+                  {/* CASE 3: MENU MEGA / BERTINGKAT (Solutions dll – backward safe) */}
+                  {menu.sections?.some((s) => s.items) &&
+                    menu.sections.map((section) =>
+                      section.items?.map((item) => (
+                        <li key={item.slug}>
+                          <Link
+                            to={
+                              section.sectionPath
+                                ? `${menu.basePath}/${section.sectionPath}/${item.slug}`
+                                : `${menu.basePath}/${item.slug}`
+                            }
+                            className="transition hover:underline hover:opacity-100"
+                          >
+                            {item.title}
+                          </Link>
+                        </li>
+                      )),
+                    )}
+                </ul>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </motion.footer>
