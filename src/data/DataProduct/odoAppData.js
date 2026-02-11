@@ -30,6 +30,12 @@ import Purchasing from "../../assets/Application Icons/03. Icon Supply Chain/Pur
 import Quality from "../../assets/Application Icons/03. Icon Supply Chain/Quality.png"
 import PLM from "../../assets/Application Icons/03. Icon Supply Chain/PLM.png"
 import Maintenance from "../../assets/Application Icons/03. Icon Supply Chain/Maintenance.png"
+// img Supply Chain
+import SupplyImg1 from "../../assets/Product/OdooAPP/19. Supply/smart.jpg"
+import SupplyImg2 from "../../assets/Product/OdooAPP/19. Supply/logistic.jpg"
+import SupplyImg3 from "../../assets/Product/OdooAPP/19. Supply/barcode.jpg"
+import SupplyImg4 from "../../assets/Product/OdooAPP/19. Supply/dropshipping.jpg"
+
 
 //icon Website
 import Website from "../../assets/Application Icons/02. Icon Website/website.png"
@@ -78,6 +84,12 @@ import FieldService from "../../assets/Application Icons/07. Service/Field_Servi
 import Heldesk from "../../assets/Application Icons/07. Service/helpdesk.png"
 import Planning from "../../assets/Application Icons/07. Service/planning.png"
 import Appointment from "../../assets/Application Icons/07. Service/appointment.png"
+//img Service
+import ServiceImg1 from "../../assets/Product/OdooAPP/20. Service/tiket.jpg"
+import ServiceImg2 from "../../assets/Product/OdooAPP/20. Service/timesheet.jpg"
+import ServiceImg3 from "../../assets/Product/OdooAPP/20. Service/serviceapp.jpg"
+import ServiceImg4 from "../../assets/Product/OdooAPP/20. Service/online.jpg"
+
 
 //Productivity
 import Discussion from "../../assets/Application Icons/08. Productivity/Discuss.png"
@@ -92,7 +104,9 @@ import BannerSales from "../../assets/Product/OdooAPP/15. Sales/BannerSales.png"
 import BannerHR from "../../assets/Product/OdooAPP/16. Human Resources/BannerHR.png"
 import Bannermarketing from "../../assets/Product/OdooAPP/17. Marketing/BannerMarketing.png"
 import BannerWebsite from "../../assets/Product/OdooAPP/18. website/website.png"
-
+import BannerSupplyChain from "../../assets/Product/OdooAPP/19. Supply/Supply.png"
+import BannerService from "../../assets/Product/OdooAPP/20. Service/BannerService.png"
+import BannerProductivity from "../../assets/Product/OdooAPP/21. Productivity/productivity.png"
 
 const odooAppData = {
   odooApp: {
@@ -202,7 +216,7 @@ const odooAppData = {
           link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
-          "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+          BannerService,
       },
 
       video: {
@@ -262,25 +276,25 @@ const odooAppData = {
             description:
               "Escalate issues into scoped project work.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              ServiceImg1,
           },
           {
             title: "Timesheet to Invoice",
             description: "One‑click billing for approved hours and materials.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              ServiceImg2,
           },
           {
             title: "Field Service App",
             description: "Plan visits, capture signatures, and close jobs on mobile.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              ServiceImg3,
           },
           {
             title: "Online Appointments",
             description: "Publish services and let customers self‑book slots. ",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              ServiceImg4,
           },
         ],
       },
@@ -300,7 +314,7 @@ const odooAppData = {
           link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
-          "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+          BannerProductivity,
       },
 
       video: {
@@ -392,7 +406,7 @@ const odooAppData = {
           link: "https://wa.me/628139300683?text=Halo%20Admin,%20saya%20ingin%20MeetOurExpert",
         },
         heroImage:
-          "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+          BannerSupplyChain,
       },
 
       video: {
@@ -452,25 +466,25 @@ const odooAppData = {
             description:
               "Rules respect vendors, multiples, and max levels.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              SupplyImg1,
           },
           {
             title: "Multi‑Step Logistics",
             description: "Design pick/pack/ship flows with push/pull rules.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              SupplyImg2,
           },
           {
             title: "Barcode Operations",
             description: "Scan products, lots, and locations with GS1 nomenclature.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              SupplyImg3,
           },
           {
             title: "Dropshipping",
             description: "Automated PO and partner‑to‑partner delivery in one trail.",
             image:
-              "https://fairmapsarizona.org/wp-content/uploads/2026/01/Design-Ideas-Blogs-Icecat-10.png",
+              SupplyImg4,
           },
         ],
       },
