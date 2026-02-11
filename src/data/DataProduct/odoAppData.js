@@ -91,7 +91,7 @@ import BannerFinance from "../../assets/Product/OdooAPP/14. Finance/Finance.png"
 import BannerSales from "../../assets/Product/OdooAPP/15. Sales/BannerSales.png"
 import BannerHR from "../../assets/Product/OdooAPP/16. Human Resources/BannerHR.png"
 import Bannermarketing from "../../assets/Product/OdooAPP/17. Marketing/Bannermarketing.png"
-import BannerWebsite from "../../assets/Product/OdooAPP/18. Website/website.png"
+import BannerWebsite from "../../assets/Product/OdooAPP/18. website/website.png"
 
 
 const odooAppData = {
