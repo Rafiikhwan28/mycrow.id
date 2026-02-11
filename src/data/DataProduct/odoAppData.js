@@ -39,10 +39,10 @@ import Forum from "../../assets/Application Icons/02. Icon Website/form.png"
 import LiveChat from "../../assets/Application Icons/02. Icon Website/live-chat.png"
 import Elearning from "../../assets/Application Icons/02. Icon Website/E-learning.png"
 //img Website
-import WebsiteImg1 from "../../assets/Product/OdooAPP/18. Website/page.jpg"
-import WebsiteImg2 from "../../assets/Product/OdooAPP/18. Website/ledger.jpg"
-import WebsiteImg3 from "../../assets/Product/OdooAPP/18. Website/UX.jpg"
-import WebsiteImg4 from "../../assets/Product/OdooAPP/18. Website/payment.jpg"
+import WebsiteImg1 from "../../assets/Product/OdooAPP/18. website/page.jpg"
+import WebsiteImg2 from "../../assets/Product/OdooAPP/18. website/ledger.jpg"
+import WebsiteImg3 from "../../assets/Product/OdooAPP/18. website/UX.jpg"
+import WebsiteImg4 from "../../assets/Product/OdooAPP/18. website/payment.jpg"
 
 
 //Marketing
