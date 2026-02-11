@@ -90,7 +90,7 @@ import Knowledge from "../../assets/Application Icons/08. Productivity/Knowledge
 import BannerFinance from "../../assets/Product/OdooAPP/14. Finance/Finance.png"
 import BannerSales from "../../assets/Product/OdooAPP/15. Sales/BannerSales.png"
 import BannerHR from "../../assets/Product/OdooAPP/16. Human Resources/BannerHR.png"
-import Bannermarketing from "../../assets/Product/OdooAPP/17. Marketing/Bannermarketing.png"
+import Bannermarketing from "../../assets/Product/OdooAPP/17. Marketing/BannerMarketing.png"
 import BannerWebsite from "../../assets/Product/OdooAPP/18. website/website.png"
 
 
