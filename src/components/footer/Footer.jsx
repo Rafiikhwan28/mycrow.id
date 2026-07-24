@@ -52,9 +52,9 @@ export default function Footer() {
       className="w-full text-white bg-gradient-to-r from-purple-700 to-sky-500 rounded-t-[40px]"
     >
       <div className="px-6 py-20 mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-7">
+        <div className="grid grid-cols-2 gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-7">
           {/* ================= COMPANY INFO ================= */}
-          <motion.div variants={fadeUp} className="space-y-4 lg:col-span-2">
+          <motion.div variants={fadeUp} className="space-y-4 col-span-2 md:col-span-1 lg:col-span-2">
             <img src={mycrowLogo} alt="MyCrow" className="h-7 md:h-8" />
 
             <p className="text-xs font-semibold tracking-wide opacity-90">
@@ -62,7 +62,6 @@ export default function Footer() {
             </p>
 
             <p className="max-w-sm text-xs leading-relaxed opacity-85">
-              Jl. Bintaro Raya No.8, Kebayoran Lama,
               <br />
               Kota Jakarta Selatan, DKI Jakarta
             </p>

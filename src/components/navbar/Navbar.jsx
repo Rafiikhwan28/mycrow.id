@@ -209,8 +209,8 @@ export default function Navbar() {
           </ul>
 
           {/* MOBILE TOGGLE */}
-          <button className="md:hidden" onClick={() => setMobileOpen(true)}>
-            <Menu size={30} />
+          <button className="md:hidden ml-auto p-1" onClick={() => setMobileOpen(true)}>
+            <Menu size={26} />
           </button>
 
           {/* DESKTOP CTA */}
@@ -236,17 +236,24 @@ export default function Navbar() {
       </nav>
 
       {/* ================= MOBILE SIDEBAR ================= */}
+      {/* overlay */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/30 md:hidden"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
       <aside
-        className={`fixed top-0 right-0 z-50 h-full w-full bg-white
+        className={`fixed top-0 right-0 z-50 h-full w-[85vw] max-w-sm bg-white
   overflow-y-auto overscroll-contain
   transform transition-transform duration-500
   ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         {/* HEADER */}
-        <div className="flex items-center justify-between px-6 py-5">
-          <img src={logo} alt="logo" className="h-16" />
-          <button onClick={() => setMobileOpen(false)}>
-            <X size={30} />
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+          <img src={logo} alt="logo" className="h-12" />
+          <button onClick={() => setMobileOpen(false)} className="p-1">
+            <X size={24} />
           </button>
         </div>
 

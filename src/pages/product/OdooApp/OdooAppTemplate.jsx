@@ -52,33 +52,29 @@ export default function OdooAppTemplate({ data }) {
       className="min-h-screen pt-24 overflow-x-hidden bg-center bg-no-repeat bg-cover md:pt-28"
     >
       {/* ================= HERO ================= */}
-      <section className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] items-center gap-14 px-6 mx-auto max-w-7xl">
+      <section className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] items-center gap-8 sm:gap-14 px-4 sm:px-6 mx-auto max-w-7xl py-6 sm:py-0">
         {/* TEXT */}
         <motion.div variants={fadeUp} className="text-center md:text-left">
           <div className="flex items-center justify-center gap-3 md:justify-start">
-            <img src={mycrowLogo} alt="MyCrow" className="h-7 md:h-8" />
-
+            <img src={mycrowLogo} alt="MyCrow" className="h-6 sm:h-7 md:h-8" />
             {hero?.badge && (
-              <span className="px-4 py-1.5 text-sm md:text-base font-medium text-purple-700 rounded-full">
+              <span className="px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm md:text-base font-medium text-purple-700 rounded-full">
                 | {hero.badge}
               </span>
             )}
           </div>
-
-          <h1 className="mt-8 mb-6 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl md:text-6xl">
+          <h1 className="mt-5 sm:mt-8 mb-4 sm:mb-6 text-2xl sm:text-3xl md:text-6xl font-bold leading-tight text-gray-900">
             {hero.title}
           </h1>
-
-          <p className="max-w-xl mx-auto mb-8 text-base text-gray-700 md:text-lg md:mx-0">
+          <p className="max-w-xl mx-auto mb-6 sm:mb-8 text-sm sm:text-base text-gray-700 md:text-lg md:mx-0">
             {hero.description}
           </p>
-
           {hero.primaryButton && (
             <motion.a
               href={hero.primaryButton.link}
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.96 }}
-              className="inline-flex items-center px-6 py-2.5 md:px-7 md:py-3 text-sm md:text-base text-white bg-purple-600 rounded-lg shadow hover:bg-purple-700 transition"
+              className="inline-flex items-center px-5 sm:px-6 py-2.5 md:px-7 md:py-3 text-sm md:text-base text-white bg-purple-600 rounded-lg shadow hover:bg-purple-700 transition"
             >
               {hero.primaryButton.label}
             </motion.a>
@@ -91,7 +87,7 @@ export default function OdooAppTemplate({ data }) {
             <img
               src={hero.heroImage}
               alt={hero.title}
-              className="object-contain w-full h-full sm:max-w-sm md:max-w-md"
+              className="object-contain w-full max-w-[200px] sm:max-w-xs md:max-w-md"
             />
           </motion.div>
         )}
@@ -100,16 +96,16 @@ export default function OdooAppTemplate({ data }) {
       {/* ===================================================== */}
       {/* ========== CONTENT CONTAINER (VIDEO+REASONS+BENEFITS) */}
       {/* ===================================================== */}
-      <section className="px-5 pt-32 mx-auto max-w-7xl">
+      <section className="px-3 sm:px-5 pt-16 sm:pt-32 mx-auto max-w-7xl">
         <div
           className="relative
           bg-white
           backdrop-blur-2xl
-          rounded-tl-[40px] rounded-tr-[40px] rounded-bl-none
+          rounded-tl-[28px] rounded-tr-[28px] sm:rounded-tl-[40px] sm:rounded-tr-[40px] rounded-bl-none
           shadow-[0_40px_120px_rgba(0,0,0,0.18)]
           border border-white/40
-          px-6 sm:px-10 md:px-16
-          py-24"
+          px-4 sm:px-6 md:px-16
+          py-10 sm:py-24"
         >
           {/* ================= REASONS SLIDER ================= */}
           {reasons && (
